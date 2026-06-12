@@ -1,0 +1,218 @@
+
+/* Variáveis para utilizar as cores exatas do teu CSS */
+:root {
+    --verde: #5B623A;
+    --laranja: #FFB443;
+    --creme: #FFF7E1;
+    --branco: #FFFFFF;
+}
+
+/* Imagem Perfil Topo */
+.top-profile-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+.top-profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.star-badge-small {
+    position: absolute;
+    bottom: -2px;
+    right: -2px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--laranja);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: #5B623A;
+    border: 1px solid #5B623A;
+}
+
+/* Saudação */
+.greeting {
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+.greeting h1 {
+    color: var(--verde);
+    font-size: 26px;
+    font-weight: 800;
+    margin: 0 0 4px 0;
+}
+.greeting p {
+    color: var(--verde);
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Cartão Perfil */
+.profile-card {
+    background-color: var(--verde);
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 25px;
+    margin-top: 45px; /* Espaço para a foto grande sair do cartão */
+    color: var(--branco);
+}
+
+.large-profile-container {
+    position: absolute;
+    top: -40px;
+    right: 10px;
+    width: 100px;
+    height: 100px;
+}
+.large-profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #5B623A; /* A borda da mesma cor que o fundo faz o corte */
+}
+.star-badge-large {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--laranja);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--verde);
+    border: 2px solid #5B623A;
+}
+
+/* Linhas de Estatística */
+.stats-row {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #e8eadf;
+}
+.stats-row i {
+    color: var(--laranja);
+    margin-right: 6px;
+    font-size: 15px;
+}
+.divider {
+    width: 1px;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.4);
+    margin: 0 12px;
+}
+.stats-hr {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 12px 0;
+    width: 65%;
+    opacity: 1;
+}
+.bio-text {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: #e8eadf;
+    padding-right: 15px;
+}
+
+/* Cartão Impacto */
+.impact-card {
+    background-color: var(--verde);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.impact-title {
+    color: var(--branco);
+    font-weight: 800;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.impact-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+.impact-pill {
+    background-color: var(--creme);
+    border-radius: 14px;
+    padding: 10px 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--verde);
+    font-weight: 800;
+    font-size: 14px;
+}
+.impact-pill i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.action-btn {
+    width: 100%;
+    background-color: var(--laranja);
+    color: var(--branco);
+    border: none;
+    border-radius: 14px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.action-btn:hover {
+    background-color: #f0a233; /* cor mais escura ao passar o rato */
+    color: var(--branco);
+}
+.action-btn i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+
+
+/* O "truque" do Botão Flutuante (FAB) */
+/*.floating-fab {
+    position: fixed;
+    bottom: 28px;
+    /* Usa cálculo para manter o botão sempre na mesma posição em relação ao centro e à barra de 390px */
+    /*right: calc(50% - 175px);
+    width: 60px;
+    height: 60px;
+    background-color: var(--laranja);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 201; /* Fica acima da nav:last-of-type que tem z-index: 200 */
+    /* Esta borda grossa e com a cor do fundo da página "apaga" a parte de trás da navbar verde criando o corte! */
+    /*border: 7px solid var(--creme);
+    color: var(--branco);
+    font-size: 24px;
+    cursor: pointer;
+}/*
+
+/* Ajuste do FAB para ecrãs menores que 390px */
+@media (max-width: 390px) {
+    .floating-fab {
+        right: 20px;
+    }
+}}
