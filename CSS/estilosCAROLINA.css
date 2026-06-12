@@ -77,7 +77,6 @@
                 z-index: 100;
             }
 
-            /* nav dentro do header */
             .header-fixed nav {
                 display: flex;
                 align-items: center;
@@ -86,34 +85,48 @@
                 position: relative;
             }
 
-            /* subtítulo */
-            .header-fixed .subtitle {
-                text-align: center;
-                color: #FFF7E1;
-                font-size: 13px;
-                font-weight: 500;
-                text-transform: uppercase;
-                margin: 0;
-                overflow: hidden;
-                max-height: 20px;
-                opacity: 1;
-                transition: max-height 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
+            .header-fixed .nav-back,
+            .header-fixed .nav-logo,
+            .header-fixed .logo-icon {
+                object-fit: contain;
+                display: block;
             }
 
-            /* título principal */
+            .header-fixed .nav-back {
+                width: 32px;
+                height: 32px;
+            }
+
+            .header-fixed .nav-logo,
+            .header-fixed .logo-icon {
+                width: 100px;
+                height: 38px;
+            }
+
+            .header-fixed .subtitle,
             .header-fixed h1 {
                 text-align: center;
                 color: #FFF7E1;
-                font-size: 24px;
-                font-weight: 900;
-                margin: 4px 0 0;
+                margin: 0;
                 overflow: hidden;
-                max-height: 40px;
-                opacity: 1;
                 transition: max-height 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
+                opacity: 1;
             }
 
-            /* estado "encolhido" ao fazer scroll */
+            .header-fixed .subtitle {
+                font-size: 13px;
+                font-weight: 500;
+                text-transform: uppercase;
+                max-height: 20px;
+            }
+
+            .header-fixed h1 {
+                font-size: 24px;
+                font-weight: 900;
+                margin-top: 4px;
+                max-height: 40px;
+            }
+
             .header-fixed.shrink {
                 padding-bottom: 0;
             }
@@ -124,7 +137,6 @@
                 opacity: 0;
                 margin: 0;
             }
-
             /* espaço para o conteúdo não ficar atrás do header fixo */
             .maininstituicao {
                 padding-top: 150px;

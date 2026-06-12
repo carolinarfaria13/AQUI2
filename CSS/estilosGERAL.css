@@ -30,20 +30,29 @@ main {
             /* seta voltar */
             .nav-back {
                 width: 32px;
+                height: 32px;
+                object-fit: contain;
+                display: block;
             }
 
-            /* logo no topo */
             .nav-logo {
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
+                width: 100px;
                 height: 38px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
-            /* imagem do logo no topo */
             .logo-icon {
+                width: 100px;
                 height: 38px;
+                object-fit: contain;
+                display: block;
             }
+
 
 
 /* BOTTOM BAR */
