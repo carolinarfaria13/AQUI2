@@ -62,6 +62,7 @@
                 margin: 0;
             }
 
+
 /* PÁGINA INSTITUIÇÃO */
 
             /* header verde fixo no topo, com nav, subtítulo e título */
@@ -83,24 +84,6 @@
                 justify-content: space-between;
                 padding: 16px 20px 10px;
                 position: relative;
-            }
-
-            .header-fixed .nav-back,
-            .header-fixed .nav-logo,
-            .header-fixed .logo-icon {
-                object-fit: contain;
-                display: block;
-            }
-
-            .header-fixed .nav-back {
-                width: 32px;
-                height: 32px;
-            }
-
-            .header-fixed .nav-logo,
-            .header-fixed .logo-icon {
-                width: 100px;
-                height: 38px;
             }
 
             .header-fixed .subtitle,
@@ -137,6 +120,7 @@
                 opacity: 0;
                 margin: 0;
             }
+
             /* espaço para o conteúdo não ficar atrás do header fixo */
             .maininstituicao {
                 padding-top: 150px;
@@ -146,7 +130,7 @@
             h2 {
                 font-size: 18px;
                 font-weight: 900;
-                color: #5B623A;
+                color: #FFB443;
                 margin: 0 0 10px;
             }
 
@@ -187,7 +171,7 @@
                 font-weight: 900;
             }
 
-            /* secção "Projetos em Curso*/
+            /* secção "Projetos em Curso" */
             .section-projetos {
                 margin: 16px 0;
             }
@@ -199,4 +183,348 @@
 
             .section-contactos strong {
                 color: #5B623A;
+            }
+
+/* PÁGINA FÓRUM */
+
+            /* avatar de perfil no header (caso seja usado) */
+            .header-fixed .nav-avatar {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                overflow: hidden;
+                flex-shrink: 0;
+            }
+
+            .header-fixed .nav-avatar img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            /* título de duas linhas no header do fórum */
+            .header-fixed h1 {
+                max-height: 60px;
+            }
+
+            /* lista de tópicos do fórum */
+            .topic-list {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                margin-bottom: 25px;
+            }
+
+            .topic-card {
+                display: flex;
+                gap: 12px;
+            }
+
+            /* avatar circular de cada tópico */
+            .topic-avatar {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                overflow: hidden;
+                flex-shrink: 0;
+            }
+
+            .topic-avatar img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .topic-title {
+                font-size: 13px;
+                font-weight: 800;
+                color: #2b2b2b;
+                margin: 0 0 4px;
+            }
+
+            .topic-meta {
+                font-size: 11px;
+                color: #5B623A;
+                font-weight: 600;
+                margin: 0 0 6px;
+            }
+
+            /* tags dos tópicos */
+            .topic-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                margin-bottom: 6px;
+            }
+
+            .topic-tags .tag {
+                background: #5B623A;
+                color: #FFF7E1;
+                font-size: 10px;
+                font-weight: 700;
+                padding: 4px 10px;
+                border-radius: 20px;
+            }
+
+            /* estatísticas (respostas, comentários, likes) */
+            .topic-stats {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                font-weight: 700;
+                color: #5B623A;
+            }
+
+            .topic-stats .stat-icon {
+                margin-left: 8px;
+            }
+
+            /* secção de ranking — estende-se até ao fim real da página */
+            .ranking-section {
+                background: #5B623A;
+                margin-top: 24px;
+                padding: 20px 20px 110px;
+                border-radius: 24px 24px 0 0;
+                min-height: 50vh;
+            }
+
+            /* nav secundária de ícones dentro do ranking */
+            .ranking-nav {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .ranking-nav img {
+                height: 26px;
+                opacity: 0.7;
+            }
+
+            .ranking-nav-active {
+                background: #FFB443;
+                border-radius: 50%;
+                padding: 8px;
+                height: 22px;
+                opacity: 1;
+            }
+
+            /* lista de cartões de ranking */
+            .ranking-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .ranking-card {
+                position: relative;
+                background: #FFF7E1;
+                border-radius: 16px;
+                padding: 14px;
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            /* avatar circular do ranking */
+            .ranking-avatar {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                overflow: hidden;
+                flex-shrink: 0;
+            }
+
+            .ranking-avatar img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            /* texto do ranking ocupa o espaço restante sem cortar */
+            .ranking-info {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .ranking-info h2 {
+                font-size: 15px;
+                color: #5B623A;
+                margin: 0 0 4px;
+            }
+
+            .ranking-info p {
+                font-size: 11px;
+                line-height: 1.4;
+                color: #2b2b2b;
+                margin: 0;
+                white-space: normal;
+                word-wrap: break-word;
+            }
+
+            /* número do pódio */
+            .ranking-position {
+                position: absolute;
+                right: 14px;
+                top: -16px;
+                font-size: 32px;
+                font-weight: 900;
+                color: #FFB443;
+            }
+
+/* ── PÁGINA COMENTÁRIOS ── */
+
+            /* espaço para o conteúdo não ficar atrás do header fixo */
+            .maincomentarios {
+                padding-top: 168px;
+                margin-top: 20px;
+            }
+
+
+
+            /* mais borda lateral no título do header */
+            .header-fixed h1 {
+                padding: 0 32px;
+            }
+
+            /* título "Comentários (n)" */
+            .comentarios-titulo {
+                font-size: 17px;
+                font-weight: 900;
+                color: #2b2b2b;
+                margin: 0 0 4px;
+            }
+
+            /* lista de comentários */
+            .comentarios-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* item individual — reutiliza .topic-avatar, .topic-meta, .topic-stats */
+            .comentario-item {
+                display: flex;
+                gap: 12px;
+                padding: 16px 0;
+                border-bottom: 1px solid rgba(91, 98, 58, 0.15);
+            }
+
+            .comentario-item:last-child {
+                border-bottom: none;
+            }
+
+            /* corpo do comentário ocupa o espaço restante */
+            .comentario-body {
+                flex: 1;
+                min-width: 0;
+            }
+
+            /* texto do comentário */
+            .comentario-texto {
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 1.55;
+                color: #2b2b2b;
+                margin: 0 0 8px;
+            }
+
+            /* linha de meta + likes lado a lado */
+            .comentario-meta {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+/* OVERLAY COMENTAR */
+.overlay-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(43, 43, 43, 0.5);
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
+
+.overlay-backdrop.ativo {
+    display: flex;
+}
+
+.overlay-card {
+    background: #FFF7E1;
+    border-radius: 20px;
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.overlay-titulo {
+    font-size: 16px;
+    font-weight: 900;
+    color: #FFB443;
+    text-align: center;
+    margin: 0 0 16px;
+}
+
+.overlay-input-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.overlay-textarea {
+    flex: 1;
+    border: 1.5px solid #e0d9c8;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    color: #2b2b2b;
+    background: #FFFDF5;
+    resize: none;
+    height: 90px;
+    outline: none;
+}
+
+.overlay-acoes {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-left: 60px;
+}
+
+.overlay-acao-btn {
+    background: #5B623A;
+    color: #FFF7E1;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.overlay-botoes {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn-cancelar {
+    background: none;
+    border: 2px solid #FFB443;
+    color: #FFB443;
+}
+

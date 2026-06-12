@@ -18,6 +18,22 @@ main {
     padding: 0 16px;
 }
 
+/* botões reutilizáveis */
+.btn {
+    display: block;
+    margin: 0 auto;
+    background: #FFB443;
+    color: #FFF7E1;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 28px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
 /* TOP BAR */
             nav:first-of-type {
                 display: flex;
