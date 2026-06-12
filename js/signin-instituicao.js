@@ -13,5 +13,5 @@ function validarFormulario() {
       erro.classList.remove('visible');
     }
   });
-  if (valido) window.location.href = 'homepage-instituicao.html';
+  if (valido) window.location.href = '../homepage/homepage-instituicao.html';
 }
