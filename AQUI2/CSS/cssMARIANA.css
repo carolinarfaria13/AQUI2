@@ -286,3 +286,128 @@
     background-color: var(--laranja);
     color: var(--creme);
 }
+
+/* =========================================
+   PÁGINA: EDITAR PERFIL
+   ========================================= */
+
+/* Forçar o fundo VERDE a sobrepor-se ao creme do CSS GERAL */
+/* APAGA A REGRA DO BODY QUE TINHA O BACKGROUND VERDE !IMPORTANT */
+
+/* Adiciona esta regra para o novo topo verde */
+.edit-top-wrapper {
+    background-color: #5B623A;
+    padding-bottom: 120px; /* Empurra o verde para baixo para ficar bem atrás do cartão */
+}
+
+/* Substitui a regra do .edit-main-card que lá tinhas por esta: */
+.edit-main-card {
+    background-color: #FFF7E1;
+    border-radius: 40px 40px 0 0;
+    padding: 0 25px 20px 25px;
+    margin-top: -40px; /* Esta margem negativa PUXA o cartão creme para cima do verde! */
+    min-height: 100vh;
+    padding-bottom: 100px;
+    position: relative;
+    z-index: 10; /* Garante que o creme fica por cima da ponta do verde */
+}
+
+.page-title {
+    font-weight: 800;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+/* O "Cartão" Creme Principal */
+.edit-main-card {
+    background-color: #FFF7E1;
+    border-radius: 40px 40px 0 0; /* Arredonda só em cima */
+    padding: 0 25px 20px 25px;
+    min-height: 100vh; /* Garante que a cor creme vai até cá abaixo */
+    padding-bottom: 100px;
+}
+
+/* Container da Foto de Edição */
+.edit-photo-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    padding-top: 30px; /* Dá espaço em cima da foto, já dentro do creme */
+    margin-bottom: 30px; /* Dá espaço entre a foto e o formulário */
+    position: relative;
+}
+
+.edit-photo-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #FFF7E1; /* Borda da mesma cor que o cartão creme */
+}
+
+/* Ícone da Câmara */
+.camera-icon-badge {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #FFF7E1;
+    color: #5B623A;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    border: 1px solid #dcdcdc;
+}
+
+/* Títulos dos campos do formulário */
+.edit-form .form-label {
+    color: #5B623A;
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Caixas de input e textarea */
+.custom-input,
+.custom-textarea {
+    background-color: #FFFFFF !important;
+    border: 1px solid #FFB443 !important;
+    border-radius: 20px !important;
+    color: #999;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 12px 18px;
+}
+
+.custom-input::placeholder,
+.custom-textarea::placeholder {
+    color: #d1d1d1;
+    font-weight: 400;
+}
+
+.custom-textarea {
+    border-radius: 15px !important;
+    resize: none;
+}
+
+/* Botão Guardar Alterações */
+.btn-guardar {
+    background-color: #FFB443;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 800;
+    font-size: 16px;
+    width: 100%;
+    max-width: 280px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-guardar:hover {
+    background-color: #f0a233;
+}
