@@ -39,7 +39,7 @@
 
 /* Saudação */
 .greeting {
-    margin-top: 15px;
+    margin-top: 30px;
     margin-bottom: 25px;
 }
 .greeting h1 {
@@ -272,7 +272,7 @@
 .btn-ver-mais {
     background-color: white;
     border: 1px solid var(--laranja);
-    color: var(--verdeescuro);
+    color: var(--verdeclaro);
     padding: 6px 20px;
     border-radius: 20px;
     font-size: 14px;
@@ -297,7 +297,7 @@
 /* Adiciona esta regra para o novo topo verde */
 .edit-top-wrapper {
     background-color: #5B623A;
-    padding-bottom: 120px; /* Empurra o verde para baixo para ficar bem atrás do cartão */
+    padding-bottom: 60px; /* Empurra o verde para baixo para ficar bem atrás do cartão */
 }
 
 /* Substitui a regra do .edit-main-card que lá tinhas por esta: */
@@ -315,34 +315,38 @@
 .page-title {
     font-weight: 800;
     font-size: 24px;
-    color: #FFFFFF;
+    color: var(--creme);
 }
 
 /* O "Cartão" Creme Principal */
+/* 1. Alteração na Caixa Bege Principal */
 .edit-main-card {
     background-color: #FFF7E1;
-    border-radius: 40px 40px 0 0; /* Arredonda só em cima */
-    padding: 0 25px 20px 25px;
-    min-height: 100vh; /* Garante que a cor creme vai até cá abaixo */
-    padding-bottom: 100px;
+    border-radius: 40px 40px 0 0;
+    padding: 30px 25px 20px 25px;
+    margin-top: -40px;
+    padding-bottom: 70px; /* Reduz de 90px para 70px para encolher ainda mais o espaço */
+    position: relative;
+    z-index: 10;
 }
 
-/* Container da Foto de Edição */
+/* 2. Alteração na Caixa da Foto */
 .edit-photo-container {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto;
-    padding-top: 30px; /* Dá espaço em cima da foto, já dentro do creme */
-    margin-bottom: 30px; /* Dá espaço entre a foto e o formulário */
-    position: relative;
+    width: 120px !important;
+    height: 120px !important;
+    /* Mudámos o margin-top para 0, para não empurrar a caixa para baixo! */
+    margin: 0 auto 30px auto !important;
+    position: relative !important;
 }
 
 .edit-photo-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #FFF7E1; /* Borda da mesma cor que o cartão creme */
+    width: 120px !important;
+    height: 120px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    aspect-ratio: 1 / 1 !important; /* ESTA É A REGRA QUE PROÍBE O ACHATAMENTO */
+    border: 4px solid #FFF7E1 !important;
+    display: block !important;
 }
 
 /* Ícone da Câmara */
@@ -364,7 +368,7 @@
 
 /* Títulos dos campos do formulário */
 .edit-form .form-label {
-    color: #5B623A;
+    color: var(--verdeclaro);
     font-weight: 800;
     font-size: 16px;
     margin-bottom: 8px;
@@ -373,10 +377,10 @@
 /* Caixas de input e textarea */
 .custom-input,
 .custom-textarea {
-    background-color: #FFFFFF !important;
-    border: 1px solid #FFB443 !important;
+    background-color: var(--branco);
+    border: 1px solid var(--laranja) !important;
     border-radius: 20px !important;
-    color: #999;
+    color: var(--verdeescuro);
     font-weight: 500;
     font-size: 14px;
     padding: 12px 18px;
@@ -384,7 +388,7 @@
 
 .custom-input::placeholder,
 .custom-textarea::placeholder {
-    color: #d1d1d1;
+    color: var(--branco);
     font-weight: 400;
 }
 
@@ -403,7 +407,7 @@
     font-weight: 800;
     font-size: 16px;
     width: 100%;
-    max-width: 280px;
+    max-width: 220px;
     cursor: pointer;
     transition: 0.2s ease;
 }
@@ -411,3 +415,4 @@
 .btn-guardar:hover {
     background-color: #f0a233;
 }
+
