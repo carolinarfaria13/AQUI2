@@ -250,13 +250,14 @@
     margin-bottom: 24px;
 }
 
-/* Fazer as tags ficarem lado a lado e passarem para a linha de baixo se não couberem */
 .tags-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-}
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    width: 100% !important; /* Garante que a caixa alinha com os campos brancos */
+    gap: 10px !important; /* Espaço entre os botões */
+    margin-bottom: 15px !important;
+    padding: 0 !important;
 
 /* O formato das pílulas laranja claras */
 .tag-pill {
@@ -266,6 +267,12 @@
     border-radius: 20px;
     font-size: 13px;
     font-weight: 500;
+    flex: 1 1 calc(33.33% - 10px) !important;
+    min-width: 90px !important; /* Tamanho mínimo para não encolherem demasiado */
+    text-align: center !important;
+    padding: 8px 12px !important;
+    display: inline-block !important;
+}
 }
 
 /* Botão de Ver Mais (Fundo transparente, borda laranja) */
@@ -354,8 +361,8 @@
     position: absolute;
     bottom: 5px;
     right: 5px;
-    background-color: #FFF7E1;
-    color: #5B623A;
+    background-color: var(--creme);
+    color: var(--verdeescuro);
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -363,7 +370,6 @@
     justify-content: center;
     align-items: center;
     font-size: 14px;
-    border: 1px solid #dcdcdc;
 }
 
 /* Títulos dos campos do formulário */
