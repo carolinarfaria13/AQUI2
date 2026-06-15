@@ -10,15 +10,7 @@
 <body>
 
 <header class="header-fixed">
-    <nav>
-        <img src="../../assets/setabackbranca.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
-        <div class="nav-logo">
-            <img src="../../assets/logotipobranco.png" class="logo-icon"/>
-        </div>
-        <div class="nav-avatar">
-            <img src="../../assets/users/ariana.jpg" alt="Ariana Lopes"/>
-        </div>
-    </nav>
+    <?php include_once ("components/cp_navbar.php"); ?>
     <h1>Fórum da Comunidade</h1>
     <h3 class="subtitle">Local onde as conversas geram impacto real</h3>
 </header>
