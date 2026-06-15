@@ -33,11 +33,18 @@
 </div>
 <main class="edit-main-card">
 
-    <div class="edit-photo-container">
-        <img src="../../assets/voluntarioperfil.png" alt="Ariana" class="edit-photo-img">
-        <div class="camera-icon-badge">
-            <i class="fas fa-camera"></i>
+    <form class="edit-form" action="atualizar_foto.php" method="POST" enctype="multipart/form-data">
+
+        <div class="edit-photo-container" style="position: relative; cursor: pointer;">
+            <input type="file" name="foto_perfil" id="input-foto" style="display: none;" accept="image/*">
+
+            <img src="../../assets/voluntarioperfil.png" alt="Ariana" class="edit-photo-img" id="preview-foto">
+            <div class="camera-icon-badge" onclick="document.getElementById('input-foto').click();">
+                <i class="fas fa-camera"></i>
+            </div>
         </div>
+
+    </form>
     </div>
 
     <form class="edit-form">
