@@ -7,7 +7,7 @@ function new_db_connection()
         $hostname = 'localhost';
         $username = "root";
         $password = "";
-        $dbname = "backoffice";
+        $dbname = "deca_26_bdtss_24";
     } else {
         $hostname = 'labmm.clients.ua.pt';
         $username = "deca_26_BDTSS_24_web";
