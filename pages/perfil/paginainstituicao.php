@@ -16,7 +16,7 @@
     <h3 class="subtitle">Instituição</h3>
     <h1>Apoio ao Emigrante</h1>
 </header>
-
+g
 <main class="maininstituicao">
     <section class="section-descricao">
         <?php include_once ("components/cp_detalhesinstituicao.php"); ?>
@@ -31,12 +31,7 @@
     </section>
 
     <section class="section-contactos">
-        <h2>Contactos</h2>
-        <p><strong>Localização:</strong> Aveiro, Portugal</p>
-        <p><strong>Email:</strong> contacto@verdefuturo.pt</p>
-        <p><strong>Telefone:</strong> +351 912 456 789</p>
-        <p><strong>Website:</strong> www.verdefuturo.pt</p>
-        <p><strong>Instagram:</strong> @verdefuturo</p>
+        <?php include_once ("../../components/cp_contactos.php"); ?>
     </section>
 
 </main>

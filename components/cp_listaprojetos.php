@@ -1,5 +1,5 @@
 <?php
-require_once("connections/connection.php"); // We need the function!
+require_once($_SERVER['DOCUMENT_ROOT'] . "/AQUI2/connections/connection.php");
 $link = new_db_connection(); // Create a new DB connection
 $stmt = mysqli_stmt_init($link); // create a prepared statement
 $query = "SELECT id_projetos, nome, sinopse, capa FROM projetos"; // Define the query

@@ -3,7 +3,7 @@
 if (isset($_GET["id"])) {
     $id_instituicao = $_GET["id"];
 
-    require_once("connections/connection.php"); // We need the function!
+    require_once($_SERVER['DOCUMENT_ROOT'] . "/AQUI2/connections/connection.php");
     $link = new_db_connection(); // Create a new DB connection
     $stmt = mysqli_stmt_init($link); // create a prepared statement
     $query = "SELECT id_instituiçcoes, nome, descricao, objetivos FROM instituicoes WHERE id_instituicao=?"; // Define the query

@@ -331,7 +331,7 @@ input:focus { border-color: var(--orange-dark); }
 .hero {
   width: 100%;
   height: 160px;
-  background-image: url('imgs/img5homepage.jpg');
+  background-image: url('assets/img5homepage.jpg');
   background-size: cover;
   background-position: center;
   position: relative;

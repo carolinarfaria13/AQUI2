@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="../../CSS/estilosGERAL.css"/>
     <link rel="stylesheet" href="../../CSS/estilosCAROLINA.css"/>
-    <title>Página Instituições</title>
+    <title>Página Projetos</title>
 </head>
 <body>
 
@@ -14,14 +14,14 @@
 </nav>
 
 <main>
-    <h1>Instituições</h1>
+    <h1>Projetos</h1>
 
     <div class="search-container">
         <?php include_once ("../../components/cp_barrapesquisa.php"); ?>
     </div>
 
     <ul class="card-list">
-        <?php include_once ("../../components/cp_listainstituicoes.php"); ?>
+        <?php include_once ("../../components/cp_listaprojetos.php"); ?>
     </ul>
 </main>
 
@@ -29,4 +29,5 @@
     <?php include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 </body>
+
 </html>
