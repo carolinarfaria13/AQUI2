@@ -2,7 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/AQUI2/connections/connection.php");
 $link = new_db_connection(); // Create a new DB connection
 $stmt = mysqli_stmt_init($link); // create a prepared statement
-$query = "SELECT nome, fotoutilizador FROM utilizadores"; // Define the query
+$query = "SELECT nomeutilizador, fotoutilizador FROM utilizadores"; // Define the query
 
 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
     mysqli_stmt_execute($stmt); // Execute the prepared statement
@@ -16,9 +16,9 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                 <img src="../assets/logotipobranco.png" class="logo-icon"/>
             </div>
             <div class="nav-avatar">
-            <img src="../assets/<?php echo $foto_utilizador; ?> />
-            </div>
-        <?php
+            <img src="../assets/<?php echo $foto_utilizador; ?>/>
+
+      <?php
     }
 } else {
     mysqli_stmt_close($stmt); // Close statement
