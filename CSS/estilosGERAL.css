@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #FFF7E1;
+    color: #2b2b2b;
+    width: 390px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding-bottom: 80px;
+}
+
+main {
+    padding: 0 16px;
+}
+
+/* botões reutilizáveis */
+.btn {
+    display: block;
+    margin: 0 auto;
+    background: #FFB443;
+    color: #FFF7E1;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 28px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/* TOP BAR */
+            nav:first-of-type {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px 20px 10px;
+                position: relative;
+            }
+
+            /* seta voltar */
+            .nav-back {
+                width: 32px;
+                height: 32px;
+                object-fit: contain;
+                display: block;
+            }
+
+            .nav-logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 38px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .logo-icon {
+                width: 100px;
+                height: 38px;
+                object-fit: contain;
+                display: block;
+            }
+
+
+
+/* BOTTOM BAR */
+            nav:last-of-type {
+                position: fixed;
+                bottom: 0;
+                left: 50%;
+                width: 100%;
+                max-width: 390px;
+                background: #5B623A;
+                transform: translateX(-50%);
+                display: flex;
+                justify-content: space-around;
+                padding: 10px 16px 18px;
+                border-radius: 22px 22px 0 0;
+            }
+
+            /* ícones dentro da bottom bar */
+            nav:last-of-type img {
+                height: 26px;
+                opacity: 0.7;
+            }
+
+            /* garante que a bottom bar fica sempre por cima do conteúdo */
+            nav:last-of-type {
+                z-index: 200;
+            }
+
+/* BARRA DE PESQUISA */
+            .search-container input {
+                width: 100%;
+                margin-bottom: 18px;
+                background: white;
+                border: none;
+                border-radius: 30px;
+                padding: 12px 18px 12px 42px;
+                font-family: 'Nunito', sans-serif;
+                font-size: 13px;
+                font-weight: 600;
+                color: #2b2b2b;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7' stroke='%23FFB443' stroke-width='2'/%3E%3Cpath d='M16.5 16.5l4 4' stroke='%23FFB443' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+                background-repeat: no-repeat;
+                background-position: 14px center;
+            }
+
+            /* cor barra de pesquisa */
+            .search-container input::placeholder {
+                color: #FFB443;
+            }

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../../CSS/estilosGERAL.css">
+    <link rel="stylesheet" href="../../CSS/estilosCAROLINA.css">
+    <link rel="stylesheet" href="../../CSS/estilosComentarios.css">
+    <title>Comentários</title>
+    <style>
+        .overlay-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(43, 43, 43, 0.5);
+            z-index: 300;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .overlay-backdrop.ativo {
+            display: flex;
+        }
+        .overlay-card {
+            background: #FFF7E1;
+            border-radius: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 350px;
+        }
+        .overlay-titulo {
+            font-size: 16px;
+            font-weight: 900;
+            color: #FFB443;
+            text-align: center;
+            margin: 0 0 16px;
+        }
+        .overlay-input-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .overlay-textarea {
+            flex: 1;
+            border: 1.5px solid #e0d9c8;
+            border-radius: 12px;
+            padding: 10px 12px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 12px;
+            color: #2b2b2b;
+            background: #FFFDF5;
+            resize: none;
+            height: 90px;
+            outline: none;
+        }
+        .overlay-acoes {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            padding-left: 60px;
+        }
+        .overlay-acao-btn {
+            background: #5B623A;
+            color: #FFF7E1;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .overlay-botoes {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        .btn-cancelar {
+            background: none !important;
+            border: 2px solid #FFB443 !important;
+            color: #FFB443 !important;
+        }
+    </style>
+</head>
+<body>
+
+<!-- OVERLAY -->
+<div class="overlay-backdrop" id="overlayBackdrop">
+    <div class="overlay-card">
+        <h3 class="overlay-titulo">Escreve o teu comentário</h3>
+        <div class="overlay-input-row">
+            <div class="topic-avatar">
+                <img src="../../assets/users/ariana.jpg" alt="Ariana Lopes"/>
+            </div>
+            <textarea class="overlay-textarea" id="overlayTextarea" placeholder="Escreve aqui..."></textarea>
+        </div>
+        <div class="overlay-acoes">
+            <button class="overlay-acao-btn">📷 Foto</button>
+            <button class="overlay-acao-btn">📎 Anexo</button>
+            <button class="overlay-acao-btn">@ Mencionar</button>
+        </div>
+        <div class="overlay-botoes">
+            <button class="btn btn-cancelar" id="btnCancelar">Cancelar</button>
+            <button class="btn" id="btnPublicar">Publicar</button>
+        </div>
+    </div>
+</div>
+
+<header class="header-fixed">
+    <nav>
+        <img src="../../assets/setabackbranca.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
+        <div class="nav-logo">
+            <img src="../../assets/logotipobranco.png" class="logo-icon"/>
+        </div>
+        <div class="nav-avatar">
+            <img src="../../assets/users/ariana.jpg" alt="Ariana Lopes"/>
+        </div>
+    </nav>
+    <h3 class="subtitle">@ariana123 | Aveiro | 2min</h3>
+    <h1>Como formar uma equipa virtual eficaz?</h1>
+</header>
+
+<main class="maincomentarios">
+
+    <button class="btn" id="btnComentar">Comentar</button>
+
+    <h2 class="comentarios-titulo">Comentários (4)</h2>
+
+    <ul class="comentarios-list">
+
+        <li class="comentario-item">
+            <div class="topic-avatar">
+                <img src="../../assets/users/ines.jpg" alt="Inês Castro"/>
+            </div>
+            <div class="comentario-body">
+                <p class="comentario-texto">Formar uma equipa virtual eficaz passa por definir objetivos claros, distribuir bem os papéis, garantir boa comunicação e manter todos motivados e alinhados.</p>
+                <div class="comentario-meta">
+                    <span class="topic-meta">@inescastro | Ílhavo | 1min</span>
+                    <div class="topic-stats">
+                        <span>2</span>
+                        <span class="stat-icon">♡</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="comentario-item">
+            <div class="topic-avatar">
+                <img src="../../assets/users/augusto.jpg" alt="Augusto Ferreira"/>
+            </div>
+            <div class="comentario-body">
+                <p class="comentario-texto">Uma equipa virtual eficaz constrói-se com organização, comunicação consistente e colaboração entre membros com competências complementares.</p>
+                <div class="comentario-meta">
+                    <span class="topic-meta">@augustoferreira | Ílhavo | 10seg</span>
+                    <div class="topic-stats">
+                        <span>4</span>
+                        <span class="stat-icon">♡</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="comentario-item">
+            <div class="topic-avatar">
+                <img src="../../assets/users/ines.jpg" alt="Inês Castro"/>
+            </div>
+            <div class="comentario-body">
+                <p class="comentario-texto">Formar uma equipa virtual eficaz passa por definir objetivos claros, distribuir bem os papéis, garantir boa comunicação e manter todos motivados e alinhados.</p>
+                <div class="comentario-meta">
+                    <span class="topic-meta">@inescastro | Ílhavo | 1min</span>
+                    <div class="topic-stats">
+                        <span>2</span>
+                        <span class="stat-icon">♡</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="comentario-item">
+            <div class="topic-avatar">
+                <img src="../../assets/users/augusto.jpg" alt="Augusto Ferreira"/>
+            </div>
+            <div class="comentario-body">
+                <p class="comentario-texto">Uma equipa virtual eficaz constrói-se com organização, comunicação consistente e colaboração entre membros com competências complementares.</p>
+                <div class="comentario-meta">
+                    <span class="topic-meta">@augustoferreira | Ílhavo | 10seg</span>
+                    <div class="topic-stats">
+                        <span>4</span>
+                        <span class="stat-icon">♡</span>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+
+    <button class="btn">Ver Mais</button>
+
+</main>
+
+<nav>
+    <img src="../../assets/projetos_bottombar.png" />
+    <img src="../../assets/instituicoes_bottombar.png" />
+    <img src="../../assets/homepage_bottombar.png" />
+    <img src="../../assets/forum_bottombar.png" />
+    <img src="../../assets/perfil_bottombar.png"/>
+</nav>
+
+<script>
+    function ajustarPadding() {
+        const header = document.querySelector('.header-fixed');
+        const main = document.querySelector('main');
+        if (header && main) {
+            main.style.paddingTop = header.offsetHeight + 16 + 'px';
+        }
+    }
+    ajustarPadding();
+    window.addEventListener('resize', ajustarPadding);
+
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.header-fixed');
+        if (window.scrollY > 40) {
+            header.classList.add('shrink');
+        } else {
+            header.classList.remove('shrink');
+        }
+        ajustarPadding();
+    });
+
+    const backdrop = document.getElementById('overlayBackdrop');
+    const textarea = document.getElementById('overlayTextarea');
+    const btnCancelar = document.getElementById('btnCancelar');
+    const btnPublicar = document.getElementById('btnPublicar');
+    const btnComentar = document.getElementById('btnComentar');
+    const lista = document.querySelector('.comentarios-list');
+    const titulo = document.querySelector('.comentarios-titulo');
+
+    btnComentar.addEventListener('click', () => {
+        textarea.value = '';
+        backdrop.classList.add('ativo');
+    });
+
+    btnCancelar.addEventListener('click', () => {
+        backdrop.classList.remove('ativo');
+    });
+
+    backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) backdrop.classList.remove('ativo');
+    });
+
+    btnPublicar.addEventListener('click', () => {
+        const texto = textarea.value.trim();
+        if (!texto) return;
+
+        const novoItem = document.createElement('li');
+        novoItem.className = 'comentario-item';
+        novoItem.innerHTML = `
+            <div class="topic-avatar">
+                <img src="../../assets/users/ariana.jpg" alt="Ariana Lopes"/>
+            </div>
+            <div class="comentario-body">
+                <p class="comentario-texto">${texto}</p>
+                <div class="comentario-meta">
+                    <span class="topic-meta">@ariana123 | Aveiro | agora</span>
+                    <div class="topic-stats">
+                        <span>0</span>
+                        <span class="stat-icon">♡</span>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        lista.insertBefore(novoItem, lista.firstChild);
+
+        const total = lista.querySelectorAll('.comentario-item').length;
+        titulo.textContent = `Comentários (${total})`;
+
+        backdrop.classList.remove('ativo');
+
+    });
+</script>
+
+</body>
+</html>
