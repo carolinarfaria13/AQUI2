@@ -259,20 +259,24 @@
     margin-bottom: 15px !important;
     padding: 0 !important;
 
-/* O formato das pílulas laranja claras */
-.tag-pill {
-    background-color: var(--laranja);
-    color: var(--verdeclaro);
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 500;
-    flex: 1 1 calc(33.33% - 10px) !important;
-    min-width: 90px !important; /* Tamanho mínimo para não encolherem demasiado */
-    text-align: center !important;
-    padding: 8px 12px !important;
-    display: inline-block !important;
-}
+    /* O formato das pílulas laranja claras */
+
+    .tag-pill {
+        /* --- O TEU DESIGN (MANTIDO) --- */
+        background-color: var(--laranja);
+        color: var(--verdeclaro);
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 500;
+        min-width: 90px !important; /* Mantém um tamanho mínimo razoável */
+        text-align: center !important;
+        padding: 8px 16px !important; /* Juntei as tuas duas linhas de padding numa só */
+        display: inline-block !important;
+
+        /* --- A CORREÇÃO DE LARGURA --- */
+        width: fit-content !important; /* A largura agora é ditada pelo tamanho da palavra */
+        flex: 0 0 auto !important; /* Proíbe estritamente o botão de esticar para os lados */
+    }
 }
 
 /* Botão de Ver Mais (Fundo transparente, borda laranja) */
