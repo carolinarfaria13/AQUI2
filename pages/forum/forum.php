@@ -22,106 +22,7 @@
     <h2>Tópicos Recentes</h2>
 
     <ul class="topic-list">
-        <li class="topic-card">
-            <div class="topic-avatar">
-                <img src="../../assets/users/ariana.jpg" alt="Ariana Lopes"/>
-            </div>
-            <div class="topic-info">
-                <p class="topic-title">Como formar uma equipa virtual eficaz?</p>
-                <p class="topic-meta">@ariana123 | Aveiro | 2min</p>
-                <div class="topic-tags">
-                    <span class="tag">#equipa</span>
-                    <span class="tag">#voluntariado</span>
-                </div>
-                <div class="topic-stats">
-                    <span>4 respostas</span>
-                    <span class="stat-icon">💬</span>
-                    <span>2</span>
-                    <span class="stat-icon">♡</span>
-                </div>
-            </div>
-        </li>
-
-        <li class="topic-card">
-            <div class="topic-avatar">
-                <img src="../../assets/users/ines.jpg" alt="Inês Castro"/>
-            </div>
-            <div class="topic-info">
-                <p class="topic-title">Onde é preciso ajuda agora?</p>
-                <p class="topic-meta">@inescastro | Ílhavo | 15min</p>
-                <div class="topic-tags">
-                    <span class="tag">#ajuda</span>
-                    <span class="tag">#voluntariado</span>
-                </div>
-                <div class="topic-stats">
-                    <span>20 respostas</span>
-                    <span class="stat-icon">💬</span>
-                    <span>15</span>
-                    <span class="stat-icon">♡</span>
-                </div>
-            </div>
-        </li>
-
-        <li class="topic-card">
-            <div class="topic-avatar">
-                <img src="../../assets/users/augusto.jpg" alt="Augusto Ferreira"/>
-            </div>
-            <div class="topic-info">
-                <p class="topic-title">Partilha a tua Conquista da Semana</p>
-                <p class="topic-meta">@augustoferreira | Ílhavo | 15min</p>
-                <div class="topic-tags">
-                    <span class="tag">#ajuda</span>
-                    <span class="tag">#voluntariado</span>
-                    <span class="tag">#açãocoletiva</span>
-                </div>
-                <div class="topic-stats">
-                    <span>15 respostas</span>
-                    <span class="stat-icon">💬</span>
-                    <span>1</span>
-                    <span class="stat-icon">♡</span>
-                </div>
-            </div>
-        </li>
-
-        <li class="topic-card">
-            <div class="topic-avatar">
-                <img src="../../assets/users/joao.jpg" alt="João Fernandes"/>
-            </div>
-            <div class="topic-info">
-                <p class="topic-title">Procuro voluntários para feira de outono</p>
-                <p class="topic-meta">@joaofernandes | Águeda | 32min</p>
-                <div class="topic-tags">
-                    <span class="tag">#evento</span>
-                    <span class="tag">#voluntariado</span>
-                </div>
-                <div class="topic-stats">
-                    <span>8 respostas</span>
-                    <span class="stat-icon">💬</span>
-                    <span>5</span>
-                    <span class="stat-icon">♡</span>
-                </div>
-            </div>
-        </li>
-
-        <li class="topic-card">
-            <div class="topic-avatar">
-                <img src="../../assets/users/francisca.jpg" alt="Francisca Rodrigues"/>
-            </div>
-            <div class="topic-info">
-                <p class="topic-title">Dicas para angariar fundos online</p>
-                <p class="topic-meta">@franciscarod | Coimbra | 1h</p>
-                <div class="topic-tags">
-                    <span class="tag">#angariação</span>
-                    <span class="tag">#dicas</span>
-                </div>
-                <div class="topic-stats">
-                    <span>11 respostas</span>
-                    <span class="stat-icon">💬</span>
-                    <span>9</span>
-                    <span class="stat-icon">♡</span>
-                </div>
-            </div>
-        </li>
+        <?php include_once ("components/cp_topicos.php"); ?>
     </ul>
 
     <button class="btn">Ver Mais</button>
@@ -168,22 +69,11 @@
 </section>
 
 <nav>
-    <img src="../../assets/projetos_bottombar.png" />
-    <img src="../../assets/instituicoes_bottombar.png" />
-    <img src="../../assets/homepage_bottombar.png" />
-    <img src="../../assets/forum_bottombar.png" />
-    <img src="../../assets/perfil_bottombar.png"/>
+    <?php include_once ("components/cp_bottombar.php"); ?>
 </nav>
 
 <script>
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('.header-fixed');
-        if (window.scrollY > 40) {
-            header.classList.add('shrink');
-        } else {
-            header.classList.remove('shrink');
-        }
-    });
+    <?php include_once ("components/cp_headerfixo.php"); ?>
 </script>
 
 </body>
