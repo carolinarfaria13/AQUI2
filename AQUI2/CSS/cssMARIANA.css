@@ -7,6 +7,46 @@
     --branco: #FFFFFF;
 }
 
+.nav-fixa, .nav-fixav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    max-width: 390px !important;
+    box-sizing: border-box !important;
+    z-index: 9999 !important;
+    padding: 16px 20px 40px !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-fixa { background-color: var(--creme); }
+
+.nav-fixav { background-color: var(--verdeescuro); }
+
+.nav-scrolled {
+    padding: 10px 20px 20px !important;
+}
+
+.nav-scrolled .nav-logo {
+    top: 20px;
+    transition: top 0.3s ease;
+}
+
+.edit-top-wrapper {
+    padding-top: 80px;
+    min-height: 220px;
+}
+
+
+.nav-logo {
+    transition: top 0.3s ease;
+}
+
+.main-perfis {
+    padding-top: 70px;
+}
+
 .top-profile-container {
     position: relative;
     width: 40px;
