@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const btnAdd = document.getElementById("btn-add-interesse");
-    const inputNovo = document.getElementById("input-novo-interesse");
-    const containerInteresses = document.getElementById("interesses-container");
+    var btnAdd = document.getElementById("btn-add-interesse");
+    var inputNovo = document.getElementById("input-novo-interesse");
+    var containerInteresses = document.getElementById("interesses-container");
 
     if (btnAdd && inputNovo && containerInteresses) {
 
@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", function() {
             if (evento.key === "Enter") {
                 evento.preventDefault();
 
-                const novoTexto = inputNovo.value.trim();
+                var novoTexto = inputNovo.value.trim();
 
                 if (novoTexto !== "") {
-                    const novaTag = document.createElement("span");
+                    var novaTag = document.createElement("span");
                     novaTag.className = "tag-pill";
                     novaTag.textContent = novoTexto;
 

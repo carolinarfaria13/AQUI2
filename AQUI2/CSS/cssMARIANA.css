@@ -1,5 +1,3 @@
-
-/* Variáveis para utilizar as cores exatas do teu CSS */
 :root {
     --verdeescuro: #5B623A;
     --verdeclaro: #7A8450;
@@ -9,7 +7,6 @@
     --branco: #FFFFFF;
 }
 
-/* Imagem Perfil Topo */
 .top-profile-container {
     position: relative;
     width: 40px;
@@ -37,7 +34,6 @@
     border: 1px solid var(--verdeescuro);
 }
 
-/* Saudação */
 .greeting {
     margin-top: 30px;
     margin-bottom: 25px;
@@ -55,14 +51,13 @@
     margin: 0;
 }
 
-/* Cartão Perfil */
 .profile-card {
     background-color: var(--verdeescuro);
     border-radius: 16px;
     padding: 20px;
     position: relative;
     margin-bottom: 25px;
-    margin-top: 45px; /* Espaço para a foto grande sair do cartão */
+    margin-top: 45px;
     color: var(--branco);
 }
 
@@ -78,7 +73,7 @@
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--verdeescuro); /* A borda da mesma cor que o fundo faz o corte */
+    border: 4px solid var(--verdeescuro);
 }
 .star-badge-large {
     position: absolute;
@@ -112,7 +107,6 @@
     border: 2px solid var(--laranja);
 }
 
-/* Linhas de Estatística */
 .stats-row {
     display: flex;
     align-items: center;
@@ -146,7 +140,6 @@
     padding-right: 15px;
 }
 
-/* Cartão Impacto */
 .impact-card {
     background-color: var(--verdeescuro);
     border-radius: 16px;
@@ -197,7 +190,7 @@
     justify-content: center;
 }
 .action-btn:hover {
-    background-color: #f0a233; /* cor mais escura ao passar o rato */
+    background-color: var(--laranja);
     color: var(--creme);
 }
 .action-btn i {
@@ -205,39 +198,7 @@
     font-size: 18px;
 }
 
-
-
-/* O "truque" do Botão Flutuante (FAB) */
-/*.floating-fab {
-    position: fixed;
-    bottom: 28px;
-    /* Usa cálculo para manter o botão sempre na mesma posição em relação ao centro e à barra de 390px */
-    /*right: calc(50% - 175px);
-    width: 60px;
-    height: 60px;
-    background-color: var(--laranja);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 201; /* Fica acima da nav:last-of-type que tem z-index: 200 */
-    /* Esta borda grossa e com a cor do fundo da página "apaga" a parte de trás da navbar verde criando o corte! */
-    /*border: 7px solid var(--creme);
-    color: var(--branco);
-    font-size: 24px;
-    cursor: pointer;
-}/*
-
-/* Ajuste do FAB para ecrãs menores que 390px */
-@media (max-width: 390px) {
-    .floating-fab {
-        right: 20px;
-    }
-}}
-
-/* =========================================
-   SECÇÃO COMPETÊNCIAS E PROJETOS (Perfil Outro Utilizador)
-   ========================================= */
+/*SECÇÃO COMPETÊNCIAS E PROJETOS (Perfil Outro Utilizador)*/
 
 .tags-section {
     margin-bottom: 25px;
@@ -251,35 +212,35 @@
 }
 
 .tags-container {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    width: 100% !important; /* Garante que a caixa alinha com os campos brancos */
-    gap: 10px !important; /* Espaço entre os botões */
-    margin-bottom: 15px !important;
-    padding: 0 !important;
-
-    /* O formato das pílulas laranja claras */
-
-    .tag-pill {
-        /* --- O TEU DESIGN (MANTIDO) --- */
-        background-color: var(--laranja);
-        color: var(--verdeclaro);
-        border-radius: 20px;
-        font-size: 13px;
-        font-weight: 500;
-        min-width: 90px !important; /* Mantém um tamanho mínimo razoável */
-        text-align: center !important;
-        padding: 8px 16px !important; /* Juntei as tuas duas linhas de padding numa só */
-        display: inline-block !important;
-
-        /* --- A CORREÇÃO DE LARGURA --- */
-        width: fit-content !important; /* A largura agora é ditada pelo tamanho da palavra */
-        flex: 0 0 auto !important; /* Proíbe estritamente o botão de esticar para os lados */
-    }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 0;
 }
 
-/* Botão de Ver Mais (Fundo transparente, borda laranja) */
+.tag-pill {
+    background-color: var(--laranja);
+    color: var(--verdeclaro);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    min-width: 90px;
+    text-align: center;
+    padding: 8px 16px;
+    display: inline-block;
+    width: fit-content;
+    flex: 0 0 auto;
+    animation: saltinho 0.3s ease-out forwards;
+}
+
+@keyframes saltinho {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
 .btn-ver-mais {
     background-color: white;
     border: 1px solid var(--laranja);
@@ -298,29 +259,11 @@
     color: var(--creme);
 }
 
-/* =========================================
-   PÁGINA: EDITAR PERFIL
-   ========================================= */
+/*EDITAR PERFIL*/
 
-/* Forçar o fundo VERDE a sobrepor-se ao creme do CSS GERAL */
-/* APAGA A REGRA DO BODY QUE TINHA O BACKGROUND VERDE !IMPORTANT */
-
-/* Adiciona esta regra para o novo topo verde */
 .edit-top-wrapper {
     background-color: #5B623A;
-    padding-bottom: 60px; /* Empurra o verde para baixo para ficar bem atrás do cartão */
-}
-
-/* Substitui a regra do .edit-main-card que lá tinhas por esta: */
-.edit-main-card {
-    background-color: #FFF7E1;
-    border-radius: 40px 40px 0 0;
-    padding: 0 25px 20px 25px;
-    margin-top: -40px; /* Esta margem negativa PUXA o cartão creme para cima do verde! */
-    min-height: 100vh;
-    padding-bottom: 100px;
-    position: relative;
-    z-index: 10; /* Garante que o creme fica por cima da ponta do verde */
+    padding-bottom: 60px;
 }
 
 .page-title {
@@ -329,38 +272,33 @@
     color: var(--creme);
 }
 
-/* O "Cartão" Creme Principal */
-/* 1. Alteração na Caixa Bege Principal */
 .edit-main-card {
     background-color: #FFF7E1;
     border-radius: 40px 40px 0 0;
     padding: 30px 25px 20px 25px;
     margin-top: -40px;
-    padding-bottom: 70px; /* Reduz de 90px para 70px para encolher ainda mais o espaço */
+    padding-bottom: 70px;
     position: relative;
     z-index: 10;
 }
 
-/* 2. Alteração na Caixa da Foto */
 .edit-photo-container {
-    width: 120px !important;
-    height: 120px !important;
-    /* Mudámos o margin-top para 0, para não empurrar a caixa para baixo! */
-    margin: 0 auto 30px auto !important;
-    position: relative !important;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 30px auto;
+    position: relative;
 }
 
 .edit-photo-img {
-    width: 120px !important;
-    height: 120px !important;
-    border-radius: 50% !important;
-    object-fit: cover !important;
-    aspect-ratio: 1 / 1 !important; /* ESTA É A REGRA QUE PROÍBE O ACHATAMENTO */
-    border: 4px solid #FFF7E1 !important;
-    display: block !important;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    border: 4px solid var(--creme);
+    display: block;
 }
 
-/* Ícone da Câmara */
 .camera-icon-badge {
     position: absolute;
     bottom: 5px;
@@ -376,7 +314,6 @@
     font-size: 14px;
 }
 
-/* Títulos dos campos do formulário */
 .edit-form .form-label {
     color: var(--verdeclaro);
     font-weight: 800;
@@ -384,12 +321,11 @@
     margin-bottom: 8px;
 }
 
-/* Caixas de input e textarea */
 .custom-input,
 .custom-textarea {
     background-color: var(--branco);
-    border: 1px solid var(--laranja) !important;
-    border-radius: 20px !important;
+    border: 1px solid var(--laranja);
+    border-radius: 20px;
     color: var(--verdeescuro);
     font-weight: 500;
     font-size: 14px;
@@ -403,14 +339,13 @@
 }
 
 .custom-textarea {
-    border-radius: 15px !important;
+    border-radius: 15px;
     resize: none;
 }
 
-/* Botão Guardar Alterações */
 .btn-guardar {
-    background-color: #FFB443;
-    color: #FFFFFF;
+    background-color: var(--laranja);
+    color: var(--branco);
     border: none;
     padding: 12px 30px;
     border-radius: 25px;
@@ -426,3 +361,11 @@
     background-color: #f0a233;
 }
 
+@keyframes saltinho-reverso {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.8); }
+}
+
+.animacao-esconder {
+    animation: saltinho-reverso 0.3s ease-in forwards;
+}

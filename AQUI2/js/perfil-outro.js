@@ -1,11 +1,45 @@
-// Aguarda que a página carregue
 document.addEventListener("DOMContentLoaded", function() {
     console.log("Página de Perfil de Inês carregada com sucesso.");
 });
 
-// Função para o botão "Ver mais"
 function verMais() {
     console.log("Clicaste em Ver mais projetos!");
-    // Exemplo do que poderás fazer aqui futuramente:
-    // window.location.href = '../projetos/listadeprojetos.html';
+
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    var btnVerMais = document.getElementById("btn-ver-mais-projetos");
+    var projetosEscondidos = document.querySelectorAll(".projeto-escondido");
+
+    if (btnVerMais) {
+        btnVerMais.addEventListener("click", function() {
+
+            if (btnVerMais.textContent.trim() === "+ Ver mais") {
+
+                // --- MOSTRAR ---
+                projetosEscondidos.forEach(function(projeto) {
+                    projeto.classList.remove("animacao-esconder");
+                    projeto.style.display = "inline-block";
+                });
+
+                btnVerMais.textContent = "- Ver menos";
+
+            } else {
+
+                // --- ESCONDER COM ANIMAÇÃO ---
+                projetosEscondidos.forEach(function(projeto) {
+                    projeto.classList.add("animacao-esconder");
+
+                    setTimeout(function() {
+                        if (btnVerMais.textContent.trim() === "+ Ver mais") {
+                            projeto.style.display = "none";
+                        }
+                    }, 300);
+                });
+
+                btnVerMais.textContent = "+ Ver mais";
+            }
+        });
+    }
+});
