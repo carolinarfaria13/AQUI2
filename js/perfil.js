@@ -22,3 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+document.getElementById('perfil-img-pequena').src = dados.foto_perfil;
+document.getElementById('perfil-img-grande').src = dados.foto_perfil;
