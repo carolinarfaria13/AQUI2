@@ -30,7 +30,6 @@ main {
     font-family: 'Nunito', sans-serif;
     font-size: 13px;
     font-weight: 800;
-    text-transform: uppercase;
     cursor: pointer;
 }
 
@@ -51,18 +50,21 @@ main {
                 display: block;
             }
 
-            .nav-logo {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 100px;
-                height: 38px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+.nav-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+    width: 100px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-            .logo-icon {
+
+
+.logo-icon {
                 width: 100px;
                 height: 38px;
                 object-fit: contain;
