@@ -11,7 +11,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
     while (mysqli_stmt_fetch($stmt)) {// Fetch values
 
         ?>
-            <img src="../assets/setabackbranca.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
+            <img src="../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
             <div class="nav-logo">
                 <img src="../assets/logotipobranco.png" class="logo-icon"/>
             </div>
