@@ -40,87 +40,22 @@
 </header>
 
 <main class="maincomentarios">
-
     <button class="btn" id="btnComentar">Comentar</button>
 
     <h2 class="comentarios-titulo">Comentários (4)</h2>
 
     <ul class="comentarios-list">
-
-        <li class="comentario-item">
-            <div class="topic-avatar">
-                <img src="../../assets/users/ines.jpg" alt="Inês Castro"/>
-            </div>
-            <div class="comentario-body">
-                <p class="comentario-texto">Formar uma equipa virtual eficaz passa por definir objetivos claros, distribuir bem os papéis, garantir boa comunicação e manter todos motivados e alinhados.</p>
-                <div class="comentario-meta">
-                    <span class="topic-meta">@inescastro | Ílhavo | 1min</span>
-                    <div class="topic-stats">
-                        <span>2</span>
-                        <span class="stat-icon">♡</span>
-                    </div>
-                </div>
-            </div>
-        </li>
-
-        <li class="comentario-item">
-            <div class="topic-avatar">
-                <img src="../../assets/users/augusto.jpg" alt="Augusto Ferreira"/>
-            </div>
-            <div class="comentario-body">
-                <p class="comentario-texto">Uma equipa virtual eficaz constrói-se com organização, comunicação consistente e colaboração entre membros com competências complementares.</p>
-                <div class="comentario-meta">
-                    <span class="topic-meta">@augustoferreira | Ílhavo | 10seg</span>
-                    <div class="topic-stats">
-                        <span>4</span>
-                        <span class="stat-icon">♡</span>
-                    </div>
-                </div>
-            </div>
-        </li>
-
-        <li class="comentario-item">
-            <div class="topic-avatar">
-                <img src="../../assets/users/ines.jpg" alt="Inês Castro"/>
-            </div>
-            <div class="comentario-body">
-                <p class="comentario-texto">Formar uma equipa virtual eficaz passa por definir objetivos claros, distribuir bem os papéis, garantir boa comunicação e manter todos motivados e alinhados.</p>
-                <div class="comentario-meta">
-                    <span class="topic-meta">@inescastro | Ílhavo | 1min</span>
-                    <div class="topic-stats">
-                        <span>2</span>
-                        <span class="stat-icon">♡</span>
-                    </div>
-                </div>
-            </div>
-        </li>
-
-        <li class="comentario-item">
-            <div class="topic-avatar">
-                <img src="../../assets/users/augusto.jpg" alt="Augusto Ferreira"/>
-            </div>
-            <div class="comentario-body">
-                <p class="comentario-texto">Uma equipa virtual eficaz constrói-se com organização, comunicação consistente e colaboração entre membros com competências complementares.</p>
-                <div class="comentario-meta">
-                    <span class="topic-meta">@augustoferreira | Ílhavo | 10seg</span>
-                    <div class="topic-stats">
-                        <span>4</span>
-                        <span class="stat-icon">♡</span>
-                    </div>
-                </div>
-            </div>
-        </li>
-
+            <?php include_once ("../../components/cp_comentarios.php"); ?>
     </ul>
 
     <button class="btn">Ver Mais</button>
-
 </main>
 
 <nav>
     <?php include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 
+<?php include_once ("../../components/cp_headerfixo.php"); ?>
 <script src="../../js/orverlays.js"></script>
 
 </body>

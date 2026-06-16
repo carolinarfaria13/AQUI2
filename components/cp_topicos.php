@@ -17,7 +17,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
     while (mysqli_stmt_fetch($stmt)) {
         ?>
-        <li class="topic-card">
+        <li class="topic-card" onclick="window.location='comentarios.php?id=<?php echo $id_topico; ?>'" style="cursor:pointer;">
             <div class="topic-avatar">
                 <img src="../../assets/users/ariana.jpg" alt="<?php echo $nome; ?>"/>
             </div>
