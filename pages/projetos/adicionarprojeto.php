@@ -10,19 +10,13 @@
 
 <body class="bodynovoprojeto">
 
-<header class="headernovoprojeto">
-    <img src="../../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" />
+<header class="header-fixed">
+    <nav>
+        <?php include_once ("../../components/cp_navbar.php"); ?>
+    </nav>
 
-    <div class="nav-logo-novoprojeto">
-        <img src="../../assets/logotipobranco.png" class="logo-icon" />
-        <h1 class="titulo-novoprojeto">Novo Projeto</h1>
-    </div>
-
-    <a href="perfil.html" class="top-profile-container">
-        <img src="../../assets/voluntarioperfil.png" alt="Perfil" class="top-profile-img">
-    </a>
 </header>
-
+<h1>Novo Projeto</h1>
 <main class="mainnovoprojeto">
     <form>
 
@@ -79,11 +73,7 @@
 </main>
 
 <nav>
-    <img src="../../assets/projetos_bottombar1.png" />
-    <img src="../../assets/instituicoes_bottombar1.png" />
-    <img src="../../assets/homepage_bottombar1.png" />
-    <img src="../../assets/forum_bottombar1.png" />
-    <img src="../../assets/perfil_bottombar1.png" />
+    <?php include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 
 </body>

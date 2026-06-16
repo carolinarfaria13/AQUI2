@@ -10,23 +10,12 @@
 </head>
 
 <body>
-
 <!-- HEADER -->
-<div class="header-projeto">
-    <div class="nav-back-btn">
-        <i class="ti ti-arrow-left"></i>
-    </div>
-    <div class="nav-logo-center">
-        <div class="logo-icon-circle">
-            <i class="ti ti-friends"></i>
-        </div>
-        <span class="logo-text">AQUI</span>
-    </div>
-    <div class="nav-avatar-btn">
-        <!-- Substitui pelo teu avatar: <img src="avatar.jpg" alt="Avatar"> -->
-        <i class="ti ti-user-circle" style="color:#5B623A;font-size:20px;"></i>
-    </div>
-</div>
+<header class="header-fixed">
+    <nav>
+        <?php include_once ("../../components/cp_navbarbranca.php"); ?>
+    </nav>
+</header>
 
 <!-- BARRA DE PROGRESSO -->
 <div class="progress-section">
@@ -124,11 +113,7 @@
 
 <!-- BOTTOM NAV -->
 <nav>
-    <img src="../../assets/projetos_bottombar1.png" />
-    <img src="../../assets/instituicoes_bottombar1.png" />
-    <img src="../../assets/homepage_bottombar1.png" />
-    <img src="../../assets/forum_bottombar1.png" />
-    <img src="../../assets/perfil_bottombar1.png"/>
+    <?php include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 
 </body>

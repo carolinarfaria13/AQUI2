@@ -10,16 +10,10 @@
 
 <body class="bodyinscreverprojeto">
 
-<header class="headerinscreverprojeto">
-    <img src="../../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" />
-
-    <div class="nav-logo">
-        <img src="../../assets/logotipobranco.png" class="logo-icon" />
-    </div>
-
-    <a href="perfil.html" class="top-profile-container">
-        <img src="../../assets/voluntarioperfil.png" alt="Perfil" class="top-profile-img">
-    </a>
+<header class="header-fixed">
+    <nav>
+        <?php include_once ("../../components/cp_navbarbranca.php"); ?>
+    </nav>
 </header>
 
 <main class="maininscreverprojeto">
@@ -61,11 +55,7 @@
 </main>
 
 <nav>
-    <img src="../../assets/projetos_bottombar1.png" />
-    <img src="../../assets/instituicoes_bottombar1.png" />
-    <img src="../../assets/homepage_bottombar1.png" />
-    <img src="../../assets/forum_bottombar1.png" />
-    <img src="../../assets/perfil_bottombar1.png" />
+    <?php include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 
 </body>
