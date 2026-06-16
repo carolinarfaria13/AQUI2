@@ -28,22 +28,20 @@
                 gap: 12px;
             }
 
-            /* quadrado branco dentro do cartão */
-            .card-logo {
-                width: 56px;
-                height: 56px;
-                border-radius: 12px;
-                background: white;
-                flex-shrink: 0;
-                overflow: hidden;
-            }
+        .card-logo {
+            width: 90px;      /* ajusta ao tamanho que já tens definido */
+            height: 90px;      /* idealmente igual à largura, para ficar quadrado */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-            /* imagem de cada cartão */
-            .card-logo img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+        .card-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* mantém o logo todo visível, sem cortar */
+}
 
             /* título de cada cartão */
             .card-info h2 {

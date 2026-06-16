@@ -3,11 +3,11 @@ function new_db_connection()
 {
     $env = "localhost";
 // Variables for the database connection
-    if ($env == "localhost") {
+    if ($env == "labmm.clients.ua.pt") {
         $hostname = 'localhost';
         $username = "root";
         $password = "";
-        $dbname = "deca_26_bdtss_24";
+        $dbname = "labmm";
     } else {
         $hostname = 'labmm.clients.ua.pt';
         $username = "deca_26_BDTSS_24_web";

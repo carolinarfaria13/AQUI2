@@ -10,15 +10,17 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
     while (mysqli_stmt_fetch($stmt)) {// Fetch values
         ?>
+
             <li class="card">
                 <div class="card-logo">
-                    <img src="../assets/<?php echo $capa; ?> />
+                    <img src="../../assets/basededados/<?php echo $capa; ?>" />
                     </div>
                     <div class="card-info">
                     <h2><?php echo $nome; ?></h2>
                     <p><?php echo $sinopse; ?></p>
                 </div>
             </li>
+
         <?php
     }
 } else {
