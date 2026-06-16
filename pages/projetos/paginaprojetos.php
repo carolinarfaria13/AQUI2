@@ -26,8 +26,10 @@
 </main>
 
 <nav>
-    <?php include_once("../../components/cp_bottombar.php"); ?>
+    <?php $pagina_ativa = 'projetos'; include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
+<script src="../../js/main.js"></script>
+
 </body>
 
 </html>

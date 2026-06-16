@@ -1,3 +1,27 @@
+<?php
+
+require_once(__DIR__ . "/../../connections/connection.php");
+if (isset($_GET["id"])) {
+    $nome_instituicao = $_GET["id"];
+
+    $link = new_db_connection();
+    $stmt = mysqli_stmt_init($link);
+    $query = "SELECT nome FROM instituicoes WHERE id_instituicoes=?";
+
+    if (mysqli_stmt_prepare($stmt, $query)) {
+        mysqli_stmt_bind_param($stmt, 'i', $nome_instituicao);
+
+        mysqli_stmt_execute($stmt); // Execute the prepared statement
+        mysqli_stmt_bind_result($stmt, $nome_instituicao);
+        mysqli_stmt_fetch($stmt);
+    }
+    mysqli_close($link);
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pt">
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -11,10 +35,10 @@
 
 <header class="header-fixed">
     <nav>
-        <?php include_once ("../../components/cp_navbar.php"); ?>
+        <?php include_once ("../../components/cp_navbarbranca.php"); ?>
     </nav>
     <h3 class="subtitle">Instituição</h3>
-    <h1>Apoio ao Emigrante</h1>
+    <h1><?php echo $nome_instituicao; ?></h1>
 </header>
 g
 <main class="maininstituicao">

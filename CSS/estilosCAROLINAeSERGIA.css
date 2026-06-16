@@ -59,7 +59,11 @@
                 line-height: 1.5;
                 margin: 0;
             }
-
+.card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
 
 /* PÁGINA INSTITUIÇÃO */
 

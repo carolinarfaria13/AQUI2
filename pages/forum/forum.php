@@ -42,7 +42,7 @@
 
 <main class="maininstituicao">
 
-    <button class="btn">Cria o teu Tópico</button>
+    <button class="btn" id="btnComentar">Cria o teu Tópico</button>
 
     <h2>Tópicos Recentes</h2>
 
@@ -50,48 +50,7 @@
         <?php include_once ("../../components/cp_topicos.php"); ?>
     </ul>
 
-    <button class="btn">Ver Mais</button>
-
 </main>
-
-<section class="ranking-section">
-
-    <ul class="ranking-list">
-        <li class="ranking-card">
-            <span class="ranking-position">1</span>
-            <div class="ranking-avatar">
-                <img src="../../assets/users/ariana.jpg" alt="Ariana Lopes"/>
-            </div>
-            <div class="ranking-info">
-                <h2>Ariana Lopes</h2>
-                <p>Desde 2020 | Aveiro | 30 Projetos Concluídos | 120 pontos</p>
-            </div>
-        </li>
-
-        <li class="ranking-card">
-            <span class="ranking-position">2</span>
-            <div class="ranking-avatar">
-                <img src="../../assets/users/joao.jpg" alt="João Fernandes"/>
-            </div>
-            <div class="ranking-info">
-                <h2>João Fernandes</h2>
-                <p>Desde 2020 | Águeda | 23 Projetos Concluídos | 80 pontos</p>
-            </div>
-        </li>
-
-        <li class="ranking-card">
-            <span class="ranking-position">3</span>
-            <div class="ranking-avatar">
-                <img src="../../assets/users/francisca.jpg" alt="Francisca Rodrigues"/>
-            </div>
-            <div class="ranking-info">
-                <h2>Francisca Rodrigues</h2>
-                <p>Desde 2022 | Coimbra | 15 Projetos Concluídos | 50 pontos</p>
-            </div>
-        </li>
-    </ul>
-
-</section>
 
 <nav>
     <?php $pagina_ativa = 'forum'; include_once ("../../components/cp_bottombar.php"); ?>
@@ -99,6 +58,6 @@
 
 <?php include_once ("../../components/cp_headerfixo.php"); ?>
 <script src="../../js/orverlays.js"></script>
-
+<script src="../../js/main.js"></script>
 </body>
 </html>
