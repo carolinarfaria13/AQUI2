@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/AQUI2/connections/connection.php");
+require_once(__DIR__ . "/../connections/connection.php");
 $link = new_db_connection();
 $stmt = mysqli_stmt_init($link);
 

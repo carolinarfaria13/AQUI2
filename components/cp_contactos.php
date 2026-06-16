@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/AQUI2/connections/connection.php");
+require_once(__DIR__ . "/../connections/connection.php");
 $link = new_db_connection(); // Create a new DB connection
 $id_instituicao = isset($_GET["id"]) ? $_GET["id"] : 0;
 $stmt = mysqli_stmt_init($link); // create a prepared statement
