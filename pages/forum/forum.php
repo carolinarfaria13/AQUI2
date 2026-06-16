@@ -97,9 +97,7 @@
     <?php include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 
-<script>
-    <?php include_once ("../../components/cp_headerfixo.php"); ?>
-</script>
+<?php include_once ("../../components/cp_headerfixo.php"); ?>
 <script src="../../js/orverlays.js"></script>
 
 </body>
