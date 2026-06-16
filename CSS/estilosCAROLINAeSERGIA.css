@@ -60,9 +60,11 @@
                 margin: 0;
             }
 .card-link {
-    display: block;
+    display: flex;
+    gap: 12px;
     text-decoration: none;
     color: inherit;
+    width: 100%;
 }
 
 /* PÁGINA INSTITUIÇÃO */

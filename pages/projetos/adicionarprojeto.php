@@ -18,15 +18,48 @@
 <main class="mainnovoprojeto">
     <form action="guardar_projeto.php" method="POST" enctype="multipart/form-data">
 
-        <input type="text" id="nome" name="nome" placeholder="ex. CLAIM" required />
-        <input type="text" id="sinopse" name="sinopse" placeholder="Resumo curto do projeto (1 frase)" required />
-        <input type="date" id="periodo-de" name="periodo-de" required />
-        <input type="date" id="periodo-ate" name="periodo-ate" required />
-        <textarea id="descricao" name="descricao" placeholder="Descreve o teu projeto.." required></textarea>
-        <input type="text" id="objetivos" name="objetivos" placeholder="Adiciona os objetivos do projeto.." required />
-        <input type="text" id="atividades" name="atividades" placeholder="Que atividades vão acontecer?" required />
-        <input type="text" id="localizacao" name="localizacao" placeholder="Localização do projeto" />
-        <input type="file" id="capa" name="capa" accept="image/*" required />
+        <div class="form">
+            <label>Título</label>
+            <input type="text" name="nome" placeholder="ex. CLAIM" required />
+        </div>
+
+        <div class="form">
+            <label>Sinopse</label>
+            <input type="text" name="sinopse" placeholder="Resumo curto do projeto (1 frase)" required />
+        </div>
+
+        <div class="periodo-row">
+            <input type="date" name="periodo-de" required />
+            <input type="date" name="periodo-ate" required />
+        </div>
+
+        <div class="form">
+            <label>Descrição</label>
+            <textarea name="descricao" placeholder="Descreve o teu projeto.." required></textarea>
+        </div>
+
+        <div class="form">
+            <label>Objetivos</label>
+            <input type="text" name="objetivos" placeholder="Adiciona os objetivos do projeto.." required />
+        </div>
+
+        <div class="form">
+            <label>Atividades</label>
+            <input type="text" name="atividades" placeholder="Que atividades vão acontecer?" required />
+        </div>
+
+        <div class="form">
+            <label>Localização</label>
+            <input type="text" name="localizacao" placeholder="Localização do projeto" />
+        </div>
+
+        <div class="upload-foto">
+            <label class="upload-foto-label">
+                <input type="file" name="capa" accept="image/*" required style="display:none" id="inputCapa"/>
+                Foto de capa
+            </label>
+            <button type="button" class="btn-adicionar-foto" onclick="document.getElementById('inputCapa').click()">Adicionar</button>
+        </div>
 
         <button type="submit" class="btninscreverprojeto">ADICIONAR</button>
 

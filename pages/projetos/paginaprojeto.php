@@ -61,7 +61,7 @@ if (isset($_GET["id"])) {
 
 <!-- BOTÃO -->
 <div class="btn-section">
-    <button class="btn-juntar">JUNTA-TE AO PROJETO!</button>
+    <button class="btn-juntar" onclick="window.location='../projetos/inscrevernumprojeto.php?id=<?php echo $nome_projeto; ?>'">JUNTA-TE AO PROJETO!</button>
     <div class="pontos-label">Pontos que podes ganhar:</div>
     <div class="pontos-valor">15 – 40 pontos</div>
 </div>
