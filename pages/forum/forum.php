@@ -9,6 +9,29 @@
 </head>
 <body>
 
+<!-- OVERLAY -->
+<div class="overlay-backdrop" id="overlayBackdrop">
+    <div class="overlay-card">
+        <h3 class="overlay-titulo">Cria o teu Tópico</h3>
+        <div class="overlay-input-row">
+            <div class="topic-avatar">
+                <img src="../../assets/users/ariana.jpg" alt="Ariana Lopes"/>
+            </div>
+            <textarea class="overlay-textarea" id="overlayTextarea" placeholder="Escreve aqui..."></textarea>
+        </div>
+        <div class="overlay-acoes">
+            <button class="overlay-acao-btn">📷 Foto</button>
+            <button class="overlay-acao-btn">📎 Anexo</button>
+            <button class="overlay-acao-btn">@ Mencionar</button>
+        </div>
+        <div class="overlay-botoes">
+            <button class="btn btn-cancelar" id="btnCancelar">Cancelar</button>
+            <button class="btn" id="btnPublicar">Publicar</button>
+        </div>
+    </div>
+</div>
+
+
 <header class="header-fixed">
     <?php include_once ("components/cp_navbar.php"); ?>
     <h1>Fórum da Comunidade</h1>
