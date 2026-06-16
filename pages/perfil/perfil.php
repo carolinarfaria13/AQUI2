@@ -1,4 +1,4 @@
-<<?php
+<?php
 session_start();
 require_once("../../connections/connection.php");
 $link = new_db_connection();

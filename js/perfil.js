@@ -43,8 +43,13 @@ document.addEventListener("DOMContentLoaded", function() {
             var imgGrande = document.getElementById('perfil-img-grande');
 
             if (dados.foto_perfil && dados.foto_perfil !== "") {
-                if (imgPequena) imgPequena.src = dados.foto_perfil;
-                if (imgGrande) imgGrande.src = dados.foto_perfil;
+                console.log("Caminho da foto que veio da BD: ", dados.foto_perfil);
+
+                // O TRUQUE: Adicionar um timestamp falso para obrigar o browser a ir buscar a foto nova
+                var fotoComCacheBuster = dados.foto_perfil + '?t=' + new Date().getTime();
+
+                if (imgPequena) imgPequena.src = fotoComCacheBuster;
+                if (imgGrande) imgGrande.src = fotoComCacheBuster;
             }
 
             console.log("Dados do utilizador carregados com sucesso!");
