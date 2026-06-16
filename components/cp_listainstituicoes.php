@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/AQUI2/connections/connection.php");
+require_once(__DIR__ . "/../connections/connection.php");
 $link = new_db_connection(); // Create a new DB connection
 $stmt = mysqli_stmt_init($link); // create a prepared statement
 $query = "SELECT id_instituicoes, nome, sinopse, capa FROM instituicoes"; // Define the query

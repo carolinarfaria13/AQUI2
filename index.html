@@ -103,8 +103,8 @@
         if (resp.sucesso) {
           erro.classList.remove('visible');
           window.location.href = resp.tipo === 'instituicao'
-            ? 'pages/homepage/homepage-instituicao.html'
-            : 'pages/homepage/homepage-voluntario.html';
+            ? 'pages/homepage/homepage-instituicao.php'
+            : 'pages/homepage/homepage-voluntario.php';
         } else {
           erro.textContent = resp.erro || 'Credenciais inválidas.';
           erro.classList.add('visible');

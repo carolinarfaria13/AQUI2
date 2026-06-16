@@ -1,10 +1,70 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // --- 1. LÓGICA DOS INTERESSES ---
+    fetch('perfil.php?nocache=' + new Date().getTime())
+        .then(function(resposta) {
+            return resposta.json();
+        })
+        .then(function(dados) {
+            if (dados.erro) {
+                console.error("Aviso do Servidor:", dados.erro);
+                return;
+            }
+
+            function preencherCampo(nomeCampo, valor) {
+                var campo = document.querySelector('[name="' + nomeCampo + '"]');
+                if (campo && valor) {
+                    campo.value = valor;
+                }
+            }
+
+            preencherCampo("nome", dados.nome);
+            preencherCampo("username", dados.username);
+            preencherCampo("biografia", dados.biografia);
+            preencherCampo("email", dados.email);
+            preencherCampo("telemovel", dados.telemovel);
+            preencherCampo("data_nascimento", dados.data_nascimento);
+            preencherCampo("cidade", dados.cidade);
+            preencherCampo("competencias", dados.competencias);
+
+            if (dados.foto_perfil && dados.foto_perfil !== "") {
+                var imgPreview = document.getElementById('preview-foto');
+                var imgPequena = document.getElementById('perfil-img-pequena');
+
+                if (imgPreview) imgPreview.src = dados.foto_perfil;
+                if (imgPequena) imgPequena.src = dados.foto_perfil;
+            }
+
+            if (dados.interesses) {
+                var containerInteresses = document.getElementById("interesses-container");
+                var interessesHidden = document.getElementById("interesses-hidden");
+
+                if (interessesHidden) interessesHidden.value = dados.interesses;
+
+                if (containerInteresses) {
+                    containerInteresses.innerHTML = "";
+
+                    var listaInteresses = dados.interesses.split(',');
+                    listaInteresses.forEach(function(interesse) {
+                        var texto = interesse.trim();
+                        if (texto !== "") {
+                            var novaTag = document.createElement("span");
+                            novaTag.className = "tag-pill";
+                            novaTag.textContent = texto;
+                            containerInteresses.appendChild(novaTag);
+                        }
+                    });
+                }
+            }
+        })
+        .catch(function(erro) {
+            console.error("Erro ao carregar dados:", erro);
+        });
+
+
     var btnAdd = document.getElementById("btn-add-interesse");
     var inputNovo = document.getElementById("input-novo-interesse");
     var containerInteresses = document.getElementById("interesses-container");
-    var interessesHidden = document.getElementById("interesses-hidden"); // O campo invisível para a BD
+    var interessesHidden = document.getElementById("interesses-hidden");
 
     if (btnAdd && inputNovo && containerInteresses) {
 
@@ -21,13 +81,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 var novoTexto = inputNovo.value.trim();
 
                 if (novoTexto !== "") {
-                    // A) Criar a bolinha visual (tag-pill)
                     var novaTag = document.createElement("span");
                     novaTag.className = "tag-pill";
                     novaTag.textContent = novoTexto;
                     containerInteresses.appendChild(novaTag);
 
-                    // B) Adicionar a palavra ao input escondido (para ir para a Base de Dados)
                     if (interessesHidden) {
                         var interessesAtuais = interessesHidden.value;
                         if (interessesAtuais !== "") {
@@ -38,14 +96,12 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
 
-                // C) Restaurar a UI depois de carregar Enter
                 inputNovo.value = "";
                 inputNovo.style.display = "none";
                 btnAdd.style.display = "inline-block";
             }
         });
 
-        // D) Esconder se o utilizador clicar fora da caixa sem escrever nada
         inputNovo.addEventListener("blur", function() {
             if (inputNovo.value.trim() === "") {
                 inputNovo.style.display = "none";
@@ -54,9 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // --- 2. LÓGICA DA NAVBAR (SCROLL) ---
     var navbar = document.querySelector(".nav-fixav");
-
     if (navbar) {
         window.addEventListener("scroll", function() {
             if (window.scrollY > 20) {
@@ -68,7 +122,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// --- 3. LÓGICA DA FOTOGRAFIA (PREVIEW) ---
 var inputFoto = document.getElementById('input-foto');
 if (inputFoto) {
     inputFoto.addEventListener('change', function(e) {
@@ -81,3 +134,15 @@ if (inputFoto) {
         }
     });
 }
+
+document.getElementById('input-foto').addEventListener('change', function(e) {
+    if (e.target.files && e.target.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            document.getElementById('preview-foto').src = event.target.result;
+
+            localStorage.setItem('fotoPerfilUser', event.target.result);
+        };
+        reader.readAsDataURL(e.target.files[0]);
+    }
+});

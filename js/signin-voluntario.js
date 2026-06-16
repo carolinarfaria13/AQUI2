@@ -98,7 +98,7 @@ function validarFormulario() {
     .then(function(res) { return res.json(); })
     .then(function(resp) {
       if (resp.sucesso) {
-        window.location.href = '../homepage/homepage-voluntario.html';
+        window.location.href = '../homepage/homepage-voluntario.php';
       } else {
         alert(resp.erro || 'Não foi possível criar a conta.');
       }

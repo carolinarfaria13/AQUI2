@@ -21,7 +21,7 @@
     </div>
 
     <a href="perfil.html" class="top-profile-container" style="text-decoration: none; cursor: pointer;">
-        <img src="../../assets/voluntarioperfil.png" alt="Perfil" class="top-profile-img">
+        <img id="perfil-img-pequena" src="../../assets/voluntarioperfil.png" onerror="this.src='../../assets/voluntarioperfil.png';" alt="Perfil" class="top-profile-img">
         <div class="star-badge-small"><i class="fas fa-star"></i></div>
     </a>
 </nav>
@@ -32,17 +32,17 @@
 
 <main class="edit-main-card">
 
-    <form class="edit-form" action="../php/atualizar_foto.php" method="POST" enctype="multipart/form-data">
-        <div class="edit-photo-container" style="position: relative; cursor: pointer;">
-            <input type="file" name="foto_perfil" id="input-foto" style="display: none;" accept="image/*">
-            <img src="../../assets/voluntarioperfil.png" alt="Ariana" class="edit-photo-img" id="preview-foto">
-            <div class="camera-icon-badge" onclick="document.getElementById('input-foto').click();">
-                <i class="fas fa-camera"></i>
-            </div>
-        </div>
-    </form>
+    <form class="edit-form" action="atualizar_perfil.php" method="POST" enctype="multipart/form-data">
 
-    <form class="edit-form" action="../php/atualizar_perfil.php" method="POST" enctype="multipart/form-data">
+        <div class="text-center">
+            <label class="edit-photo-container" style="position: relative; cursor: pointer; margin-bottom: 20px; display: inline-block;">
+                <input type="file" name="foto_perfil" id="input-foto" style="display: none;" accept="image/*">
+                <img src="../../assets/voluntarioperfil.png" onerror="this.src='../../assets/voluntarioperfil.png';" alt="Ariana" class="edit-photo-img" id="preview-foto">
+                <div class="camera-icon-badge">
+                    <i class="fas fa-camera"></i>
+                </div>
+            </label>
+        </div>
 
         <div class="form-group mb-3">
             <label class="form-label">Nome</label>
@@ -89,10 +89,8 @@
 
             <input type="hidden" name="interesses" id="interesses-hidden" value="Limpeza,Banco Alimentar,Natureza">
 
+            <input type="hidden" name="interesses" id="interesses-hidden" value="">
             <div class="tags-container justify-content-center mb-3" id="interesses-container">
-                <span class="tag-pill">Limpeza</span>
-                <span class="tag-pill">Banco Alimentar</span>
-                <span class="tag-pill">Natureza</span>
             </div>
 
             <div class="text-center">
@@ -120,5 +118,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../js/editarperfil.js"></script>
+<script src="../../js/main.js"></script>
 </body>
 </html>
