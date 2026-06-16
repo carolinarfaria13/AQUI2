@@ -270,11 +270,11 @@ input:focus { border-color: var(--orange-dark); }
   padding: 6px 14px;
   border-radius: 20px;
   border: 1.5px solid var(--orange);
-  cursor: default;
+  cursor: pointer;
   transition: background 0.2s, color 0.2s;
 }
-.tag:hover {
-  background: var(--cream);
+.tag.selected {
+  background: var(--white);
   color: var(--orange);
   border-color: var(--orange);
 }
@@ -292,6 +292,79 @@ input:focus { border-color: var(--orange-dark); }
   transition: background 0.2s, color 0.2s;
 }
 .tag-add:hover { background: var(--orange); color: var(--white); }
+
+/* ── Modal: novo interesse ── */
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-backdrop.ativo { display: flex; }
+
+.modal-card {
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 24px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.modal-titulo {
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--orange);
+  text-align: center;
+  margin: 0 0 16px;
+}
+
+.modal-input {
+  width: 100%;
+  border: 1.5px solid var(--orange);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 0.86rem;
+  color: var(--text);
+  background: var(--white);
+  outline: none;
+  margin-bottom: 18px;
+  box-sizing: border-box;
+}
+
+.modal-botoes {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-modal {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 20px;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+.btn-modal-confirmar {
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+}
+.btn-modal-confirmar:hover { background: var(--orange-dark); }
+.btn-modal-cancelar {
+  background: none;
+  border: 1.5px solid var(--orange);
+  color: var(--orange);
+}
+.btn-modal-cancelar:hover { background: var(--orange); color: var(--white); }
 
 /* ── Back link ── */
 .back-link {

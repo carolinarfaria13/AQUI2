@@ -9,6 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $nome = $_POST['nome'] ?? '';
+$telemovel = $_POST['telemovel'] ?? '';
+$morada = $_POST['morada'] ?? '';
 $website = $_POST['website'] ?? '';
 $instagram = $_POST['instagram'] ?? '';
 $data_criacao = $_POST['datacriacao'] ?? '';
@@ -27,35 +29,27 @@ if ($nome === '' || $email === '' || $password === '' || $username === '') {
 // Usa-se um resumo derivado da descrição e uma imagem por defeito até existir upload de capa.
 $sinopse = mb_substr($descricao, 0, 45);
 $capa = "intituicao.png"; // imagem placeholder já existente em assets/
-
-// NOTA: id_instituicoes e id_utilizadores não têm AUTO_INCREMENT na BD (falta acrescentar,
-// já fica anotado para a alteração de estrutura). Enquanto isso não for corrigido, o próximo
-// ID é calculado manualmente — não é à prova de pedidos em simultâneo.
-$res = mysqli_query($link, "SELECT COALESCE(MAX(id_instituicoes),0)+1 AS proximo FROM instituicoes");
-$id_instituicao = mysqli_fetch_assoc($res)['proximo'];
+$password_hash = password_hash($password, PASSWORD_DEFAULT);
 
 // PHP 8.1+ faz mysqli lançar exceções em erros SQL em vez de devolver false,
 // por isso apanhamos aqui para devolver sempre uma resposta JSON, nunca uma página de erro.
 try {
     $stmt = mysqli_stmt_init($link);
-    $query = "INSERT INTO instituicoes (id_instituicoes, nome, sinopse, website, instagram, data_criacao, descricao, objetivos, capa)
-              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO instituicoes (nome, sinopse, website, instagram, data_criacao, descricao, objetivos, capa)
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     mysqli_stmt_prepare($stmt, $query);
-    mysqli_stmt_bind_param($stmt, 'issssssss', $id_instituicao, $nome, $sinopse, $website, $instagram, $data_criacao, $descricao, $objetivos, $capa);
+    mysqli_stmt_bind_param($stmt, 'ssssssss', $nome, $sinopse, $website, $instagram, $data_criacao, $descricao, $objetivos, $capa);
     mysqli_stmt_execute($stmt);
+    $id_instituicao = mysqli_insert_id($link);
     mysqli_stmt_close($stmt);
 
-    $res2 = mysqli_query($link, "SELECT COALESCE(MAX(id_utilizadores),0)+1 AS proximo FROM utilizadores");
-    $id_utilizador = mysqli_fetch_assoc($res2)['proximo'];
-
-    // NOTA: password guardada em texto simples por agora (ver nota em login.php sobre o
-    // tamanho da coluna). Atualizar para password_hash() quando a coluna for alargada.
     $stmt2 = mysqli_stmt_init($link);
-    $query2 = "INSERT INTO utilizadores (id_utilizadores, nome, email, nomeutilizador, password, instituicoes_id_instituicoes)
-               VALUES (?, ?, ?, ?, ?, ?)";
+    $query2 = "INSERT INTO utilizadores (nome, email, nomeutilizador, password, contacto, morada, instituicoes_id_instituicoes)
+               VALUES (?, ?, ?, ?, ?, ?, ?)";
     mysqli_stmt_prepare($stmt2, $query2);
-    mysqli_stmt_bind_param($stmt2, 'issssi', $id_utilizador, $nome, $email, $username, $password, $id_instituicao);
+    mysqli_stmt_bind_param($stmt2, 'ssssssi', $nome, $email, $username, $password_hash, $telemovel, $morada, $id_instituicao);
     mysqli_stmt_execute($stmt2);
+    $id_utilizador = mysqli_insert_id($link);
     mysqli_stmt_close($stmt2);
 
     $_SESSION['id_utilizador'] = $id_utilizador;

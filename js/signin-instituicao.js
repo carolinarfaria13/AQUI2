@@ -16,7 +16,7 @@ function validarFormulario() {
   if (!valido) return;
 
   const dados = new FormData();
-  ['nome','telemovel','localizacao','instagram','website','datacriacao','descricao','objetivos','email','password','username'].forEach(function(id) {
+  ['nome','telemovel','morada','instagram','website','datacriacao','descricao','objetivos','email','password','username'].forEach(function(id) {
     const input = document.getElementById(id);
     if (input) dados.append(id, input.value);
   });

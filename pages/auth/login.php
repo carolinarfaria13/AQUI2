@@ -16,9 +16,6 @@ if ($identificador === '' || $password === '') {
     exit;
 }
 
-// NOTA: comparação em texto simples por agora, porque utilizadores.password é varchar(45)
-// (demasiado curto para uma hash bcrypt, que precisa de 60 caracteres). Mudar para
-// password_hash()/password_verify() quando a coluna for alargada (alteração já decidida).
 $stmt = mysqli_stmt_init($link);
 $query = "SELECT id_utilizadores, password FROM utilizadores WHERE email = ? OR nomeutilizador = ?";
 
@@ -27,7 +24,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt, $id_utilizador, $password_bd);
 
-    if (mysqli_stmt_fetch($stmt) && $password === $password_bd) {
+    if (mysqli_stmt_fetch($stmt) && password_verify($password, $password_bd)) {
         $_SESSION['id_utilizador'] = $id_utilizador;
         mysqli_stmt_close($stmt);
 
