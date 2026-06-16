@@ -38,6 +38,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
         mysqli_stmt_store_result($stmt2);
         $tipo = mysqli_stmt_num_rows($stmt2) > 0 ? "voluntario" : "instituicao";
         mysqli_stmt_close($stmt2);
+        $_SESSION['tipo_utilizador'] = $tipo;
 
         echo json_encode(["sucesso" => true, "tipo" => $tipo]);
     } else {

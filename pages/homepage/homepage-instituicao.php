@@ -90,6 +90,8 @@ mysqli_close($link);
     </div>
 
   </div>
+
+  <?php $pagina_ativa = 'homepage'; include_once("../../components/cp_bottombar.php"); ?>
 </div>
 
 </body>
