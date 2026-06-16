@@ -33,7 +33,9 @@
 
 
 <header class="header-fixed">
-    <?php include_once ("components/cp_navbar.php"); ?>
+    <nav>
+        <?php include_once ("../../components/cp_navbarbranca.php"); ?>
+    </nav>
     <h1>Fórum da Comunidade</h1>
     <h3 class="subtitle">Local onde as conversas geram impacto real</h3>
 </header>
@@ -45,7 +47,7 @@
     <h2>Tópicos Recentes</h2>
 
     <ul class="topic-list">
-        <?php include_once ("components/cp_topicos.php"); ?>
+        <?php include_once ("../../components/cp_topicos.php"); ?>
     </ul>
 
     <button class="btn">Ver Mais</button>
@@ -92,12 +94,10 @@
 </section>
 
 <nav>
-    <?php include_once ("components/cp_bottombar.php"); ?>
+    <?php include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 
-<script>
-    <?php include_once ("components/cp_headerfixo.php"); ?>
-</script>
+<?php include_once ("../../components/cp_headerfixo.php"); ?>
 <script src="../../js/orverlays.js"></script>
 
 </body>

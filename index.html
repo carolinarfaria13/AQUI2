@@ -49,7 +49,8 @@
         </div>
       </div>
 
-      <button class="btn btn-short btn-main" type="button">Iniciar Sessão</button>
+      <button class="btn btn-short btn-main" type="button" onclick="login()">Iniciar Sessão</button>
+      <span class="error-msg" id="err-login">Credenciais inválidas.</span>
 
       <p class="divider-text">Ainda não tens uma conta?</p>
       <button class="btn btn-short btn-secondary" type="button" onclick="goTo('screen-welcome')">Sign In</button>
@@ -86,6 +87,34 @@
   function goTo(id) {
     document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
     document.getElementById(id).classList.remove('hidden');
+  }
+
+  function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const erro = document.getElementById('err-login');
+
+    const dados = new FormData();
+    dados.append('email', email);
+    dados.append('password', password);
+
+    fetch('pages/auth/login.php', { method: 'POST', body: dados })
+      .then(function (res) { return res.json(); })
+      .then(function (resp) {
+        if (resp.sucesso) {
+          erro.classList.remove('visible');
+          window.location.href = resp.tipo === 'instituicao'
+            ? 'pages/homepage/homepage-instituicao.html'
+            : 'pages/homepage/homepage-voluntario.html';
+        } else {
+          erro.textContent = resp.erro || 'Credenciais inválidas.';
+          erro.classList.add('visible');
+        }
+      })
+      .catch(function () {
+        erro.textContent = 'Erro de ligação ao servidor.';
+        erro.classList.add('visible');
+      });
   }
 
   function togglePassword() {

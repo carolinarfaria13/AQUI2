@@ -1,4 +1,4 @@
-<?php
+<<?php
 session_start();
 require_once("../../connections/connection.php");
 $link = new_db_connection();
@@ -32,11 +32,11 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             "username" => $usernameBD,
             "email" => $emailBD,
             "telemovel" => $contactoBD,
-            "foto_perfil" => $fotoBD, // Aqui envia a foto!
+            "foto_perfil" => $fotoBD,
             "biografia" => $biografiaBD,
             "data_nascimento" => $dataNascimentoBD,
             "competencias" => $competenciasBD,
-            "interesses" => $interessesBD // Aqui envia os interesses!
+            "interesses" => $interessesBD
         ];
         echo json_encode($dados_perfil);
     } else {
