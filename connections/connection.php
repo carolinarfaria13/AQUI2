@@ -12,7 +12,7 @@ function new_db_connection()
         $hostname = 'labmm.clients.ua.pt';
         $username = "deca_26_BDTSS_24_web";
         $password = "pKbR201U";
-        $dbname = "deca_26_BDTSS_24";
+        $dbname = "deca_26_bdtss_24";
     }
 // Makes the connection
     $local_link = mysqli_connect ($hostname, $username, $password, $dbname);
