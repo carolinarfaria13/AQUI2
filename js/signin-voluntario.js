@@ -13,5 +13,24 @@ function validarFormulario() {
       erro.classList.remove('visible');
     }
   });
-  if (valido) window.location.href = '../homepage/homepage-voluntario.html';
+  if (!valido) return;
+
+  const dados = new FormData();
+  ['nome','telemovel','nascimento','cidade','bio','competencias','email','password','username'].forEach(function(id) {
+    const input = document.getElementById(id);
+    if (input) dados.append(id, input.value);
+  });
+
+  fetch('registo-voluntario.php', { method: 'POST', body: dados })
+    .then(function(res) { return res.json(); })
+    .then(function(resp) {
+      if (resp.sucesso) {
+        window.location.href = '../homepage/homepage-voluntario.html';
+      } else {
+        alert(resp.erro || 'Não foi possível criar a conta.');
+      }
+    })
+    .catch(function() {
+      alert('Erro de ligação ao servidor.');
+    });
 }

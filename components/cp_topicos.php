@@ -2,7 +2,7 @@
 require_once($_SERVER['DOCUMENT_ROOT'] . "/AQUI2/connections/connection.php");
 $link = new_db_connection(); // Create a new DB connection
 $stmt = mysqli_stmt_init($link); // create a prepared statement
-$query = "SELECT id_utilizadores, nomeutilizaodr, cidade FROM utilizadores"; // Define the query
+$query = "SELECT id_utilizadores, nomeutilizador, cidade FROM utilizadores"; // Define the query
 
 if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
     mysqli_stmt_execute($stmt); // Execute the prepared statement

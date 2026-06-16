@@ -13,7 +13,11 @@ if (!isset($_SESSION['id_utilizador'])) {
 $id_utilizador = $_SESSION['id_utilizador'];
 
 $stmt = mysqli_stmt_init($link);
-$query = "SELECT nome, biografia, cidade FROM utilizadores WHERE id = ?";
+// biografia está na tabela voluntarios (1-para-1 com utilizadores), não em utilizadores
+$query = "SELECT u.nome, v.biografia, u.cidade
+          FROM utilizadores u
+          JOIN voluntarios v ON v.utilizadores_id_utilizadores = u.id_utilizadores
+          WHERE u.id_utilizadores = ?";
 
 if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);

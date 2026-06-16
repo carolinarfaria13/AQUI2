@@ -10,7 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $biografia = $_POST['biografia'];
     $email = $_POST['email'];
-    $telemovel = $_POST['telemovel'];
+    // NOTA: não existe coluna de telemóvel em utilizadores nem em voluntarios.
+    // A coluna mais próxima (utilizadores.contacto) é tinyint, não cabe um número de telefone.
+    // Falta decidir com a equipa como alterar a BD antes disto poder ser gravado.
     $data_nascimento = $_POST['data_nascimento'];
     $cidade = $_POST['cidade'];
 
@@ -18,18 +20,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Quando tiveres o Login a funcionar, deves usar a variável de sessão, ex: $_SESSION['id_utilizador']
     $id_utilizador = isset($_SESSION['id_utilizador']) ? $_SESSION['id_utilizador'] : 1;
 
+    // nomeutilizador, email e cidade vivem em utilizadores; biografia e data_nascimento em voluntarios
     $stmt = mysqli_stmt_init($link);
+    $query = "UPDATE utilizadores SET nome = ?, nomeutilizador = ?, email = ?, cidade = ? WHERE id_utilizadores = ?";
 
-    // ATENÇÃO: Verifica se o nome da tabela (utilizadores) e das colunas batem certo com o teu MySQL!
-    $query = "UPDATE utilizadores SET nome = ?, username = ?, biografia = ?, email = ?, telemovel = ?, data_nascimento = ?, cidade = ? WHERE id = ?";
+    $stmt2 = mysqli_stmt_init($link);
+    $query2 = "UPDATE voluntarios SET biografia = ?, data_nascimento = ? WHERE utilizadores_id_utilizadores = ?";
 
-    if (mysqli_stmt_prepare($stmt, $query)) {
-        // 'sssssssi' significa: 7 strings (textos) e 1 integer (o id no final)
-        mysqli_stmt_bind_param($stmt, 'sssssssi', $nome, $username, $biografia, $email, $telemovel, $data_nascimento, $cidade, $id_utilizador);
-
-        // Executar a gravação
+    if (mysqli_stmt_prepare($stmt, $query) && mysqli_stmt_prepare($stmt2, $query2)) {
+        mysqli_stmt_bind_param($stmt, 'ssssi', $nome, $username, $email, $cidade, $id_utilizador);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+
+        mysqli_stmt_bind_param($stmt2, 'ssi', $biografia, $data_nascimento, $id_utilizador);
+        mysqli_stmt_execute($stmt2);
+        mysqli_stmt_close($stmt2);
 
         // 3. Redirecionar a Ariana de volta para a página do Perfil HTML!
         header("Location: ../pages/perfil/perfil.html");
