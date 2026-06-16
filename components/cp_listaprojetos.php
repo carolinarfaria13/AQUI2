@@ -12,7 +12,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
         ?>
         <li class="card">
             <div class="card-logo">
-                <img src="../assets/<?php echo $capa; ?>" />
+                <img src="../../assets/basededados/<?php echo $capa; ?>" />
             </div>
             <div class="card-info">
                 <h2><?php echo $titulo; ?></h2>

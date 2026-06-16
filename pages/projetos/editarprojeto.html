@@ -1,10 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Projeto</title>
+
+    <link rel="stylesheet" href="../../CSS/estilossergiacosta.css">
+    <link rel="stylesheet" href="../../CSS/estilosGERAL.css">
 </head>
-<body>
+<body class="bodyeditarprojeto">
+
+<!-- HEADER VERDE -->
+<header class="headereditarprojeto">
+    <img src="../../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" />
+
+    <div class="nav-logo">
+        <img src="../../assets/logotipobranco.png" class="logo-icon" />
+    </div>
+
+    <a href="perfil.html" class="top-profile-container" style="text-decoration: none;">
+        <img src="../../assets/instituicaoperfil.png" alt="Perfil" class="top-profile-img">
+    </a>
+
+    <h1 class="header-title">Editar Projeto</h1>
+</header>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<main class="maineditarprojeto">
+    <form class="form">
+
+        <!-- NOME DO PROJETO -->
+        <div class="form-group">
+            <label for="nome">Nome do Projeto</label>
+            <div class="input-with-icon">
+                <input type="text" id="nome" value="CLAIM" />
+                <img src="../../assets/lapis.png" class="input-edit-icon" alt="Editar" />
+            </div>
+        </div>
+
+        <!-- CARREGAR FOTO -->
+        <div class="upload-row">
+            <div class="upload-box">
+                <img src="../../assets/iconfoto.png" alt="Foto" />
+                <span>Carregar nova foto do projeto</span>
+            </div>
+            <button type="button" class="btn-add">+ Adicionar</button>
+        </div>
+
+        <!-- PERÍODO -->
+        <div class="form-group">
+            <label>Período</label>
+            <div class="periodo-row">
+                <div class="select-wrapper">
+                    <select>
+                        <option>Setembro</option>
+                        <option>Outubro</option>
+                        <option>Novembro</option>
+                    </select>
+                </div>
+                <div class="select-wrapper">
+                    <select>
+                        <option>Junho</option>
+                        <option>Julho</option>
+                        <option>Agosto</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- DESCRIÇÃO -->
+        <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <div class="textarea-with-icon">
+                    <textarea id="descricao" rows="10">O projeto CLAIM (Comunicação, Literacia e Informação para um Ambiente Melhor) é uma iniciativa que visa sensibilizar a população para questões ambientais, promovendo a literacia mediática e o pensamento crítico sobre as alterações climáticas.
+Através de campanhas, workshops e conteúdos digitais, o CLAIM incentiva a adoção de comportamentos sustentáveis e o combate à desinformação ambiental.
+O projeto envolve cidadãos, escolas, organizações e meios de comunicação, criando uma rede colaborativa focada na proteção do ambiente e na disseminação de informação credível.
+Os participantes podem envolver-se em atividades educativas e interativas, contribuindo para uma sociedade mais informada e ambientalmente consciente.</textarea>
+                <img src="../../assets/lapis.png" class="textarea-edit-icon" alt="Editar" />
+            </div>
+        </div>
+
+        <!-- OBJETIVOS -->
+        <div class="form-group">
+            <div class="textarea-with-icon">
+                    <textarea id="objetivos" rows="8">• Promover a literacia ambiental e mediática
+• Combater a desinformação sobre alterações climáticas
+• Incentivar comportamentos sustentáveis no dia-a-dia
+• Envolver jovens e a comunidade em ações de sensibilização
+• Fomentar o pensamento crítico sobre conteúdos ambientais
+• Criar uma rede ativa de cidadãos informados e participativos</textarea>
+                <img src="../../assets/lapis.png" class="textarea-edit-icon" alt="Editar" />
+            </div>
+        </div>
+
+        <!-- ATIVIDADES -->
+        <div class="form-group">
+            <label>Atividades</label>
+            <div class="atividades-list">
+                <span class="atividade-tag selected">Workshop Reciclagem</span>
+                <span class="atividade-tag selected">Plantação de Árvores</span>
+                <span class="atividade-tag selected">Limpeza de espaços público</span>
+                <span class="atividade-tag selected">Palestras educativas em escolas</span>
+                <span class="atividade-tag selected">Criação de pontos de reciclagem</span>
+                <span class="atividade-tag tag-add">+ Adicionar Atividade</span>
+            </div>
+        </div>
+
+        <!-- LOCALIZAÇÃO -->
+        <div class="form-group">
+            <label for="localizacao">Localização</label>
+            <div class="input-with-icon localizacao-box">
+                <img src="../../assets/localização.png" class="input-left-icon" alt="" />
+                <input type="text" id="localizacao" value="Portugal (com impacto a nível nacional, incluindo ações locais em várias regiões)" />
+                <img src="../../assets/lapis.png" class="input-edit-icon" alt="Editar" />
+            </div>
+        </div>
+
+        <button type="button" class="btninscreverprojeto">GUARDAR</button>
+
+    </form>
+</main>
+
+<!-- BOTTOM NAV -->
+<nav>
+    <img src="../../assets/projetos_bottombar1.png" />
+    <img src="../../assets/instituicoes_bottombar1.png" />
+    <img src="../../assets/homepage_bottombar1.png" />
+    <img src="../../assets/forum_bottombar1.png" />
+    <img src="../../assets/perfil_bottombar1.png"/>
+</nav>
 
 </body>
 </html>
