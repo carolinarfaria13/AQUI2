@@ -1,3 +1,24 @@
+<?php
+
+require_once(__DIR__ . "/../../connections/connection.php");
+if (isset($_GET["id"])) {
+    $nome_projeto = $_GET["id"];
+
+    $link = new_db_connection();
+    $stmt = mysqli_stmt_init($link);
+    $query = "SELECT titulo FROM projetos WHERE id_projetos=?";
+
+    if (mysqli_stmt_prepare($stmt, $query)) {
+        mysqli_stmt_bind_param($stmt, 'i', $nome_projeto);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $titulo);
+        mysqli_stmt_fetch($stmt);
+        mysqli_stmt_close($stmt);
+    }
+    mysqli_close($link);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -7,6 +28,7 @@
 
     <link rel="stylesheet" href="../../CSS/estilossergiacosta.css">
     <link rel="stylesheet" href="../../CSS/estilosGERAL.css">
+    <link rel="stylesheet" href="../../CSS/estilosCAROLINAeSERGIA.css">
 </head>
 
 <body>
@@ -31,12 +53,11 @@
 <!-- TÍTULO -->
 <div class="titulo-section">
     <div class="titulo-sub">Projeto</div>
-    <div class="titulo-nome">CLAIM</div>
+    <div class="titulo-nome"><?php echo $titulo; ?></div>
 </div>
 
 <!-- DESCRIÇÃO -->
-<div class="info-card">
-    <?php include_once ("../../components/cp_detalhesprojetos.php"); ?>
+<?php include_once ("../../components/cp_detalhesprojetos.php"); ?>
 
 <!-- BOTÃO -->
 <div class="btn-section">
@@ -47,8 +68,9 @@
 
 <!-- BOTTOM NAV -->
 <nav>
-    <?php include_once ("../../components/cp_bottombar.php"); ?>
+    <?php $pagina_ativa = 'projetos'; include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 
+<script src="../../js/main.js"></script>
 </body>
 </html>

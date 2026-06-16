@@ -11,6 +11,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
     while (mysqli_stmt_fetch($stmt)) {// Fetch values
         ?>
         <li class="card">
+            <a href="../projetos/paginaprojeto.php?id=<?php echo $id_projetos; ?>" class="card-link">
             <div class="card-logo">
                 <img src="../../assets/basededados/<?php echo $capa; ?>" />
             </div>
@@ -18,6 +19,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
                 <h2><?php echo $titulo; ?></h2>
                 <p><?php echo $sinopse; ?></p>
             </div>
+            </a>
         </li>
         <?php
     }

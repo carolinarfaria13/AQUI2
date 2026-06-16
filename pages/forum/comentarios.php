@@ -48,7 +48,6 @@
             <?php include_once ("../../components/cp_comentarios.php"); ?>
     </ul>
 
-    <button class="btn">Ver Mais</button>
 </main>
 
 <nav>
@@ -57,6 +56,7 @@
 
 <?php include_once ("../../components/cp_headerfixo.php"); ?>
 <script src="../../js/orverlays.js"></script>
+<script src="../../js/main.js"></script>
 
 </body>
 </html>

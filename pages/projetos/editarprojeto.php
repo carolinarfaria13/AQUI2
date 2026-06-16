@@ -11,18 +11,10 @@
 <body class="bodyeditarprojeto">
 
 <!-- HEADER VERDE -->
-<header class="headereditarprojeto">
-    <img src="../../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" />
-
-    <div class="nav-logo">
-        <img src="../../assets/logotipobranco.png" class="logo-icon" />
-    </div>
-
-    <a href="perfil.html" class="top-profile-container" style="text-decoration: none;">
-        <img src="../../assets/instituicaoperfil.png" alt="Perfil" class="top-profile-img">
-    </a>
-
-    <h1 class="header-title">Editar Projeto</h1>
+<header class="header-fixed">
+    <nav>
+        <?php include_once ("../../components/cp_navbarbranca.php"); ?>
+    </nav>
 </header>
 
 <!-- CONTEÚDO PRINCIPAL -->

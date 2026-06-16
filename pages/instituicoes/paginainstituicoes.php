@@ -28,5 +28,6 @@
 <nav>
     <?php $pagina_ativa = 'instituicoes'; include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
+<script src="../../js/main.js"></script>
 </body>
 </html>

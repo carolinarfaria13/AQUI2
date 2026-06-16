@@ -13,7 +13,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
         <div class="atividade-card">
             <img class="atividade-img" src="../../assets/basededados/<?php echo $capa; ?>" />
-            <div class="atividade-img-placeholder"><i class="ti ti-recycle"></i></div>
+
             <div class="atividade-label"><?php echo $nome; ?></div>
         </div>
 

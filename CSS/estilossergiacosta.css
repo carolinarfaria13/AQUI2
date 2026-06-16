@@ -555,7 +555,8 @@ body {
     max-width: 390px;
     margin: 0 auto;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow: visible;
+    padding-top: 100px;
 }
 
 /* ── HEADER ── */
@@ -796,4 +797,35 @@ body {
     border-radius: 50%;
     background: #FFB443;
     margin-top: 2px;
+}
+
+nav .bb-bar {
+    position: fixed !important;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999 !important;
+}
+
+.atividades-section {
+    margin-bottom: 16px;
+    overflow: hidden; /* ← adiciona */
+}
+
+.header-fixed {
+    position: fixed !important;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 390px;
+    z-index: 9999;
+    background: #5B623A;
+}
+
+.header-fixed nav {
+    position: relative !important;
+}
+.progress-section {
+    margin-top: 30px;
 }
