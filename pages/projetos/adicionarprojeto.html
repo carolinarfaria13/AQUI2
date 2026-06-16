@@ -4,30 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Novo Projeto</title>
-
     <link rel="stylesheet" href="../../CSS/estilossergiacosta.css">
-    <link rel="stylesheet" href="../../CSS/estilosgerais.css">
+    <link rel="stylesheet" href="../../CSS/estilosGERAL.css">
 </head>
 
 <body class="bodynovoprojeto">
 
-<header class="headernovoprojeto ">
-    <img src="../../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
+<header class="headernovoprojeto">
+    <img src="../../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" />
 
     <div class="nav-logo-novoprojeto">
-        <img src="../../assets/logotipobranco.png" class="logo-icon"/>
+        <img src="../../assets/logotipobranco.png" class="logo-icon" />
         <h1 class="titulo-novoprojeto">Novo Projeto</h1>
     </div>
 
-    <a href="perfil.html" class="top-profile-container" style="text-decoration: none; cursor: pointer;">
+    <a href="perfil.html" class="top-profile-container">
         <img src="../../assets/voluntarioperfil.png" alt="Perfil" class="top-profile-img">
-        <div class="star-badge-small"><i class="fas fa-star"></i></div>
     </a>
 </header>
 
-<!-- CONTEÚDO PRINCIPAL -->
 <main class="mainnovoprojeto">
-    <form class="form">
+    <form>
 
         <div class="form">
             <label for="nome">Nome do Projeto</label>
@@ -37,7 +34,7 @@
         <div class="form">
             <div class="upload-foto">
                 <div class="upload-foto-label">
-                    <img src="../../assets/iconefoto.png" alt="foto"/>
+                    <img src="../../assets/iconefoto.png" alt="foto" />
                     <span>Carregar foto do projeto</span>
                 </div>
                 <button type="button" class="btn-adicionar-foto">+ Adicionar</button>
@@ -45,7 +42,7 @@
         </div>
 
         <div class="form">
-            <label for="periodo">Período</label>
+            <label>Período</label>
             <div class="periodo-row">
                 <input type="text" id="periodo-de" placeholder="De" />
                 <input type="text" id="periodo-ate" placeholder="Até" />
@@ -68,7 +65,7 @@
                 <span class="tag-atividade" onclick="this.classList.toggle('selected')">Workshop Reciclagem</span>
                 <span class="tag-atividade" onclick="this.classList.toggle('selected')">Plantação</span>
                 <span class="tag-atividade" onclick="this.classList.toggle('selected')">Limpeza de Praias</span>
-                <span class="tag-atividade tag-adicionar" onclick="this.classList.toggle('selected')">+ Adicionar Atividade</span>
+                <span class="tag-atividade tag-adicionar">+ Adicionar Atividade</span>
             </div>
         </div>
 
@@ -82,13 +79,12 @@
     </form>
 </main>
 
-<!-- BOTTOM NAV -->
 <nav>
     <img src="../../assets/projetos_bottombar1.png" />
     <img src="../../assets/instituicoes_bottombar1.png" />
     <img src="../../assets/homepage_bottombar1.png" />
     <img src="../../assets/forum_bottombar1.png" />
-    <img src="../../assets/perfil_bottombar1.png"/>
+    <img src="../../assets/perfil_bottombar1.png" />
 </nav>
 
 </body>
