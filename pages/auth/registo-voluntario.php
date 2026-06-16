@@ -55,6 +55,7 @@ try {
     mysqli_stmt_close($stmt2);
 
     $_SESSION['id_utilizador'] = $id_utilizador;
+    $_SESSION['tipo_utilizador'] = 'voluntario';
     echo json_encode(["sucesso" => true]);
 } catch (mysqli_sql_exception $e) {
     echo json_encode(["erro" => "Erro ao criar conta: " . $e->getMessage()]);

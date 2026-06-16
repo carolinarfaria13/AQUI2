@@ -26,7 +26,7 @@
 </main>
 
 <nav>
-    <?php include_once ("../../components/cp_bottombar.php"); ?>
+    <?php include_once("../../components/cp_bottombar.php"); ?>
 </nav>
 </body>
 

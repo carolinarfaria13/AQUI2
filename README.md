@@ -7,7 +7,7 @@ git commit
 git push
 
 # para enviar conteudo na main
-### nao precisas fazer sempre merge na main, apenas quando terminas ou alguem precisa do teu codigo  
+### nao precisas fazer sempre merge na main, apenas quando terminas ou alguem precisa do teu codig 
 git checkout main
 
 git pull

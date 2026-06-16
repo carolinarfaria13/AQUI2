@@ -15,7 +15,7 @@
         <h3 class="overlay-titulo">Cria o teu Tópico</h3>
         <div class="overlay-input-row">
             <div class="topic-avatar">
-                <img src="../../assets/users/ariana.jpg" alt="Ariana Lopes"/>
+                <img src="../../assets/basededados/arianalopes.jpg" alt="Ariana Lopes"/>
             </div>
             <textarea class="overlay-textarea" id="overlayTextarea" placeholder="Escreve aqui..."></textarea>
         </div>
@@ -94,7 +94,7 @@
 </section>
 
 <nav>
-    <?php include_once ("../../components/cp_bottombar.php"); ?>
+    <?php $pagina_ativa = 'forum'; include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 
 <?php include_once ("../../components/cp_headerfixo.php"); ?>

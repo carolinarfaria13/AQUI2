@@ -10,9 +10,11 @@
 
 <body class="bodyinscreverprojeto">
 
-<nav>
-    <?php include_once("../../components/cp_navbar.php"); ?>
-</nav>
+<header class="header-fixed">
+    <nav>
+        <?php include_once ("../../components/cp_navbarbranca.php"); ?>
+    </nav>
+</header>
 
 <main class="maininscreverprojeto">
     <form>
@@ -53,7 +55,7 @@
 </main>
 
 <nav>
-    <?php include_once("../../components/cp_bottombar.php"); ?>
+    <?php include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 
 </body>
