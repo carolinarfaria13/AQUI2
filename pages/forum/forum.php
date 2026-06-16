@@ -98,6 +98,7 @@
 <script>
     <?php include_once ("components/cp_headerfixo.php"); ?>
 </script>
+<script src="../../js/orverlays.js"></script>
 
 </body>
 </html>
