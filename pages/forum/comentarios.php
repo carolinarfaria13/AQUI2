@@ -33,7 +33,7 @@
 
 <header class="header-fixed">
     <nav>
-        <?php include_once ("components/cp_navbar.php"); ?>
+        <?php include_once ("../../components/cp_navbarbranca.php"); ?>
     </nav>
     <h3 class="subtitle">@ariana123 | Aveiro | 2min</h3>
     <h1>Como formar uma equipa virtual eficaz?</h1>
@@ -118,7 +118,7 @@
 </main>
 
 <nav>
-    <?php include_once ("components/cp_bottombar.php"); ?>
+    <?php include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 
 <script src="../../js/orverlays.js"></script>
