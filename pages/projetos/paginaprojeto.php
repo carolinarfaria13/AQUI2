@@ -36,73 +36,7 @@
 
 <!-- DESCRIÇÃO -->
 <div class="info-card">
-    <h3>Descrição</h3>
-    <p>
-        O projeto CLAIM (Comunicação, Literacia e Informação para um Ambiente Melhor) é uma iniciativa
-        que visa sensibilizar a população para questões ambientais, promovendo a literacia mediática e o
-        pensamento crítico sobre as alterações climáticas.<br><br>
-        Através de campanhas, workshops e conteúdos digitais, o CLAIM incentiva a adoção de
-        comportamentos sustentáveis e o combate à desinformação ambiental. O projeto envolve cidadãos,
-        organizações e meios de comunicação, criando uma rede colaborativa focada na proteção do
-        ambiente e na disseminação de informação credível.<br><br>
-        Os participantes podem envolver-se em atividades educativas e interativas, contribuindo para
-        uma sociedade mais informada e ambientalmente consciente.
-    </p>
-</div>
-
-<!-- OBJETIVOS -->
-<div class="info-card">
-    <h3>Objetivos</h3>
-    <p>
-        • Promover a literacia ambiental e mediática<br>
-        • Combater a desinformação sobre alterações climáticas<br>
-        • Incentivar comportamentos sustentáveis no dia-a-dia<br>
-        • Envolver jovens e a comunidade em ações informadas e participativas
-    </p>
-</div>
-
-<!-- LOCALIZAÇÃO -->
-<div class="info-card">
-    <h3>Localização</h3>
-    <p>Portugal (com impacto a nível nacional, incluindo ações locais em várias regiões)</p>
-</div>
-
-<!-- ATIVIDADES -->
-<div class="atividades-section">
-    <div class="atividades-grid">
-
-        <div class="atividade-card">
-            <!-- <img class="atividade-img" src="workshop-reciclagem.jpg" alt="Workshop Reciclagem"> -->
-            <div class="atividade-img-placeholder"><i class="ti ti-recycle"></i></div>
-            <div class="atividade-label">Workshop Reciclagem</div>
-        </div>
-
-        <div class="atividade-card">
-            <!-- <img class="atividade-img" src="limpeza-espacos.jpg" alt="Limpeza de espaços públicos"> -->
-            <div class="atividade-img-placeholder"><i class="ti ti-building-community"></i></div>
-            <div class="atividade-label">Limpeza de espaços públicos</div>
-        </div>
-
-        <div class="atividade-card">
-            <!-- <img class="atividade-img" src="plantacao-arvores.jpg" alt="Plantação de árvores"> -->
-            <div class="atividade-img-placeholder"><i class="ti ti-tree"></i></div>
-            <div class="atividade-label">Plantação de árvores</div>
-        </div>
-
-        <div class="atividade-card">
-            <!-- <img class="atividade-img" src="palestras.jpg" alt="Palestras educativas em escolas"> -->
-            <div class="atividade-img-placeholder"><i class="ti ti-school"></i></div>
-            <div class="atividade-label">Palestras educativas em escolas</div>
-        </div>
-
-        <div class="atividade-card atividade-card-center">
-            <!-- <img class="atividade-img" src="pontos-reciclagem.jpg" alt="Criação de pontos de reciclagem"> -->
-            <div class="atividade-img-placeholder"><i class="ti ti-package"></i></div>
-            <div class="atividade-label">Criação de pontos de reciclagem</div>
-        </div>
-
-    </div>
-</div>
+    <?php include_once ("../../components/cp_detalhesprojetos.php"); ?>
 
 <!-- BOTÃO -->
 <div class="btn-section">

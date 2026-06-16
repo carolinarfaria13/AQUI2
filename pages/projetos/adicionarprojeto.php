@@ -4,76 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Novo Projeto</title>
-    <link rel="stylesheet" href="../../CSS/estilossergiacosta.css">
     <link rel="stylesheet" href="../../CSS/estilosGERAL.css">
+    <link rel="stylesheet" href="../../CSS/estilossergiacosta.css">
+
 </head>
 
 <body class="bodynovoprojeto">
 
-<header class="header-fixed">
-    <nav>
-        <?php include_once ("../../components/cp_navbar.php"); ?>
-    </nav>
+<nav>
+    <?php include_once("../../components/cp_navbar.php"); ?>
+</nav>
 
-</header>
-<h1>Novo Projeto</h1>
 <main class="mainnovoprojeto">
-    <form>
+    <form action="guardar_projeto.php" method="POST" enctype="multipart/form-data">
 
-        <div class="form">
-            <label for="nome">Nome do Projeto</label>
-            <input type="text" id="nome" placeholder="ex. CLAIM" />
-        </div>
+        <input type="text" id="nome" name="nome" placeholder="ex. CLAIM" required />
+        <input type="text" id="sinopse" name="sinopse" placeholder="Resumo curto do projeto (1 frase)" required />
+        <input type="date" id="periodo-de" name="periodo-de" required />
+        <input type="date" id="periodo-ate" name="periodo-ate" required />
+        <textarea id="descricao" name="descricao" placeholder="Descreve o teu projeto.." required></textarea>
+        <input type="text" id="objetivos" name="objetivos" placeholder="Adiciona os objetivos do projeto.." required />
+        <input type="text" id="atividades" name="atividades" placeholder="Que atividades vão acontecer?" required />
+        <input type="text" id="localizacao" name="localizacao" placeholder="Localização do projeto" />
+        <input type="file" id="capa" name="capa" accept="image/*" required />
 
-        <div class="form">
-            <div class="upload-foto">
-                <div class="upload-foto-label">
-                    <img src="../../assets/iconefoto.png" alt="foto" />
-                    <span>Carregar foto do projeto</span>
-                </div>
-                <button type="button" class="btn-adicionar-foto">+ Adicionar</button>
-            </div>
-        </div>
-
-        <div class="form">
-            <label>Período</label>
-            <div class="periodo-row">
-                <input type="text" id="periodo-de" placeholder="De" />
-                <input type="text" id="periodo-ate" placeholder="Até" />
-            </div>
-        </div>
-
-        <div class="form">
-            <label for="descricao">Descrição</label>
-            <textarea id="descricao" placeholder="Descreve o teu projeto.."></textarea>
-        </div>
-
-        <div class="form">
-            <label for="objetivos">Objetivos</label>
-            <input type="text" id="objetivos" placeholder="Adiciona os objetivos do projeto.." />
-        </div>
-
-        <div class="form">
-            <label>Atividades</label>
-            <div class="atividades-tags">
-                <span class="tag-atividade" onclick="this.classList.toggle('selected')">Workshop Reciclagem</span>
-                <span class="tag-atividade" onclick="this.classList.toggle('selected')">Plantação</span>
-                <span class="tag-atividade" onclick="this.classList.toggle('selected')">Limpeza de Praias</span>
-            </div>
-        </div>
-
-        <div class="form">
-            <label for="localizacao">Localização</label>
-            <input type="text" id="localizacao" placeholder="Localização do projeto" />
-        </div>
-
-        <button type="button" class="btninscreverprojeto">ADICIONAR</button>
+        <button type="submit" class="btninscreverprojeto">ADICIONAR</button>
 
     </form>
 </main>
 
 <nav>
-    <?php include_once ("../../components/cp_bottombar.php"); ?>
+    <?php include_once("../../components/cp_bottombar.php"); ?>
 </nav>
 
 </body>
