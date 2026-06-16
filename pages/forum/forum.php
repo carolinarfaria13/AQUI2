@@ -94,7 +94,7 @@
 </section>
 
 <nav>
-    <?php include_once ("../../components/cp_bottombar.php"); ?>
+    <?php $pagina_ativa = 'forum'; include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 
 <?php include_once ("../../components/cp_headerfixo.php"); ?>

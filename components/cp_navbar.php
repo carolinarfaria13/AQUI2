@@ -1,6 +1,6 @@
-<<?php
+<?php
 session_start();
-require_once($_SERVER['DOCUMENT_ROOT'] . "/AQUI2/connections/connection.php");
+require_once(__DIR__ . "/../connections/connection.php");
 $link = new_db_connection();
 
 $stmt = mysqli_stmt_init($link);
@@ -14,17 +14,18 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_fetch($stmt);
 
     ?>
-    <img src="../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
+    <img src="/AQUI2/assets/setaback1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
     <div class="nav-logo">
-        <img src="../assets/logotipobranco.png" class="logo-icon"/>
+        <img src="/AQUI2/assets/logotipo.png" class="logo-icon"/>
     </div>
     <div class="nav-avatar">
-        <img src="../assets/<?php echo $foto_utilizador; ?>"
+        <img src="/AQUI2/assets/<?php echo $foto_utilizador; ?>"
              id="perfil-img-pequena"
              class="top-profile-img"
-             onerror="this.src='../assets/voluntarioperfil.png';"
+             onerror="this.src='/AQUI2/assets/voluntarioperfil.png';"
              alt="Perfil">
     </div>
+
     <?php
 
     mysqli_stmt_close($stmt);

@@ -18,22 +18,28 @@ if (isset($_GET["id"])) {
 
         while (mysqli_stmt_fetch($stmt)) {// Fetch values
             ?>
-            <section class="section-descricao">
-                <h2>Descrição</h2>
+            <div class="info-card">
+                <h3>Descrição</h3>
                 <p><?php echo $descricao; ?></p>
+            </div>
 
-                <h2>Objetivos</h2>
-                <ul class="objetivos-list">
-                    <li><?php echo $objetivos; ?></li>
-                </ul>
-            </section>
+            <div class="info-card">
+                <h3>Objetivos</h3>
+                <p><?php echo $objetivos; ?></p>
+            </div>
+
+            <div class="atividades-section">
+                <div class="atividades-grid">
+                    <?php include_once("../../components/cp_atividades.php"); ?>
+                </div>
+            </div>
+
             <?php
         }
     } else {
         mysqli_stmt_close($stmt); // Close statement
         echo "Error: " . mysqli_error($link); // Errors related with the query
     }
-    mysqli_close($link);
 } else {
     echo "Erro no pedido dos detalhes do projeto";
 }

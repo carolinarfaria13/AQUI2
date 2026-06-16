@@ -394,9 +394,10 @@ input:focus { border-color: var(--orange-dark); }
    homepage.css — estilos das homepages AQUI
    ══════════════════════════════════════════ */
 
-/* Phone override: sem min-height fixo nas homepages */
+/* Phone override: cresce com o conteúdo, mas nunca fica mais baixo que o ecrã
+   (evita uma faixa cinzenta visível abaixo do cartão, separada da bottom bar) */
 .hp-phone {
-  min-height: unset;
+  min-height: 100vh;
   height: auto;
   overflow: visible;
 }
@@ -517,7 +518,7 @@ input:focus { border-color: var(--orange-dark); }
   background: var(--cream);
   position: relative;
   overflow: hidden;
-  padding-bottom: 32px;
+  padding-bottom: 90px;
 }
 
 /* ── Decorative circles ── */

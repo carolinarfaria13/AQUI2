@@ -11,7 +11,7 @@
 
 <header class="header-fixed">
     <nav>
-        <?php include_once ("components/cp_navbar.php"); ?>
+        <?php include_once ("../../components/cp_navbar.php"); ?>
     </nav>
     <h3 class="subtitle">Instituição</h3>
     <h1>Apoio ao Emigrante</h1>
@@ -19,14 +19,14 @@
 g
 <main class="maininstituicao">
     <section class="section-descricao">
-        <?php include_once ("components/cp_detalhesinstituicao.php"); ?>
+        <?php include_once ("../../components/cp_detalhesinstituicao.php"); ?>
     </section>
 
     <section class="section-projetos">
         <h2>Projetos em Curso</h2>
 
         <ul class="card-list">
-            <?php include_once ("components/cp_listaprojetos.php"); ?>
+            <?php include_once ("../../components/cp_listaprojetos.php"); ?>
         </ul>
     </section>
 
@@ -37,11 +37,11 @@ g
 </main>
 
 <nav>
-    <?php include_once ("components/cp_bottombar.php"); ?>
+    <?php $pagina_ativa = 'instituicoes'; include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 
 <script>
-    <?php include_once ("components/cp_headerfixo.php"); ?>
+    <?php include_once ("../../components/cp_headerfixo.php"); ?>
 </script>
 
 </body>
