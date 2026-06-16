@@ -9,6 +9,7 @@ $_SESSION['id_utilizador'] = 1;
 $id_utilizador = $_SESSION['id_utilizador'];
 
 $stmt = mysqli_stmt_init($link);
+<<<<<<< HEAD
 
 $query = "
     SELECT 
@@ -18,6 +19,13 @@ $query = "
     INNER JOIN voluntarios v ON u.id_utilizadores = v.utilizadores_id_utilizadores
     WHERE u.id_utilizadores = ?
 ";
+=======
+// biografia está na tabela voluntarios (1-para-1 com utilizadores), não em utilizadores
+$query = "SELECT u.nome, v.biografia, u.cidade
+          FROM utilizadores u
+          JOIN voluntarios v ON v.utilizadores_id_utilizadores = u.id_utilizadores
+          WHERE u.id_utilizadores = ?";
+>>>>>>> 134051a049782fa09c4366491b73b1c420092a15
 
 if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);

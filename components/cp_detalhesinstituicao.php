@@ -6,7 +6,7 @@ if (isset($_GET["id"])) {
     require_once($_SERVER['DOCUMENT_ROOT'] . "/AQUI2/connections/connection.php");
     $link = new_db_connection(); // Create a new DB connection
     $stmt = mysqli_stmt_init($link); // create a prepared statement
-    $query = "SELECT id_instituiçcoes, nome, descricao, objetivos FROM instituicoes WHERE id_instituicao=?"; // Define the query
+    $query = "SELECT id_instituicoes, nome, descricao, objetivos FROM instituicoes WHERE id_instituicoes=?"; // Define the query
 
     if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
 
@@ -14,7 +14,7 @@ if (isset($_GET["id"])) {
         mysqli_stmt_bind_param($stmt, 'i', $id_instituicao);
 
         mysqli_stmt_execute($stmt); // Execute the prepared statement
-        mysqli_stmt_bind_result($stmt, $id_instituiçcoes, $nome, $descricao, $objetivos); // Bind results
+        mysqli_stmt_bind_result($stmt, $id_instituicoes, $nome, $descricao, $objetivos); // Bind results
 
         while (mysqli_stmt_fetch($stmt)) {// Fetch values
             ?>

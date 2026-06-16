@@ -9,7 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome'];
     $username = $_POST['username'];
     $email = $_POST['email'];
+<<<<<<< HEAD
     $telemovel = $_POST['telemovel'];
+=======
+    // NOTA: não existe coluna de telemóvel em utilizadores nem em voluntarios.
+    // A coluna mais próxima (utilizadores.contacto) é tinyint, não cabe um número de telefone.
+    // Falta decidir com a equipa como alterar a BD antes disto poder ser gravado.
+    $data_nascimento = $_POST['data_nascimento'];
+>>>>>>> 134051a049782fa09c4366491b73b1c420092a15
     $cidade = $_POST['cidade'];
 
     $biografia = $_POST['biografia'];
@@ -18,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $competencias = $_POST['competencias'];
     $interesses = $_POST['interesses'];
 
+<<<<<<< HEAD
     $id_utilizador_logado = isset($_SESSION['id_utilizador']) ? $_SESSION['id_utilizador'] : 1;
 
     // --- 2. TRATAR DA FOTOGRAFIA (SE TIVER SIDO ENVIADA UMA NOVA) ---
@@ -77,6 +85,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // --- 5. SUCESSO! REDIRECIONAR DE VOLTA ---
         header("Location: perfil.html");
+=======
+    // nomeutilizador, email e cidade vivem em utilizadores; biografia e data_nascimento em voluntarios
+    $stmt = mysqli_stmt_init($link);
+    $query = "UPDATE utilizadores SET nome = ?, nomeutilizador = ?, email = ?, cidade = ? WHERE id_utilizadores = ?";
+
+    $stmt2 = mysqli_stmt_init($link);
+    $query2 = "UPDATE voluntarios SET biografia = ?, data_nascimento = ? WHERE utilizadores_id_utilizadores = ?";
+
+    if (mysqli_stmt_prepare($stmt, $query) && mysqli_stmt_prepare($stmt2, $query2)) {
+        mysqli_stmt_bind_param($stmt, 'ssssi', $nome, $username, $email, $cidade, $id_utilizador);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+
+        mysqli_stmt_bind_param($stmt2, 'ssi', $biografia, $data_nascimento, $id_utilizador);
+        mysqli_stmt_execute($stmt2);
+        mysqli_stmt_close($stmt2);
+
+        // 3. Redirecionar a Ariana de volta para a página do Perfil HTML!
+        header("Location: ../pages/perfil/perfil.html");
+>>>>>>> 134051a049782fa09c4366491b73b1c420092a15
         exit;
     } else {
         echo "Erro ao atualizar voluntários: " . mysqli_error($link);

@@ -44,7 +44,7 @@
 
         <label class="field-label" for="nascimento">Data de Nascimento*</label>
         <div class="input-wrap">
-          <input type="text" id="nascimento" placeholder="dd/mm/aaaa" />
+          <input type="text" id="nascimento" placeholder="dd/mm/aaaa" inputmode="numeric" maxlength="10" />
         </div>
         <span class="error-msg" id="err-nascimento">Campo obrigatório.</span>
 
@@ -63,11 +63,11 @@
         <span class="error-msg" id="err-competencias">Campo obrigatório.</span>
 
         <label class="field-label">Interesses</label>
-        <div class="tags-wrap">
+        <div class="tags-wrap" id="interesses-wrap">
           <span class="tag">Limpeza</span>
           <span class="tag">Banco Alimentar</span>
           <span class="tag">Natureza</span>
-          <button class="tag-add" type="button">+ Adicionar interesse</button>
+          <button class="tag-add" type="button" id="btn-add-interesse">+ Adicionar interesse</button>
         </div>
 
         <label class="field-label" for="email">E-mail*</label>
@@ -94,6 +94,18 @@
       <p class="back-link">
         <a href="../../index.html">← Voltar ao início</a>
       </p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modal-interesse">
+  <div class="modal-card">
+    <p class="modal-titulo">Novo interesse</p>
+    <input type="text" class="modal-input" id="input-novo-interesse" placeholder="Ex: Animais" />
+    <span class="error-msg" id="err-novo-interesse">Só são permitidas letras.</span>
+    <div class="modal-botoes">
+      <button type="button" class="btn-modal btn-modal-cancelar" id="btn-cancelar-interesse">Cancelar</button>
+      <button type="button" class="btn-modal btn-modal-confirmar" id="btn-confirmar-interesse">Adicionar</button>
     </div>
   </div>
 </div>
