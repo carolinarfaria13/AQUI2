@@ -44,7 +44,7 @@ mysqli_close($link);
       <div class="hero-bar">
         <a href="../auth/logout.php" class="hero-logout">Sair</a>
         <img src="../../assets/logotipobranco.png" alt="AQUI" class="hero-logo" />
-        <div class="hero-avatar-wrap"><div class="hero-avatar"><img src="../../assets/intituicao.png" alt="Perfil" style="transform:scale(1.18);" /></div></div>
+        <a class="hero-avatar-wrap" href="../perfil/editarperfilinstituicao.html"><div class="hero-avatar"><img src="../../assets/intituicao.png" alt="Perfil" style="transform:scale(1.18);" /></div></a>
       </div>
     </div>
   </div>
