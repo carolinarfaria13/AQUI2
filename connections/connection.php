@@ -25,3 +25,7 @@ function new_db_connection()
 // Return the link
     return $local_link;
 }
+
+
+
+
