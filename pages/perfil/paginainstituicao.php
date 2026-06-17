@@ -29,7 +29,7 @@ if (isset($_GET["id"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="../../CSS/estilosGERAL.css">
     <link rel="stylesheet" href="../../CSS/estilosCAROLINAeSERGIA.css">
-    <title>Apoio ao Emigrante</title>
+    <title><?php echo $nome_instituicao; ?></title>
 </head>
 <body>
 
@@ -48,10 +48,10 @@ g
 
     <section class="section-projetos">
         <h2>Projetos em Curso</h2>
-
         <ul class="card-list">
-            <?php include_once ("../../components/cp_listaprojetos.php"); ?>
+            <?php $limite_projetos = 2; include_once ("../../components/cp_listaprojetos.php"); ?>
         </ul>
+        <button class="btn" onclick="window.location='../projetos/paginaprojetos.php'" style="margin-top: 12px;">Ver mais</button>
     </section>
 
     <section class="section-contactos">
