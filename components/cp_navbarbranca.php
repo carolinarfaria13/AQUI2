@@ -12,6 +12,9 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
     mysqli_stmt_execute($stmt); // Execute the prepared statement
     mysqli_stmt_bind_result($stmt, $nome, $foto_utilizador); // Bind results
     mysqli_stmt_fetch($stmt); // só precisamos de UMA linha: o utilizador atual
+    // Normaliza: a coluna tem valores inconsistentes na BD (uns só o nome do
+    // ficheiro, outros já com um caminho relativo incluído).
+    $foto_utilizador = basename($foto_utilizador ?? '');
 
     ?>
     <img src="../../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
@@ -19,7 +22,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
         <img src="../../assets/logotipobranco.png" class="logo-icon"/>
     </div>
     <div class="nav-avatar">
-        <img src="../assets/<?php echo $foto_utilizador; ?>" />
+        <img src="../../assets/<?php echo $foto_utilizador; ?>" onerror="this.src='../../assets/voluntarioperfil.png';" />
     </div>
     <?php
 
