@@ -54,7 +54,3 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error("Erro de comunicação com o servidor:", erro);
         });
 });
-
-function acaoBotao(nomeDoBotao) {
-    console.log("Clicaste no botão: " + nomeDoBotao);
-}
