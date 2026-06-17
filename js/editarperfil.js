@@ -146,3 +146,69 @@ document.getElementById('input-foto').addEventListener('change', function(e) {
         reader.readAsDataURL(e.target.files[0]);
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Página de edição pronta para carregar dados...");
+
+    // Vai buscar os dados atualizados à base de dados
+    fetch('perfil.php?nocache=' + new Date().getTime())
+        .then(function(resposta) {
+            return resposta.json();
+        })
+        .then(function(dados) {
+
+            // Preenche as caixas com os dados reais do utilizador
+            var inputNome = document.getElementById('nome');
+            if (inputNome && dados.nome) inputNome.value = dados.nome;
+
+            var inputUsername = document.getElementById('username');
+            if (inputUsername && dados.username) inputUsername.value = dados.username;
+
+            var inputBiografia = document.getElementById('biografia');
+            if (inputBiografia && dados.biografia) inputBiografia.value = dados.biografia;
+
+            var inputEmail = document.getElementById('email');
+            if (inputEmail && dados.email) inputEmail.value = dados.email;
+
+            var inputTelemovel = document.getElementById('telemovel');
+            if (inputTelemovel && dados.telemovel) inputTelemovel.value = dados.telemovel;
+
+            var inputDataNascimento = document.getElementById('data_nascimento');
+            if (inputDataNascimento && dados.data_nascimento) inputDataNascimento.value = dados.data_nascimento;
+
+            // ADICIONA ESTAS LINHAS:
+            // COMPETÊNCIAS (Caixa de texto normal)
+            var inputCompetencias = document.getElementById('competencias');
+            if (inputCompetencias && dados.competencias) {
+                inputCompetencias.value = dados.competencias;
+            }
+
+            // INTERESSES (Sistema de Tags)
+            var inputInteresses = document.getElementById('interesses-hidden');
+            var containerInteresses = document.getElementById('interesses-container');
+
+            if (inputInteresses && containerInteresses && dados.interesses) {
+                // 1. Preenche o campo escondido para o PHP poder guardar depois
+                inputInteresses.value = dados.interesses;
+
+                // 2. Limpa a área visual e cria as "bolhas"
+                containerInteresses.innerHTML = '';
+
+                // Transforma "Limpeza,Natureza" numa lista e cria uma bolha para cada um
+                var listaInteresses = dados.interesses.split(',');
+                listaInteresses.forEach(function(interesse) {
+                    var textoInteresse = interesse.trim();
+                    if (textoInteresse !== "") {
+                        var tag = document.createElement('span');
+                        tag.className = 'tag-pill';
+                        tag.textContent = textoInteresse;
+                        // Opcional: Adicionar clique para remover a tag
+                        tag.onclick = function() { this.remove(); atualizarInputEscondido(); };
+                        containerInteresses.appendChild(tag);
+                    }
+                });
+            }
+        .catch(function(erro) {
+            console.error("Erro ao carregar dados para edição:", erro);
+        });
+});

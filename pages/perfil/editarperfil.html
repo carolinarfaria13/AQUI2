@@ -44,34 +44,34 @@
             </label>
         </div>
 
-        <div class="form-group mb-3">
-            <label class="form-label">Nome</label>
-            <input type="text" class="custom-input" id="nome" name="nome" value="Ariana Lopes" placeholder="O teu nome">
+        <div class="mb-4">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control custom-input" id="nome" name="nome" value="Ariana Lopes">
         </div>
 
-        <div class="form-group mb-3">
-            <label class="form-label">Nome de Utilizador</label>
-            <input type="text" class="custom-input" id="username" name="username" value="ariana123" placeholder="Nome de Utilizador"
+        <div class="mb-4">
+            <label for="username" class="form-label">Nome de Utilizador</label>
+            <input type="text" class="form-control custom-input" id="username" name="username" value="ariana123">
         </div>
 
-        <div class="form-group mb-3">
-            <label class="form-label">Biografia</label>
-            <textarea name="biografia" class="form-control custom-textarea" rows="4">Olá, eu sou a Ariana, tenho 26 anos e desde pequena que tenho interesse em ajudar os outros.</textarea>
+        <div class="mb-4">
+            <label for="biografia" class="form-label">Biografia</label>
+            <textarea class="form-control custom-textarea" id="biografia" name="biografia" rows="4">Olá, eu sou a Ariana, tenho 26 anos e desde pequena que tenho interesse em ajudar os outros.</textarea>
         </div>
 
-        <div class="form-group mb-3">
-            <label class="form-label">E-mail</label>
-            <input type="email" name="email" class="form-control custom-input" placeholder="ariana123@gmail.com" value="ariana123@gmail.com">
+        <div class="mb-4">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control custom-input" id="email" name="email" value="">
         </div>
 
-        <div class="form-group mb-3">
-            <label class="form-label">Número de Telemóvel</label>
-            <input type="tel" name="telemovel" class="form-control custom-input" placeholder="O teu número" value="976556366">
+        <div class="mb-4">
+            <label for="telemovel" class="form-label">Número de Telemóvel</label>
+            <input type="text" class="form-control custom-input" id="telemovel" name="telemovel" value="">
         </div>
 
-        <div class="form-group mb-3">
-            <label class="form-label">Data de Nascimento</label>
-            <input type="text" name="data_nascimento" class="form-control custom-input" placeholder="20/04/2000" value="20/04/2000">
+        <div class="mb-4">
+            <label for="data_nascimento" class="form-label">Data de Nascimento</label>
+            <input type="date" class="form-control custom-input" id="data_nascimento" name="data_nascimento" value="">
         </div>
 
         <div class="form-group mb-3">
@@ -80,16 +80,15 @@
         </div>
 
         <div class="form-group mb-4">
-            <label class="form-label">Competências</label>
-            <textarea name="competencias" class="form-control custom-textarea" rows="2">Criatividade, Eficiência, Pontualidade, Flexibilidade...</textarea>
+            <label class="form-label" for="competencias">Competências</label>
+            <textarea id="competencias" name="competencias" class="form-control custom-textarea" rows="2"></textarea>
         </div>
 
         <div class="form-group mb-4">
             <label class="form-label">Interesses</label>
 
-            <input type="hidden" name="interesses" id="interesses-hidden" value="Limpeza,Banco Alimentar,Natureza">
-
             <input type="hidden" name="interesses" id="interesses-hidden" value="">
+
             <div class="tags-container justify-content-center mb-3" id="interesses-container">
             </div>
 

@@ -17,7 +17,6 @@ if (mysqli_stmt_prepare($stmt, $query)) {
 
     while (mysqli_stmt_fetch($stmt)) {
 
-        // Garante que o caminho da foto está correto e aplica o truque da cache!
         $caminho_foto = (strpos($foto_utilizador, '../../') === 0) ? $foto_utilizador : "../../assets/basededados/" . $foto_utilizador;
         $foto_com_cache = $caminho_foto . '?t=' . time();
 
