@@ -2,6 +2,11 @@
 session_start();
 require_once(__DIR__ . "/../../connections/connection.php");
 
+if (!isset($_SESSION['id_utilizador'])) {
+    header("Location: ../../index.html");
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titulo = $_POST['nome'] ?? '';
     $sinopse = $_POST['sinopse'] ?? '';
@@ -10,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data_inicio = $_POST['periodo-de'] ?? '';
     $data_fim = $_POST['periodo-ate'] ?? '';
     $atividades = $_POST['atividades'] ?? '';
-    $id_instituicao = $_SESSION['id_instituicao'] ?? 1;
 
     // upload da capa
     $capa = '';
@@ -22,6 +26,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $link = new_db_connection();
+
+    $stmt_inst = mysqli_stmt_init($link);
+    mysqli_stmt_prepare($stmt_inst, "SELECT instituicoes_id_instituicoes FROM utilizadores WHERE id_utilizadores = ?");
+    mysqli_stmt_bind_param($stmt_inst, 'i', $_SESSION['id_utilizador']);
+    mysqli_stmt_execute($stmt_inst);
+    mysqli_stmt_bind_result($stmt_inst, $id_instituicao);
+    mysqli_stmt_fetch($stmt_inst);
+    mysqli_stmt_close($stmt_inst);
+
     $stmt = mysqli_stmt_init($link);
     $query = "INSERT INTO projetos (titulo, sinopse, descricao, objetivos, data_inicio, data_fim, atividades, capa, instituicoes_id_instituicoes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 

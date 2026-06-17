@@ -12,19 +12,21 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt, $nome, $foto_utilizador);
     mysqli_stmt_fetch($stmt);
+    // Normaliza: a coluna tem valores inconsistentes na BD (uns só o nome do
+    // ficheiro, outros já com um caminho relativo incluído) — fica só o nome
+    // do ficheiro, e o caminho certo é sempre construído aqui.
+    $foto_utilizador = basename($foto_utilizador ?? '');
 
     ?>
-    <img src="/AQUI2/assets/setaback1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
-
+    <img src="../../assets/setaback1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
     <div class="nav-logo">
-        <img src="/AQUI2/assets/logotipo.png" class="logo-icon"/>
+        <img src="../../assets/logotipo.png" class="logo-icon"/>
     </div>
-
-    <a href="perfil.php" class="nav-avatar" style="text-decoration: none;">
-        <img src="/AQUI2/assets/<?php echo $foto_utilizador; ?>"
+    <a href="../perfil/perfil.php" class="nav-avatar" style="text-decoration: none;">
+        <img src="../../assets/<?php echo $foto_utilizador; ?>"
              id="perfil-img-pequena"
              class="top-profile-img"
-             onerror="this.src='/AQUI2/assets/voluntarioperfil.png';"
+             onerror="this.src='../../assets/voluntarioperfil.png';"
              alt="Perfil">
     </a>
 

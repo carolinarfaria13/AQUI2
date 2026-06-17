@@ -15,20 +15,19 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt, $nome, $foto_utilizador);
     mysqli_stmt_fetch($stmt);
+    // Normaliza: a coluna tem valores inconsistentes na BD (uns só o nome do
+    // ficheiro, outros já com um caminho relativo incluído).
+    $foto_utilizador = basename($foto_utilizador ?? '');
 
     // Caminho da foto (ajusta se a pasta estiver noutro nível)
     $caminho_foto = (!empty($foto_utilizador)) ? "../../assets/" . $foto_utilizador : "../../assets/voluntarioperfil.png";
     ?>
-
-    <!-- Esta é a estrutura da tua nav-fixa -->
-    <img src="../../assets/setaback1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
+    <img src="../../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
 
     <div class="nav-logo">
-        <img src="../../assets/logotipo.png" class="logo-icon"/>
+        <img src="../../assets/logotipobranco.png" class="logo-icon"/>
     </div>
 
-    <!-- Link para perfil.php -->
-    <!-- Muda esta linha no ficheiro cp_navbarbranca.php -->
     <a href="../perfil/perfil.php" class="top-profile-container" style="text-decoration: none; cursor: pointer;">
         <img id="perfil-img-pequena"
              src="<?php echo htmlspecialchars($caminho_foto); ?>"

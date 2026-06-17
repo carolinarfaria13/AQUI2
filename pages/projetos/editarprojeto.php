@@ -16,6 +16,7 @@
         <?php include_once ("../../components/cp_navbarbranca.php"); ?>
     </nav>
 </header>
+<h1 class="header-title">Editar Projeto</h1>
 
 <!-- CONTEÚDO PRINCIPAL -->
 <main class="maineditarprojeto">
@@ -114,12 +115,22 @@ Os participantes podem envolver-se em atividades educativas e interativas, contr
 </main>
 
 <!-- BOTTOM NAV -->
-<nav>
-    <img src="../../assets/projetos_bottombar1.png" />
-    <img src="../../assets/instituicoes_bottombar1.png" />
-    <img src="../../assets/homepage_bottombar1.png" />
-    <img src="../../assets/forum_bottombar1.png" />
-    <img src="../../assets/perfil_bottombar1.png"/>
+<nav class="bb-bar">
+    <a href="paginaprojetos.php" class="bb-item">
+        <img src="../../assets/projetos_bottombar1.png" alt="projetos" />
+    </a>
+    <a href="../instituicoes/paginainstituicoes.php" class="bb-item">
+        <img src="../../assets/instituicoes_bottombar1.png" alt="instituicoes" />
+    </a>
+    <a href="../homepage/homepage-instituicao.php" class="bb-item">
+        <img src="../../assets/homepage_bottombar1.png" alt="homepage" />
+    </a>
+    <a href="../forum/forum.php" class="bb-item">
+        <img src="../../assets/forum_bottombar1.png" alt="forum" />
+    </a>
+    <a href="../perfil/editarperfilinstituicao.php" class="bb-item">
+        <img src="../../assets/perfil_bottombar1.png" alt="perfil" />
+    </a>
 </nav>
 
 </body>
