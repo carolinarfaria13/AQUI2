@@ -532,3 +532,7 @@
     color: #FFB443;
 }
 
+.section-projetos .btn {
+    margin-top: 12px;
+    display: block;
+}
