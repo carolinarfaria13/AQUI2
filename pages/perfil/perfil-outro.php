@@ -1,0 +1,98 @@
+<?php
+// Define que esta página pertence ao perfil (para a bottombar saber qual marcar como ativa)
+$pagina_ativa = 'perfil';
+?>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil de outro utilizador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../CSS/estilosGERAL.css">
+    <link rel="stylesheet" href="../../CSS/cssMARIANA.css">
+</head>
+<body>
+
+<nav class="nav-fixa">
+    <?php include_once("../../components/cp_navbarbranca.php"); ?>
+</nav>
+
+<main class="main-perfis">
+    <div class="greeting">
+        <h1>Inês Castro</h1>
+        <p>Voluntária ativa</p>
+    </div>
+
+    <div class="profile-card">
+        <div class="large-profile-container">
+            <img src="../../assets/outroutilizador.png" alt="Ariana" class="large-profile-img">
+            <div class="star-badge-large-outro"><i class="fas fa-star"></i></div>
+        </div>
+
+        <div class="stats-row">
+            <span><i class="far fa-clock"></i> 100h</span>
+            <div class="divider"></div>
+            <span>20 projetos</span>
+        </div>
+        <hr class="stats-hr">
+        <div class="stats-row">
+            <span><i class="fas fa-star"></i> 100 pontos</span>
+            <div class="divider"></div>
+            <span><i class="fas fa-map-marker-alt"></i> Porto</span>
+            <div class="divider"></div>
+            <span>22 anos</span>
+        </div>
+
+        <p class="bio-text mt-3 mb-0">
+            Olá, eu sou a Inês, tenho 20 anos e adoro ocupar o meu tempo livre a fazer voluntariado.
+        </p>
+    </div>
+
+    <div class="impact-card">
+        <h2 class="impact-title">Impacto</h2>
+        <div class="impact-grid">
+            <div class="impact-pill">
+                <img src="../../assets/arvore.png" alt="Árvore" style="width: 20px; height: 20px; margin-right: 8px;"> 25
+            </div>
+            <div class="impact-pill">
+                <img src="../../assets/pessoas.png" alt="Pessoas" style="width: 20px; height: 20px; margin-right: 8px;"> 100
+            </div>
+            <div class="impact-pill">
+                <img src="../../assets/dinheiro.png" alt="Dinheiro" style="width: 20px; height: 20px; margin-right: 8px;"> 300€
+            </div>
+        </div>
+    </div>
+
+    <div class="tags-section">
+        <h3 class="section-subtitle">Competências</h3>
+        <div class="tags-container">
+            <span class="tag-pill">Criatividade</span>
+            <span class="tag-pill">Flexibilidade</span>
+            <span class="tag-pill">Pontualidade</span>
+            <span class="tag-pill">Eficiência</span>
+            <span class="tag-pill">Trabalho em equipa</span>
+        </div>
+    </div>
+
+    <div class="form-group mb-4">
+        <h2 class="section-subtitle">Projetos</h2>
+        <div class="tags-container justify-content-center mb-3">
+            <span class="tag-pill">Eco-Escolas</span>
+            <span class="tag-pill">BioLiving</span>
+            <span class="tag-pill">Plantar o Futuro</span>
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn-ver-mais" id="btn-ver-mais-projetos">+ Ver mais</button>
+        </div>
+    </div>
+</main>
+
+<?php include_once("../../components/cp_bottombar.php"); ?>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../js/perfil-outro.js"></script>
+</body>
+</html>

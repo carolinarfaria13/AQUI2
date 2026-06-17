@@ -417,3 +417,31 @@
 .animacao-esconder {
     animation: saltinho-reverso 0.3s ease-in forwards;
 }
+
+/* --- Secção Extra: Redes Sociais e Website --- */
+.seccao-info-extra {
+    text-align: left; /* Força o texto à esquerda, anulando centros da página */
+    padding: 10px 24px 90px 24px; /* O 90px em baixo evita que a navbar tape o texto */
+    width: 100%;
+}
+
+.seccao-info-extra h2 {
+    color: var(--verdeescuro);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 24px;
+    margin-bottom: 4px;
+}
+
+.seccao-info-extra {
+    text-align: left;
+    padding: 10px 0px 90px 0px;
+    width: 100%;
+}
+
+.seccao-info-extra a.link-site {
+    color: var(--verdeclaro);
+    font-size: 0.95rem;
+    text-decoration: underline;
+    display: inline-block;
+}

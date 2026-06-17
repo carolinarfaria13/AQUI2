@@ -32,14 +32,19 @@
 </div>
 <main class="edit-main-card" class="main-perfis">
 
-    <div class="edit-photo-container">
-        <img src="../../assets/intituicao.png" alt="Ariana" class="edit-photo-img">
-        <div class="camera-icon-badge">
-            <i class="fas fa-camera"></i>
-        </div>
+    <div class="text-center">
+        <label class="edit-photo-container" style="position: relative; cursor: pointer; margin-bottom: 20px; display: inline-block;">
+            <input type="file" name="foto_perfil_inst" id="input-foto-inst" style="display: none;" accept="image/*">
+
+            <img src="../../assets/intituicao.png" onerror="this.src='../../assets/intituicao.png';" alt="Logo" class="edit-photo-img" id="preview-foto-inst">
+
+            <div class="camera-icon-badge">
+                <i class="fas fa-camera"></i>
+            </div>
+        </label>
     </div>
 
-    <form class="edit-form">
+    <form class="edit-form" action="atualizarperfilinstituicao.php" method="POST" enctype="multipart/form-data">
         <div class="form-group mb-3">
             <label class="form-label">Nome</label>
             <input type="text" class="form-control custom-input" placeholder="Associação de Apoio ao Imigrante" value="Associação de Apoio ao Imigrante">

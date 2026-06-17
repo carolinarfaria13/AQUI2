@@ -58,3 +58,36 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    var inputFotoInst = document.getElementById('input-foto-inst');
+
+    if (inputFotoInst) {
+        inputFotoInst.addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    var imgPreview = document.getElementById('preview-foto-inst');
+                    if (imgPreview) {
+                        imgPreview.src = event.target.result;
+                    }
+                };
+
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+    }
+});
+
+// Exemplo se estiveres a receber "dados.foto_perfil" do teu PHP
+if (dados.foto_perfil && dados.foto_perfil !== "") {
+    var imgGrande = document.getElementById('perfil-img-grande');
+    var imgPequena = document.getElementById('perfil-img-pequena'); // se tiveres na navbar
+
+    // Adicionamos um timestamp (cache buster) para obrigar o browser a mostrar a foto nova
+    var fotoAtualizada = dados.foto_perfil + '?t=' + new Date().getTime();
+
+    if (imgGrande) imgGrande.src = fotoAtualizada;
+    if (imgPequena) imgPequena.src = fotoAtualizada;
+}
+
