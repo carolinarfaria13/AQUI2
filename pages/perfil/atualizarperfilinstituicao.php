@@ -1,12 +1,24 @@
 <?php
 session_start();
 require_once("../../connections/connection.php");
+
+if (!isset($_SESSION['id_utilizador'])) {
+    header("Location: ../../index.html");
+    exit;
+}
+
 $link = new_db_connection();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // NOTA: Usa o ID da sessão se houver, ou '1' para testes (tal como fizemos no voluntário)
-    $id_instituicao = isset($_SESSION['id_instituicao']) ? $_SESSION['id_instituicao'] : 1;
+    // utilizadores.instituicoes_id_instituicoes é a FK que liga ao dono da instituição
+    $stmt_inst = mysqli_stmt_init($link);
+    mysqli_stmt_prepare($stmt_inst, "SELECT instituicoes_id_instituicoes FROM utilizadores WHERE id_utilizadores = ?");
+    mysqli_stmt_bind_param($stmt_inst, 'i', $_SESSION['id_utilizador']);
+    mysqli_stmt_execute($stmt_inst);
+    mysqli_stmt_bind_result($stmt_inst, $id_instituicao);
+    mysqli_stmt_fetch($stmt_inst);
+    mysqli_stmt_close($stmt_inst);
 
     // Verifica se foi enviada uma imagem e se não tem erros
     if (isset($_FILES['foto_perfil_inst']) && $_FILES['foto_perfil_inst']['error'] === UPLOAD_ERR_OK) {

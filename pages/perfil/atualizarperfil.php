@@ -4,6 +4,12 @@ ini_set('display_errors', 1);
 
 session_start();
 require_once("../../connections/connection.php");
+
+if (!isset($_SESSION['id_utilizador'])) {
+    header("Location: ../../index.html");
+    exit;
+}
+
 $link = new_db_connection();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -23,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $data_nascimento = $_POST['data_nascimento'];
     }
 
-    $id_utilizador_logado = $_SESSION['id_utilizador'] ?? 1;
+    $id_utilizador_logado = $_SESSION['id_utilizador'];
 
     // 2. Upload da Foto (Simplificado e com verificações)
     $caminho_bd = null;
