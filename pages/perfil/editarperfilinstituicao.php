@@ -54,7 +54,7 @@ mysqli_close($link);
 </head>
 <body class="edit-profile-body">
 
-<nav class="nav-fixav edit-top-wrapper" style="background-color: #5B623A;">
+<nav class="nav-fixav">
     <?php include_once("../../components/cp_navbarbranca.php"); ?>
 </nav>
 
