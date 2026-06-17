@@ -28,9 +28,12 @@
             <input type="text" name="sinopse" placeholder="Resumo curto do projeto (1 frase)" required />
         </div>
 
-        <div class="periodo-row">
-            <input type="date" name="periodo-de" required />
-            <input type="date" name="periodo-ate" required />
+        <div class="form">
+            <label>Período</label>
+            <div class="periodo-row">
+                <input type="date" name="periodo-de" required />
+                <input type="date" name="periodo-ate" required />
+            </div>
         </div>
 
         <div class="form">
@@ -67,7 +70,7 @@
 </main>
 
 <nav>
-    <?php include_once("../../components/cp_bottombar.php"); ?>
+    <?php $pagina_ativa = 'projetos'; include_once ("../../components/cp_bottombar.php"); ?>
 </nav>
 <script src="../../js/main.js"></script>
 </body>

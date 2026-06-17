@@ -49,7 +49,7 @@ if (isset($_GET["id"])) {
         <span class="progress-label">Junho</span>
     </div>
 </div>
-
+<br>
 <!-- TÍTULO -->
 <div class="titulo-section">
     <div class="titulo-sub">Projeto</div>

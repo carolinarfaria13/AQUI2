@@ -5,21 +5,24 @@ $link = new_db_connection();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // --- 1. APANHAR TODOS OS DADOS DO FORMULÁRIO ---
-    $nome = $_POST['nome'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $telemovel = $_POST['telemovel'];
-    $cidade = $_POST['cidade'];
-    $biografia = $_POST['biografia'];
-    $data_nascimento_pt = $_POST['data_nascimento'];
-    $data_nascimento = date('Y-m-d', strtotime(str_replace('/', '-', $data_nascimento_pt)));
-    $competencias = $_POST['competencias'];
-    $interesses = $_POST['interesses'];
+    // --- 1. APANHAR TODOS OS DADOS DO FORMULÁRIO (Com proteção) ---
+    // O '??' garante que se o campo falhar, ele assume vazio e não rebenta o código
+    $nome = $_POST['nome'] ?? '';
+    $username = $_POST['username'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $telemovel = $_POST['telemovel'] ?? '';
+    $cidade = $_POST['cidade'] ?? '';
+    $biografia = $_POST['biografia'] ?? '';
+    $competencias = $_POST['competencias'] ?? '';
+    $interesses = $_POST['interesses'] ?? '';
+
+    // Tratamento seguro da data de nascimento
+    $data_nascimento_pt = $_POST['data_nascimento'] ?? '';
+    $data_nascimento = !empty($data_nascimento_pt) ? date('Y-m-d', strtotime(str_replace('/', '-', $data_nascimento_pt))) : NULL;
 
     $id_utilizador_logado = isset($_SESSION['id_utilizador']) ? $_SESSION['id_utilizador'] : 1;
 
-    // --- 2. TRATAR DA FOTOGRAFIA (SE TIVER SIDO ENVIADA UMA NOVA) ---
+    // --- 2. TRATAR DA FOTOGRAFIA ---
     $caminho_bd = null;
 
     if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] === UPLOAD_ERR_OK) {

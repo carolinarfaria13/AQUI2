@@ -4,6 +4,39 @@
     box-sizing: border-box;
 }
 
+/* ── Phone frame (desktop) ── */
+.phone {
+    background: var(--cream);
+    border-radius: 36px;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.18);
+    width: 390px;
+    min-height: 820px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* ── Mobile: fills the entire screen ── */
+@media (max-width: 480px) {
+    body { background: var(--cream); align-items: flex-start; }
+    .phone {
+        width: 100%;
+        min-height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+    }
+}
+
+/* ── Screens ── */
+.screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.screen.hidden { display: none; }
+
 body {
     font-family: 'Nunito', sans-serif;
     background-color: #FFF7E1;
