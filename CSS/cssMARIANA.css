@@ -104,15 +104,15 @@
 .large-profile-container {
     position: absolute !important;
     top: -40px !important; /* Puxa para cima */
-    right: 12px !important; /* Puxa para a direita, saindo do cartão */
+    right: 5px !important; /* Puxa para a direita, saindo do cartão */
     width: 120px !important; /* Tem de ser igual à imagem! */
     height: 120px !important; /* Tem de ser igual à imagem! */
     z-index: 5 !important;
 }
 
 .large-profile-img {
-    width: 120px !important;
-    height: 120px !important;
+    width: 110px !important;
+    height: 110px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
     border: 4px solid var(--verdeescuro) !important; /* A cor creme é que faz o recorte! */
@@ -139,19 +139,20 @@
 }
 
 .star-badge-large-outro {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    width: 30px;
-    height: 30px;
-    background-color: var(--verdeclaro);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: var(--laranja);
-    border: 2px solid var(--laranja);
+    position: absolute !important;
+    bottom: 5px !important;
+    right: 5px !important;
+    width: 32px !important;
+    height: 32px !important;
+    background-color: var(--verdeclaro) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    color: var(--laranja) !important;
+    border: 2px solid var(--laranja) !important; /* Ajustei a borda para combinar com o cartão */
+    z-index: 10 !important; /* Isto garante que fica SEMPRE por cima */
 }
 
 .stats-row {
