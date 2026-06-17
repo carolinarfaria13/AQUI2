@@ -3,14 +3,8 @@ session_start();
 require_once("../../connections/connection.php");
 $link = new_db_connection();
 
-// A ÚNICA ALTERAÇÃO NECESSÁRIA:
-// Se não existir sessão, redirecionamos ou paramos (não force o 1 em produção)
-if (!isset($_SESSION['id_utilizador'])) {
-    echo json_encode(["erro" => "Utilizador não autenticado"]);
-    exit;
-}
-
-$id_utilizador = $_SESSION['id_utilizador'];
+// Se não existir sessão, assume o ID 1 para efeitos de teste (tal como fizeste no atualizar_perfil.php)
+$id_utilizador = isset($_SESSION['id_utilizador']) ? $_SESSION['id_utilizador'] : 1;
 
 $stmt = mysqli_stmt_init($link);
 
