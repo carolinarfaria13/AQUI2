@@ -13,7 +13,7 @@
     <?php include_once("../../components/cp_navbar.php"); ?>
 </nav>
 
-<main>
+<main >
     <h1>Projetos</h1>
 
     <div class="search-container">

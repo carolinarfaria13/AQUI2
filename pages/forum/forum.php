@@ -39,7 +39,8 @@
     <h1>Fórum da Comunidade</h1>
     <h3 class="subtitle">Local onde as conversas geram impacto real</h3>
 </header>
-
+<br>
+<br>
 <main class="maininstituicao">
 
     <button class="btn" id="btnComentar">Cria o teu Tópico</button>
