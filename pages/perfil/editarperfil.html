@@ -32,7 +32,7 @@
 
 <main class="edit-main-card">
 
-    <form class="edit-form" action="atualizar_perfil.php" method="POST" enctype="multipart/form-data">
+    <form class="edit-form" action="atualizar_perfil.php" method="POST" enctype="multipart/form-data" onsubmit="forcarInteresses()">
 
         <div class="text-center">
             <label class="edit-photo-container" style="position: relative; cursor: pointer; margin-bottom: 20px; display: inline-block;">
@@ -76,7 +76,7 @@
 
         <div class="form-group mb-3">
             <label class="form-label">Cidade</label>
-            <input type="text" name="cidade" class="form-control custom-input" placeholder="Aveiro" value="Aveiro">
+            <input type="text" id="cidade" name="cidade" class="form-control custom-input" placeholder="A tua cidade" value="">
         </div>
 
         <div class="form-group mb-4">

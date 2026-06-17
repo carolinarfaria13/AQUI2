@@ -22,16 +22,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
 
+            var textoCidade = document.getElementById('perfil-cidade');
+            if (textoCidade && dados.cidade) {
+                textoCidade.textContent = dados.cidade;
+            }
 
             var elementoNome = document.getElementById('perfil-nome');
             if (elementoNome && dados.nome) {
                 elementoNome.textContent = "Olá, " + dados.nome;
             }
 
+            // Atualiza APENAS o texto, porque o ícone já está protegido no HTML!
             var elementoCidade = document.getElementById('perfil-cidade');
             if (elementoCidade && dados.cidade) {
-                // Usamos innerHTML para não apagar o ícone do mapa (fa-map-marker-alt)
-                elementoCidade.innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + dados.cidade;
+                elementoCidade.textContent = dados.cidade;
             }
 
             var elementoBiografia = document.getElementById('perfil-biografia');
