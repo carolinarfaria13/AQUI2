@@ -8,13 +8,16 @@ $tipo_utilizador = $_SESSION['tipo_utilizador'] ?? 'voluntario';
 $homepage_href = $tipo_utilizador === 'instituicao'
     ? '../homepage/homepage-instituicao.php'
     : '../homepage/homepage-voluntario.php';
+$perfil_href = $tipo_utilizador === 'instituicao'
+    ? '../perfil/perfilinstituicao.php'
+    : '../perfil/perfil.php';
 
 $itens_bottombar = [
     'projetos'     => ['icone' => 'projetos_bottombar1.png',     'href' => '../projetos/paginaprojetos.php'],
     'instituicoes' => ['icone' => 'instituicoes_bottombar1.png', 'href' => '../instituicoes/paginainstituicoes.php'],
     'homepage'     => ['icone' => 'homepage_bottombar1.png',     'href' => $homepage_href],
     'forum'        => ['icone' => 'forum_bottombar1.png',        'href' => '../forum/forum.php'],
-    'perfil'       => ['icone' => 'perfil_bottombar1.png',       'href' => '../perfil/perfil.html'],
+    'perfil'       => ['icone' => 'perfil_bottombar1.png',       'href' => $perfil_href],
 ];
 ?>
 <style>

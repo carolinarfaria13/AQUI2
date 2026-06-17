@@ -17,7 +17,10 @@ mysqli_stmt_execute($stmt);
 mysqli_stmt_bind_result($stmt, $nome, $foto);
 mysqli_stmt_fetch($stmt);
 mysqli_stmt_close($stmt);
-$foto = $foto !== '' ? $foto : 'voluntarioperfil.png';
+$foto = basename($foto ?? '');
+if ($foto === '') {
+    $foto = 'voluntarioperfil.png';
+}
 
 $projetos = [];
 $res = mysqli_query($link, "SELECT titulo, sinopse, capa FROM projetos ORDER BY id_projetos DESC LIMIT 2");
@@ -45,7 +48,7 @@ mysqli_close($link);
       <div class="hero-bar">
         <a href="../auth/logout.php" class="hero-logout">Sair</a>
         <img src="../../assets/logotipobranco.png" alt="AQUI" class="hero-logo" />
-        <div class="hero-avatar-wrap"><div class="hero-avatar"><img src="../../assets/<?php echo htmlspecialchars($foto); ?>" alt="Perfil" /></div><div class="hero-star-badge"><img src="../../assets/estrela_pontos.png" alt="star" /></div></div>
+        <a class="hero-avatar-wrap" href="../perfil/perfil.php"><div class="hero-avatar"><img src="../../assets/<?php echo htmlspecialchars($foto); ?>" alt="Perfil" onerror="this.src='../../assets/voluntarioperfil.png';" /></div><div class="hero-star-badge"><img src="../../assets/estrela_pontos.png" alt="star" /></div></a>
       </div>
     </div>
   </div>

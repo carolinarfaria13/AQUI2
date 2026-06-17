@@ -1,9 +1,14 @@
 <?php
 session_start();
 require_once("../../connections/connection.php");
-$link = new_db_connection();
 
-$id_utilizador = $_SESSION['id_utilizador'] ?? 1;
+if (!isset($_SESSION['id_utilizador'])) {
+    header("Location: ../../index.html");
+    exit;
+}
+
+$link = new_db_connection();
+$id_utilizador = $_SESSION['id_utilizador'];
 
 // Inicializa variáveis para evitar erros de "undefined"
 $nomeBD = $usernameBD = $emailBD = $telemovelBD = $cidadeBD = $fotoBD = "";
@@ -26,7 +31,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_result($stmt, $nomeBD, $cidadeBD, $usernameBD, $emailBD, $telemovelBD, $fotoBD, $biografiaBD, $dataNascimentoBD, $competenciasBD, $interessesBD);
     if (mysqli_stmt_fetch($stmt)) {
         if (!empty($fotoBD)) {
-            $caminho_foto = $fotoBD;
+            $caminho_foto = "../../assets/" . basename($fotoBD);
         }
     }
     mysqli_stmt_close($stmt);

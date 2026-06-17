@@ -13,7 +13,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-
-function acaoBotao(nomeDoBotao) {
-    console.log("Clicaste no botão: " + nomeDoBotao);
-}

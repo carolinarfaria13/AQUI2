@@ -1,9 +1,14 @@
 <?php
 session_start();
 require_once("../../connections/connection.php");
-$link = new_db_connection();
 
-$id_utilizador = isset($_SESSION['id_utilizador']) ? $_SESSION['id_utilizador'] : 1;
+if (!isset($_SESSION['id_utilizador'])) {
+    header("Location: ../../index.html");
+    exit;
+}
+
+$link = new_db_connection();
+$id_utilizador = $_SESSION['id_utilizador'];
 
 $nomeBD = "Voluntário";
 $moradaBD = "Cidade não definida";
@@ -29,7 +34,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     if (mysqli_stmt_fetch($stmt)) {
         // Se a base de dados tiver foto, usamos essa. Juntamos o time() para forçar a atualizar a cache
         if (!empty($fotoBD)) {
-            $caminho_foto = $fotoBD . '?t=' . time();
+            $caminho_foto = "../../assets/" . basename($fotoBD) . '?t=' . time();
         }
     }
     mysqli_stmt_close($stmt);
@@ -102,74 +107,16 @@ mysqli_close($link);
         <a href="editarperfil.php" class="btn action-btn" style="display: flex; text-decoration: none;">
             <i class="far fa-edit"></i> Editar perfil
         </a>
-        <button class="btn action-btn" onclick="acaoBotao('Notificações')">
-            <i class="far fa-bell"></i> Notificações
-        </button>
-        <button class="btn action-btn" onclick="acaoBotao('Projetos')">
+        <a href="../projetos/paginaprojetos.php" class="btn action-btn" style="display: flex; text-decoration: none;">
             <i class="far fa-user"></i> Projetos
-        </button>
-        <button class="btn action-btn" onclick="acaoBotao('Log out')">
+        </a>
+        <a href="../auth/logout.php" class="btn action-btn" style="display: flex; text-decoration: none;">
             <i class="fas fa-sign-out-alt"></i> Log out
-        </button>
+        </a>
     </div>
 </main>
 
-<style>
-    .bb-bar {
-        position: sticky;
-        bottom: 14px;
-        margin: 0 auto;
-        width: calc(100% - 32px);
-        max-width: 358px;
-        height: 60px;
-        background: #5B623A;
-        border-radius: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        z-index: 999;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-    }
-    .bb-item {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        text-decoration: none;
-    }
-    .bb-item img { width: 24px; height: 24px; object-fit: contain; display: block; }
-    .bb-item.ativo > img { visibility: hidden; }
-    .bb-halo {
-        position: absolute;
-        top: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 54px;
-        height: 54px;
-        background: #fdf8e8;
-        border-radius: 50%;
-        z-index: 1;
-    }
-    .bb-badge {
-        position: absolute;
-        top: -17px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 46px;
-        height: 46px;
-        background: #f5a623;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 2;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-    .bb-badge img { width: 30px; height: 30px; object-fit: contain; }
-</style>
-<?php include_once("../../components/cp_bottombar.php"); ?>
+<?php $pagina_ativa = 'perfil'; include_once("../../components/cp_bottombar.php"); ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../js/perfil.js"></script>
