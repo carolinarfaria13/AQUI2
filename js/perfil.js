@@ -43,8 +43,9 @@ document.addEventListener("DOMContentLoaded", function() {
             var imgGrande = document.getElementById('perfil-img-grande');
 
             if (dados.foto_perfil && dados.foto_perfil !== "") {
-                if (imgPequena) imgPequena.src = dados.foto_perfil;
-                if (imgGrande) imgGrande.src = dados.foto_perfil;
+                var caminhoFoto = "../../assets/" + dados.foto_perfil;
+                if (imgPequena) imgPequena.src = caminhoFoto;
+                if (imgGrande) imgGrande.src = caminhoFoto;
             }
 
             console.log("Dados do utilizador carregados com sucesso!");

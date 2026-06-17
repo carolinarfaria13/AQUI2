@@ -1,10 +1,13 @@
-<<?php
+<?php
 session_start();
 require_once("../../connections/connection.php");
-$link = new_db_connection();
 
-// Forçamos o ID 1 para testes
-$_SESSION['id_utilizador'] = 1;
+if (!isset($_SESSION['id_utilizador'])) {
+    echo json_encode(["erro" => "Não autenticado"]);
+    exit;
+}
+
+$link = new_db_connection();
 
 $id_utilizador = $_SESSION['id_utilizador'];
 
@@ -32,7 +35,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             "username" => $usernameBD,
             "email" => $emailBD,
             "telemovel" => $contactoBD,
-            "foto_perfil" => $fotoBD,
+            "foto_perfil" => basename($fotoBD ?? ''),
             "biografia" => $biografiaBD,
             "data_nascimento" => $dataNascimentoBD,
             "competencias" => $competenciasBD,
