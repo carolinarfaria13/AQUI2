@@ -22,16 +22,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
 
+            var textoCidade = document.getElementById('perfil-cidade');
+            if (textoCidade && dados.cidade) {
+                textoCidade.textContent = dados.cidade;
+            }
 
             var elementoNome = document.getElementById('perfil-nome');
             if (elementoNome && dados.nome) {
                 elementoNome.textContent = "Olá, " + dados.nome;
             }
 
+            // Atualiza APENAS o texto, porque o ícone já está protegido no HTML!
             var elementoCidade = document.getElementById('perfil-cidade');
             if (elementoCidade && dados.cidade) {
-                // Usamos innerHTML para não apagar o ícone do mapa (fa-map-marker-alt)
-                elementoCidade.innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + dados.cidade;
+                elementoCidade.textContent = dados.cidade;
             }
 
             var elementoBiografia = document.getElementById('perfil-biografia');
@@ -43,8 +47,13 @@ document.addEventListener("DOMContentLoaded", function() {
             var imgGrande = document.getElementById('perfil-img-grande');
 
             if (dados.foto_perfil && dados.foto_perfil !== "") {
-                if (imgPequena) imgPequena.src = dados.foto_perfil;
-                if (imgGrande) imgGrande.src = dados.foto_perfil;
+                console.log("Caminho da foto que veio da BD: ", dados.foto_perfil);
+
+                // O TRUQUE: Adicionar um timestamp falso para obrigar o browser a ir buscar a foto nova
+                var fotoComCacheBuster = dados.foto_perfil + '?t=' + new Date().getTime();
+
+                if (imgPequena) imgPequena.src = fotoComCacheBuster;
+                if (imgGrande) imgGrande.src = fotoComCacheBuster;
             }
 
             console.log("Dados do utilizador carregados com sucesso!");
