@@ -47,16 +47,7 @@ mysqli_close($link);
 </head>
 <body class="edit-profile-body">
 
-<nav class="nav-fixav" style="background-color: #5B623A;">
-    <img src="../../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
-    <div class="nav-logo">
-        <img src="../../assets/logotipobranco.png" class="logo-icon"/>
-    </div>
-    <a href="perfil.php" class="top-profile-container" style="text-decoration: none; cursor: pointer;">
-        <img id="perfil-img-pequena" src="<?php echo htmlspecialchars((string)$caminho_foto); ?>" onerror="this.src='../../assets/voluntarioperfil.png';" alt="Perfil" class="top-profile-img">
-        <div class="star-badge-small"><i class="fas fa-star"></i></div>
-    </a>
-</nav>
+<?php include_once("../../components/cp_navbar.php"); ?>
 
 <div class="edit-top-wrapper">
     <h1 class="page-title text-center pt-4 mb-0 pb-3">Editar Perfil</h1>
@@ -130,13 +121,7 @@ mysqli_close($link);
     </form>
 </main>
 
-<nav style="position: fixed; bottom: 0; width: 100%; z-index: 999;">
-    <img src="../../assets/projetos_bottombar1.png" />
-    <img src="../../assets/instituicoes_bottombar1.png" />
-    <img src="../../assets/homepage_bottombar1.png" />
-    <img src="../../assets/forum_bottombar1.png" />
-    <img src="../../assets/perfil_bottombar1.png"/>
-</nav>
+<?php include_once("../../components/cp_bottombar.php"); ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../js/editarperfil.js"></script>

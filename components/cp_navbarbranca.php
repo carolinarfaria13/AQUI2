@@ -28,6 +28,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     </div>
 
     <!-- Link para perfil.php -->
+    <!-- Muda esta linha no ficheiro cp_navbarbranca.php -->
     <a href="../perfil/perfil.php" class="top-profile-container" style="text-decoration: none; cursor: pointer;">
         <img id="perfil-img-pequena"
              src="<?php echo htmlspecialchars($caminho_foto); ?>"

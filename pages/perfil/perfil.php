@@ -3,10 +3,8 @@ session_start();
 require_once("../../connections/connection.php");
 $link = new_db_connection();
 
-// Se não existir sessão, assume o ID 1 para efeitos de teste
 $id_utilizador = isset($_SESSION['id_utilizador']) ? $_SESSION['id_utilizador'] : 1;
 
-// Variáveis com valores por defeito (caso falhe a base de dados)
 $nomeBD = "Voluntário";
 $moradaBD = "Cidade não definida";
 $biografiaBD = "Ainda não tens uma biografia escrita.";
@@ -53,15 +51,7 @@ mysqli_close($link);
 <body>
 
 <nav class="nav-fixa">
-    <img src="../../assets/setaback1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
-    <div class="nav-logo">
-        <img src="../../assets/logotipo.png" class="logo-icon"/>
-    </div>
-
-    <div class="top-profile-container">
-        <img id="perfil-img-pequena" src="<?= htmlspecialchars($caminho_foto) ?>" onerror="this.src='../../assets/voluntarioperfil.png';" alt="Perfil" class="top-profile-img">
-        <div class="star-badge-small"><i class="fas fa-star"></i></div>
-    </div>
+    <?php include_once("../../components/cp_navbarbranca.php"); ?>
 </nav>
 
 <main class="main-perfis">
@@ -125,7 +115,6 @@ mysqli_close($link);
 </main>
 
 <style>
-    /* O teu CSS intocável */
     .bb-bar {
         position: sticky;
         bottom: 14px;
@@ -180,25 +169,7 @@ mysqli_close($link);
     }
     .bb-badge img { width: 30px; height: 30px; object-fit: contain; }
 </style>
-<nav class="bb-bar">
-    <a href="../projetos/paginaprojetos.php" class="bb-item">
-        <img src="../../assets/projetos_bottombar1.png" alt="projetos" />
-    </a>
-    <a href="../instituicoes/paginainstituicoes.php" class="bb-item">
-        <img src="../../assets/instituicoes_bottombar1.png" alt="instituicoes" />
-    </a>
-    <a href="../homepage/homepage-voluntario.php" class="bb-item">
-        <img src="../../assets/homepage_bottombar1.png" alt="homepage" />
-    </a>
-    <a href="../forum/forum.php" class="bb-item">
-        <img src="../../assets/forum_bottombar1.png" alt="forum" />
-    </a>
-    <a href="perfil.php" class="bb-item ativo">
-        <img src="../../assets/perfil_bottombar1.png" alt="perfil" />
-        <span class="bb-halo"></span>
-        <span class="bb-badge"><img src="../../assets/perfil_bottombar1.png" alt="perfil" /></span>
-    </a>
-</nav>
+<?php include_once("../../components/cp_bottombar.php"); ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../js/perfil.js"></script>
