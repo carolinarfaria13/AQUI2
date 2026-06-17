@@ -5,7 +5,7 @@ $stmt = mysqli_stmt_init($link);
 
 $id_topico = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-$query = "SELECT c.id_comentarios, c.descricao, c.data, u.nome, u.nomeutilizador, u.morada
+$query = "SELECT c.id_comentarios, c.descricao, c.data, u.nome, u.nomeutilizador, u.morada, u.fotoutilizador
            FROM comentarios c
            JOIN voluntarios v ON c.voluntarios_id_voluntarios = v.id_voluntarios
            JOIN utilizadores u ON v.utilizadores_id_utilizadores = u.id_utilizadores
@@ -15,7 +15,7 @@ $query = "SELECT c.id_comentarios, c.descricao, c.data, u.nome, u.nomeutilizador
 if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt, "i", $id_topico);
     mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt, $id_comentario, $descricao, $data, $nome, $nomeutilizador, $morada);
+    mysqli_stmt_bind_result($stmt, $id_comentario, $descricao, $data, $nome, $nomeutilizador, $morada, $foto_utilizador);
     ?>
     <ul class="comentarios-list">
         <?php
@@ -23,7 +23,7 @@ if (mysqli_stmt_prepare($stmt, $query)) {
             ?>
             <li class="comentario-item">
                 <div class="topic-avatar">
-                    <img src="../../assets/users/ariana.jpg" alt="<?php echo $nome; ?>"/>
+                    <img src="../../assets/basededados/<?php echo $foto_utilizador; ?>" alt=""/>
                 </div>
                 <div class="comentario-body">
                     <p class="comentario-texto"><?php echo $descricao; ?></p>

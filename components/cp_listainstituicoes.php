@@ -8,18 +8,20 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
     mysqli_stmt_execute($stmt); // Execute the prepared statement
     mysqli_stmt_bind_result($stmt, $id_instituicoes, $nome, $sinopse, $capa); // Bind results
 
-    while (mysqli_stmt_fetch($stmt)) {// Fetch values
+    while (mysqli_stmt_fetch($stmt)) { // Fetch values
         ?>
 
-            <li class="card">
+        <li class="card">
+            <a href="../perfil/paginainstituicao.php?id=<?php echo $id_instituicoes; ?>" class="card-link">
                 <div class="card-logo">
                     <img src="../../assets/basededados/<?php echo $capa; ?>" />
-                    </div>
-                    <div class="card-info">
+                </div>
+                <div class="card-info">
                     <h2><?php echo $nome; ?></h2>
                     <p><?php echo $sinopse; ?></p>
                 </div>
-            </li>
+            </a>
+        </li>
 
         <?php
     }

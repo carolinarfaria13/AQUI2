@@ -13,7 +13,7 @@ if (mysqli_stmt_prepare($stmt, $query)) { // Prepare the statement
     mysqli_stmt_execute($stmt); // Execute the prepared statement
     mysqli_stmt_bind_result($stmt, $id_utilizadores, $morada, $contacto, $email, $website); // Bind results
 
-    while (mysqli_stmt_fetch($stmt)) {// Fetch values
+    if (mysqli_stmt_fetch($stmt)) {// Fetch values
         ?>
         <h2>Contactos</h2>
         <p><strong>Localização:</strong> <?php echo $morada; ?></p>

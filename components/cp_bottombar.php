@@ -14,7 +14,7 @@ $itens_bottombar = [
     'instituicoes' => ['icone' => 'instituicoes_bottombar1.png', 'href' => '../instituicoes/paginainstituicoes.php'],
     'homepage'     => ['icone' => 'homepage_bottombar1.png',     'href' => $homepage_href],
     'forum'        => ['icone' => 'forum_bottombar1.png',        'href' => '../forum/forum.php'],
-    'perfil'       => ['icone' => 'perfil_bottombar1.png',       'href' => '../perfil/perfil.html'],
+    'perfil'       => ['icone' => 'perfil_bottombar1.png',       'href' => '../perfil/perfil.php'],
 ];
 ?>
 <style>

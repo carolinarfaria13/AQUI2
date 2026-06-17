@@ -22,13 +22,13 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     <div class="nav-logo">
         <img src="../../assets/logotipo.png" class="logo-icon"/>
     </div>
-    <div class="nav-avatar">
+    <a href="../perfil/perfil.php" class="nav-avatar" style="text-decoration: none;">
         <img src="../../assets/<?php echo $foto_utilizador; ?>"
              id="perfil-img-pequena"
              class="top-profile-img"
              onerror="this.src='../../assets/voluntarioperfil.png';"
              alt="Perfil">
-    </div>
+    </a>
 
     <?php
 

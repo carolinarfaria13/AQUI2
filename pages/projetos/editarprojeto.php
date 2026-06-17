@@ -4,26 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editar Projeto</title>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../CSS/estilossergiacosta.css">
     <link rel="stylesheet" href="../../CSS/estilosGERAL.css">
 </head>
 <body class="bodyeditarprojeto">
 
 <!-- HEADER VERDE -->
-<header class="headereditarprojeto">
-    <img src="../../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" />
-
-    <div class="nav-logo">
-        <img src="../../assets/logotipobranco.png" class="logo-icon" />
-    </div>
-
-    <a href="../perfil/editarperfilinstituicao.html" class="top-profile-container" style="text-decoration: none;">
-        <img src="../../assets/intituicao.png" alt="Perfil" class="top-profile-img">
-    </a>
-
-    <h1 class="header-title">Editar Projeto</h1>
+<header class="header-fixed">
+    <nav>
+        <?php include_once ("../../components/cp_navbarbranca.php"); ?>
+    </nav>
 </header>
+<h1 class="header-title">Editar Projeto</h1>
 
 <!-- CONTEÚDO PRINCIPAL -->
 <main class="maineditarprojeto">

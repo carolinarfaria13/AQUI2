@@ -95,56 +95,64 @@
     background-color: var(--verdeescuro);
     border-radius: 16px;
     padding: 20px;
-    position: relative;
+    position: relative !important;
     margin-bottom: 25px;
     margin-top: 45px;
     color: var(--branco);
 }
 
 .large-profile-container {
-    position: absolute;
-    top: -40px;
-    right: 10px;
-    width: 120px;
-    height: 120px;
+    position: absolute !important;
+    top: -40px !important; /* Puxa para cima */
+    right: 5px !important; /* Puxa para a direita, saindo do cartão */
+    width: 120px !important; /* Tem de ser igual à imagem! */
+    height: 120px !important; /* Tem de ser igual à imagem! */
+    z-index: 5 !important;
 }
+
 .large-profile-img {
-    width: 120px !important;
-    height: 120px !important;
+    width: 110px !important;
+    height: 110px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
-    border: 4px solid var(--verdeescuro);
+    border: 4px solid var(--verdeescuro) !important; /* A cor creme é que faz o recorte! */
+    position: relative !important;
+    z-index: 1 !important;
+    background-color: var(--creme) !important; /* Previne fundos transparentes chatos */
 }
+
 .star-badge-large {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    width: 30px;
-    height: 30px;
-    background-color: var(--laranja);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: var(--verdeescuro);
-    border: 2px solid #5B623A;
+    position: absolute !important;
+    bottom: 5px !important;
+    right: 5px !important;
+    width: 32px !important;
+    height: 32px !important;
+    background-color: var(--laranja) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    color: var(--verdeescuro) !important;
+    border: 2px solid var(--verdeescuro) !important; /* Estrela também com borda creme para combinar */
+    z-index: 10 !important; /* Puxa a estrela para a frente da foto */
 }
 
 .star-badge-large-outro {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    width: 30px;
-    height: 30px;
-    background-color: var(--verdeclaro);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: var(--laranja);
-    border: 2px solid var(--laranja);
+    position: absolute !important;
+    bottom: 5px !important;
+    right: 5px !important;
+    width: 32px !important;
+    height: 32px !important;
+    background-color: var(--verdeclaro) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    color: var(--laranja) !important;
+    border: 2px solid var(--laranja) !important; /* Ajustei a borda para combinar com o cartão */
+    z-index: 10 !important; /* Isto garante que fica SEMPRE por cima */
 }
 
 .stats-row {
@@ -330,8 +338,8 @@
 }
 
 .edit-photo-img {
-    width: 100px !important;
-    height: 100px !important;
+    width: 120px !important;
+    height: 120px !important;
     border-radius: 50% !important;
     object-fit: cover !important;
     aspect-ratio: 1 / 1;
@@ -408,4 +416,32 @@
 
 .animacao-esconder {
     animation: saltinho-reverso 0.3s ease-in forwards;
+}
+
+/* --- Secção Extra: Redes Sociais e Website --- */
+.seccao-info-extra {
+    text-align: left; /* Força o texto à esquerda, anulando centros da página */
+    padding: 10px 24px 90px 24px; /* O 90px em baixo evita que a navbar tape o texto */
+    width: 100%;
+}
+
+.seccao-info-extra h2 {
+    color: var(--verdeescuro);
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 24px;
+    margin-bottom: 4px;
+}
+
+.seccao-info-extra {
+    text-align: left;
+    padding: 10px 0px 90px 0px;
+    width: 100%;
+}
+
+.seccao-info-extra a.link-site {
+    color: var(--verdeclaro);
+    font-size: 0.95rem;
+    text-decoration: underline;
+    display: inline-block;
 }

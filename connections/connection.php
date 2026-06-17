@@ -1,7 +1,7 @@
 <?php
 function new_db_connection()
 {
-    $env = "localhost";
+    $env = "labmm";
 // Variables for the database connection
     if ($env == "labmm.clients.ua.pt") {
         $hostname = 'localhost';
@@ -25,3 +25,7 @@ function new_db_connection()
 // Return the link
     return $local_link;
 }
+
+
+
+
