@@ -1,3 +1,42 @@
+<?php
+session_start();
+require_once("../../connections/connection.php");
+
+if (!isset($_SESSION['id_utilizador'])) {
+    header("Location: ../../index.html");
+    exit;
+}
+
+$link = new_db_connection();
+$id_utilizador = $_SESSION['id_utilizador'];
+
+$nomeBD = $usernameBD = $emailBD = $telemovelBD = $cidadeBD = "";
+$descricaoBD = $dataCriacaoBD = $objetivosBD = $instagramBD = $websiteBD = $capaBD = "";
+$caminho_foto = "../../assets/intituicao.png";
+
+$stmt = mysqli_stmt_init($link);
+$query = "
+    SELECT
+        i.nome, u.nomeutilizador, i.descricao, u.email, u.contacto, i.data_criacao,
+        u.morada, i.objetivos, i.instagram, i.website, i.capa
+    FROM utilizadores u
+    INNER JOIN instituicoes i ON u.instituicoes_id_instituicoes = i.id_instituicoes
+    WHERE u.id_utilizadores = ?
+";
+
+if (mysqli_stmt_prepare($stmt, $query)) {
+    mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $nomeBD, $usernameBD, $descricaoBD, $emailBD, $telemovelBD, $dataCriacaoBD, $cidadeBD, $objetivosBD, $instagramBD, $websiteBD, $capaBD);
+    if (mysqli_stmt_fetch($stmt)) {
+        if (!empty($capaBD)) {
+            $caminho_foto = "../../assets/basededados/" . basename($capaBD);
+        }
+    }
+    mysqli_stmt_close($stmt);
+}
+mysqli_close($link);
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -15,129 +54,86 @@
 </head>
 <body class="edit-profile-body">
 
-<nav class="nav-fixav" class="edit-top-wrapper" style="background-color: #5B623A;">
-    <img src="../../assets/setabackbranca1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
-
-    <div class="nav-logo">
-        <img src="../../assets/logotipobranco.png" class="logo-icon"/>
-    </div>
-
-    <div class="top-profile-container">
-        <img src="../../assets/intituicao.png" alt="Perfil" class="top-profile-img">
-    </div>
+<nav class="nav-fixav edit-top-wrapper" style="background-color: #5B623A;">
+    <?php include_once("../../components/cp_navbarbranca.php"); ?>
 </nav>
 
 <div class="edit-top-wrapper">
     <h1 class="page-title text-center pt-4 mb-0 pb-3">Editar Perfil</h1>
 </div>
-<main class="edit-main-card" class="main-perfis">
-
-    <div class="text-center">
-        <label class="edit-photo-container" style="position: relative; cursor: pointer; margin-bottom: 20px; display: inline-block;">
-            <input type="file" name="foto_perfil_inst" id="input-foto-inst" style="display: none;" accept="image/*">
-
-            <img src="../../assets/intituicao.png" onerror="this.src='../../assets/intituicao.png';" alt="Logo" class="edit-photo-img" id="preview-foto-inst">
-
-            <div class="camera-icon-badge">
-                <i class="fas fa-camera"></i>
-            </div>
-        </label>
-    </div>
+<main class="edit-main-card main-perfis">
 
     <form class="edit-form" action="atualizarperfilinstituicao.php" method="POST" enctype="multipart/form-data">
-        <div class="form-group mb-3">
-            <label class="form-label">Nome</label>
-            <input type="text" class="form-control custom-input" placeholder="Associação de Apoio ao Imigrante" value="Associação de Apoio ao Imigrante">
+
+        <div class="text-center">
+            <label class="edit-photo-container" style="position: relative; cursor: pointer; margin-bottom: 20px; display: inline-block;">
+                <input type="file" name="foto_perfil_inst" id="input-foto-inst" style="display: none;" accept="image/*">
+
+                <img src="<?= htmlspecialchars($caminho_foto) ?>" onerror="this.src='../../assets/intituicao.png';" alt="Logo" class="edit-photo-img" id="preview-foto-inst">
+
+                <div class="camera-icon-badge">
+                    <i class="fas fa-camera"></i>
+                </div>
+            </label>
         </div>
 
         <div class="form-group mb-3">
-            <label class="form-label">Nome de Utilizador</label>
-            <input type="text" class="form-control custom-input" placeholder="aai2001" value="aai2001">
+            <label class="form-label" for="nome">Nome</label>
+            <input type="text" class="form-control custom-input" id="nome" name="nome" value="<?= htmlspecialchars($nomeBD) ?>">
         </div>
 
         <div class="form-group mb-3">
-            <label class="form-label">Descrição</label>
-            <textarea class="form-control custom-textarea" rows="4">O nosso objetivo principal é promover a integração social e jurídica de imigrantes em Aveiro, garantindo direitos fundamentais e combatendo a exclusão social.</textarea>
+            <label class="form-label" for="username">Nome de Utilizador</label>
+            <input type="text" class="form-control custom-input" id="username" name="username" value="<?= htmlspecialchars($usernameBD) ?>">
         </div>
 
         <div class="form-group mb-3">
-            <label class="form-label">E-mail</label>
-            <input type="email" class="form-control custom-input" placeholder="associacao@apoioimigrante.org" value="associacao@apoioimigrante.org">
+            <label class="form-label" for="descricao">Descrição</label>
+            <textarea class="form-control custom-textarea" id="descricao" name="descricao" rows="4"><?= htmlspecialchars($descricaoBD) ?></textarea>
         </div>
 
         <div class="form-group mb-3">
-            <label class="form-label">Número de Telemóvel</label>
-            <input type="tel" class="form-control custom-input" placeholder="956738635" value="956738635">
+            <label class="form-label" for="email">E-mail</label>
+            <input type="email" class="form-control custom-input" id="email" name="email" value="<?= htmlspecialchars($emailBD) ?>">
         </div>
 
         <div class="form-group mb-3">
-            <label class="form-label">Data de Criação</label>
-            <input type="text" class="form-control custom-input" placeholder="21/04/2001" value="21/04/2001">
+            <label class="form-label" for="telemovel">Número de Telemóvel</label>
+            <input type="tel" class="form-control custom-input" id="telemovel" name="telemovel" value="<?= htmlspecialchars($telemovelBD) ?>">
         </div>
 
         <div class="form-group mb-3">
-            <label class="form-label">Cidade</label>
-            <input type="text" class="form-control custom-input" placeholder="Aveiro" value="Aveiro">
+            <label class="form-label" for="datacriacao">Data de Criação</label>
+            <input type="text" class="form-control custom-input" id="datacriacao" name="datacriacao" placeholder="dd/mm/aaaa" value="<?= htmlspecialchars($dataCriacaoBD) ?>">
+        </div>
+
+        <div class="form-group mb-3">
+            <label class="form-label" for="cidade">Cidade</label>
+            <input type="text" class="form-control custom-input" id="cidade" name="cidade" value="<?= htmlspecialchars($cidadeBD) ?>">
         </div>
 
         <div class="form-group mb-4">
-            <label class="form-label">Objetivos</label>
-            <textarea class="form-control custom-textarea" rows="2">Acolhimento, Legalização, Integração, Educação, Solidareidade, Inclusão</textarea>
+            <label class="form-label" for="objetivos">Objetivos</label>
+            <textarea class="form-control custom-textarea" id="objetivos" name="objetivos" rows="2"><?= htmlspecialchars($objetivosBD) ?></textarea>
         </div>
 
         <div class="form-group mb-4">
-            <label class="form-label">Projetos</label>
-            <div class="tags-container justify-content-center mb-3" id="projetos-container">
-                <span class="tag-pill">CLAIM</span>
-                <span class="tag-pill">Português</span>
-                <span class="tag-pill">Estudo</span>
-                <span class="tag-pill">Jurídico</span>
-                <span class="tag-pill">Emprego</span>
-                <span class="tag-pill">Cultura</span>
-            </div>
-            <div class="text-center">
-                <button type="button" class="btn-ver-mais" id="btn-add-projeto">+ Adicionar projeto</button>
-
-                <input type="text" id="input-novo-projeto" class="form-control custom-input mx-auto"
-                       placeholder="Escreve e clica Enter..."
-                       style="display: none; max-width: 250px; text-align: center;">
-            </div>
+            <label class="form-label" for="instagram">Redes Sociais (Instagram)</label>
+            <textarea class="form-control custom-textarea" id="instagram" name="instagram" rows="2"><?= htmlspecialchars($instagramBD) ?></textarea>
         </div>
 
         <div class="form-group mb-4">
-            <label class="form-label">Redes Sociais</label>
-            <textarea class="form-control custom-textarea" rows="2">https://web.facebook.com/ AssociacaoDeApoioAoImigrante/?_rdc=1&_rdr</textarea>
-        </div>
-
-        <div class="form-group mb-4">
-            <label class="form-label">Website</label>
-            <textarea class="form-control custom-textarea" rows="1">oimigrante.org</textarea>
+            <label class="form-label" for="website">Website</label>
+            <textarea class="form-control custom-textarea" id="website" name="website" rows="1"><?= htmlspecialchars($websiteBD) ?></textarea>
         </div>
 
         <div class="text-center mt-5">
-            <button type="button" class="btn-guardar">Guardar alterações</button>
+            <button type="submit" class="btn-guardar">Guardar alterações</button>
         </div>
     </form>
 </main>
 
-<nav class="bb-bar">
-    <a href="../projetos/paginaprojetos.php" class="bb-item">
-        <img src="../../assets/projetos_bottombar1.png" alt="projetos" />
-    </a>
-    <a href="../instituicoes/paginainstituicoes.php" class="bb-item">
-        <img src="../../assets/instituicoes_bottombar1.png" alt="instituicoes" />
-    </a>
-    <a href="../homepage/homepage-instituicao.php" class="bb-item">
-        <img src="../../assets/homepage_bottombar1.png" alt="homepage" />
-    </a>
-    <a href="../forum/forum.php" class="bb-item">
-        <img src="../../assets/forum_bottombar1.png" alt="forum" />
-    </a>
-    <a href="editarperfilinstituicao.html" class="bb-item">
-        <img src="../../assets/perfil_bottombar1.png" alt="perfil" />
-    </a>
-</nav>
-
+<?php $pagina_ativa = 'perfil'; include_once("../../components/cp_bottombar.php"); ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../js/editarperfilinstituicao.js"></script>

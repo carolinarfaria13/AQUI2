@@ -1,3 +1,61 @@
+<?php
+session_start();
+require_once("../../connections/connection.php");
+
+if (!isset($_SESSION['id_utilizador'])) {
+    header("Location: ../../index.html");
+    exit;
+}
+
+$link = new_db_connection();
+$id_utilizador = $_SESSION['id_utilizador'];
+
+$nomeBD = "Instituição";
+$moradaBD = "Cidade não definida";
+$descricaoBD = "Ainda não existe descrição.";
+$objetivosBD = "";
+$websiteBD = "";
+$dataCriacaoBD = "";
+$capaBD = "";
+$id_instituicao = 0;
+$caminho_foto = "../../assets/intituicao.png";
+$total_projetos = 0;
+
+$stmt = mysqli_stmt_init($link);
+$query = "
+    SELECT
+        i.id_instituicoes, i.nome, i.descricao, i.objetivos, i.website, i.data_criacao, i.capa,
+        u.morada
+    FROM utilizadores u
+    INNER JOIN instituicoes i ON u.instituicoes_id_instituicoes = i.id_instituicoes
+    WHERE u.id_utilizadores = ?
+";
+
+if (mysqli_stmt_prepare($stmt, $query)) {
+    mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $id_instituicao, $nomeBD, $descricaoBD, $objetivosBD, $websiteBD, $dataCriacaoBD, $capaBD, $moradaBD);
+
+    if (mysqli_stmt_fetch($stmt)) {
+        if (!empty($capaBD)) {
+            $caminho_foto = "../../assets/basededados/" . basename($capaBD);
+        }
+    }
+    mysqli_stmt_close($stmt);
+}
+
+$stmt2 = mysqli_stmt_init($link);
+mysqli_stmt_prepare($stmt2, "SELECT COUNT(*) FROM projetos WHERE instituicoes_id_instituicoes = ?");
+mysqli_stmt_bind_param($stmt2, 'i', $id_instituicao);
+mysqli_stmt_execute($stmt2);
+mysqli_stmt_bind_result($stmt2, $total_projetos);
+mysqli_stmt_fetch($stmt2);
+mysqli_stmt_close($stmt2);
+
+mysqli_close($link);
+
+$objetivos_lista = array_filter(array_map('trim', explode(',', $objetivosBD)));
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -13,158 +71,70 @@
 <body>
 
 <nav class="nav-fixa">
-    <img src="../../assets/setaback1.png" class="nav-back" onclick="history.back()" style="cursor: pointer;"/>
-    <div class="nav-logo">
-        <img src="../../assets/logotipo.png" class="logo-icon"/>
-    </div>
-
-    <div class="top-profile-container">
-        <img id="perfil-img-pequena" src="../../assets/intituicao.png" onerror="this.src='../../assets/intituicao.png';" alt="Perfil" class="top-profile-img">
-    </div>
+    <?php include_once("../../components/cp_navbarbranca.php"); ?>
 </nav>
 
 <main class="main-perfis">
     <div class="greeting">
-        <h1 id="perfil-nome">Associação de Apoio <br> ao Imigrante</h1>
+        <h1 id="perfil-nome"><?= htmlspecialchars($nomeBD) ?></h1>
         <p>Instituição ativa</p>
     </div>
 
     <div class="profile-card">
         <div class="large-profile-container">
-            <img id="perfil-img-grande" src="../../assets/intituicao.png" onerror="this.src='../../assets/intituicao.png';" alt="Perfil Instituição" class="large-profile-img">
+            <img id="perfil-img-grande" src="<?= htmlspecialchars($caminho_foto) ?>" onerror="this.src='../../assets/intituicao.png';" alt="Perfil Instituição" class="large-profile-img">
         </div>
 
         <div class="stats-row">
-            <span>10 projetos</span>
-            <div class="divider"></div>
-            <span>desde 2001</span>
+            <span><?= (int)$total_projetos ?> projetos</span>
+            <?php if (!empty($dataCriacaoBD)): ?>
+                <div class="divider"></div>
+                <span>desde <?= htmlspecialchars($dataCriacaoBD) ?></span>
+            <?php endif; ?>
         </div>
         <hr class="stats-hr">
         <div class="stats-row">
-            <span><i class="fas fa-map-marker-alt"></i> <span id="perfil-cidade">Aveiro</span></span>
+            <span><i class="fas fa-map-marker-alt"></i> <span id="perfil-cidade"><?= htmlspecialchars($moradaBD) ?></span></span>
         </div>
 
         <p id="perfil-biografia" class="bio-text mt-3 mb-0">
-            O nosso objetivo principal é promover a integração social e jurídica de imigrantes em Aveiro, garantindo direitos fundamentais e combatendo a exclusão social.
+            <?= htmlspecialchars($descricaoBD) ?>
         </p>
     </div>
 
     <div class="action-buttons-container">
-        <a href="editarperfilinstituicao.html" class="btn action-btn" style="display: flex; text-decoration: none;">
+        <a href="editarperfilinstituicao.php" class="btn action-btn" style="display: flex; text-decoration: none;">
             <i class="far fa-edit"></i> Editar perfil
         </a>
-        <button class="btn action-btn" onclick="acaoBotao('Adicionar Projeto')">
+        <a href="../projetos/adicionarprojeto.php" class="btn action-btn" style="display: flex; text-decoration: none;">
             Adicionar Projeto
-        </button>
+        </a>
     </div>
 <br>
+    <?php if (!empty($objetivos_lista)): ?>
     <div class="tags-section">
         <h3 class="section-subtitle">Objetivos</h3>
         <div class="tags-container">
-            <span class="tag-pill">Acolhimento</span>
-            <span class="tag-pill">Legalização</span>
-            <span class="tag-pill">Integração</span>
-            <span class="tag-pill">Educação</span>
-            <span class="tag-pill">Solidariedade</span>
-            <span class="tag-pill">Inclusão</span>
+            <?php foreach ($objetivos_lista as $objetivo): ?>
+                <span class="tag-pill"><?= htmlspecialchars($objetivo) ?></span>
+            <?php endforeach; ?>
         </div>
     </div>
+    <?php endif; ?>
 
-    <div class="tags-section">
-        <h3 class="section-subtitle">Projetos</h3>
-        <div class="tags-container">
-            <span class="tag-pill">CLAIM</span>
-            <span class="tag-pill">Português</span>
-            <span class="tag-pill">Estudo</span>
-        </div>
-    </div>
-<br>
     <div class="tags-section" style="padding-bottom: 90px;">
-        <h3 class="section-subtitle" style="margin-bottom: 4px;">Redes Sociais</h3>
-        <p style="color: var(--verdeclaro); margin-top: 0; margin-bottom: 24px; font-weight: 500;">Associação de Apoio ao Imigrante</p>
-
         <h3 class="section-subtitle" style="margin-bottom: 4px;">Website</h3>
-        <a href="http://www.apoioimigrante.org" target="_blank" style="color: var(--verdeclaro); text-decoration: underline; font-weight: 500;">www.apoioimigrante.org</a>
+        <?php if (!empty($websiteBD)): ?>
+            <a href="<?= htmlspecialchars($websiteBD) ?>" target="_blank" style="color: var(--verdeclaro); text-decoration: underline; font-weight: 500;"><?= htmlspecialchars($websiteBD) ?></a>
+        <?php else: ?>
+            <p style="color: var(--verdeclaro); margin: 0;">Ainda não definido.</p>
+        <?php endif; ?>
     </div>
 </main>
 
-<style>
-    .bb-bar {
-        position: sticky;
-        bottom: 14px;
-        margin: 0 auto;
-        width: calc(100% - 32px);
-        max-width: 358px;
-        height: 60px;
-        background: #5B623A;
-        border-radius: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        z-index: 999;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-    }
-    .bb-item {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        text-decoration: none;
-    }
-    .bb-item img { width: 24px; height: 24px; object-fit: contain; display: block; }
-    .bb-item.ativo > img { visibility: hidden; }
-    .bb-halo {
-        position: absolute;
-        top: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 54px;
-        height: 54px;
-        background: #fdf8e8;
-        border-radius: 50%;
-        z-index: 1;
-    }
-    .bb-badge {
-        position: absolute;
-        top: -17px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 46px;
-        height: 46px;
-        background: #f5a623;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 2;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-    .bb-badge img { width: 30px; height: 30px; object-fit: contain; }
-</style>
-<nav class="bb-bar">
-    <a href="../projetos/paginaprojetos.php" class="bb-item">
-        <img src="../../assets/projetos_bottombar1.png" alt="projetos" />
-    </a>
-    <a href="../instituicoes/paginainstituicoes.php" class="bb-item">
-        <img src="../../assets/instituicoes_bottombar1.png" alt="instituicoes" />
-    </a>
-    <a href="../homepage/homepage-voluntario.php" class="bb-item">
-        <img src="../../assets/homepage_bottombar1.png" alt="homepage" />
-    </a>
-    <a href="../forum/forum.php" class="bb-item">
-        <img src="../../assets/forum_bottombar1.png" alt="forum" />
-    </a>
-    <a href="perfilinstituicao.html" class="bb-item ativo">
-        <img src="../../assets/perfil_bottombar1.png" alt="perfil" />
-        <span class="bb-halo"></span>
-        <span class="bb-badge"><img src="../../assets/perfil_bottombar1.png" alt="perfil" /></span>
-    </a>
-</nav>
+<?php $pagina_ativa = 'perfil'; include_once("../../components/cp_bottombar.php"); ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../../js/perfil.js"></script>
 <script src="../../js/main.js"></script>
 </body>
 </html>

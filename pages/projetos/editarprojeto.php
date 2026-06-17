@@ -128,7 +128,7 @@ Os participantes podem envolver-se em atividades educativas e interativas, contr
     <a href="../forum/forum.php" class="bb-item">
         <img src="../../assets/forum_bottombar1.png" alt="forum" />
     </a>
-    <a href="../perfil/editarperfilinstituicao.html" class="bb-item">
+    <a href="../perfil/editarperfilinstituicao.php" class="bb-item">
         <img src="../../assets/perfil_bottombar1.png" alt="perfil" />
     </a>
 </nav>
