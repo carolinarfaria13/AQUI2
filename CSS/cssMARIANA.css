@@ -17,10 +17,11 @@
     box-sizing: border-box !important;
     z-index: 9999 !important;
     padding: 16px 20px 40px !important;
+    border-radius: 0 0 22px 22px !important;
     transition: all 0.3s ease !important;
 }
 
-.nav-fixa { background-color: var(--creme); }
+.nav-fixa { background-color: var(--verdeescuro); }
 
 .nav-fixav { background-color: var(--verdeescuro); }
 
@@ -34,8 +35,15 @@
 }
 
 .edit-top-wrapper {
+    background-color: var(--verdeescuro);
     padding-top: 80px;
     min-height: 220px;
+}
+
+/* nas páginas de edição o avatar da navbar é redundante (já se está no
+   contexto do próprio perfil), por isso esconde-se */
+.edit-profile-body .top-profile-container {
+    display: none;
 }
 
 
@@ -75,7 +83,7 @@
 }
 
 .greeting {
-    margin-top: 30px;
+    margin-top: 60px;
     margin-bottom: 25px;
 }
 .greeting h1 {

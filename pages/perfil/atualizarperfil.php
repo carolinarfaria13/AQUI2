@@ -13,6 +13,15 @@ if (!isset($_SESSION['id_utilizador'])) {
 $link = new_db_connection();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // 0. Proteção: se o envio exceder o post_max_size do servidor, o PHP descarta
+    // $_POST e $_FILES por completo. Sem esta guarda, o UPDATE em baixo gravaria
+    // strings vazias por cima dos dados existentes e ainda perdíamos a foto.
+    $content_length = isset($_SERVER['CONTENT_LENGTH']) ? (int)$_SERVER['CONTENT_LENGTH'] : 0;
+    if (empty($_POST) && empty($_FILES) && $content_length > 0) {
+        die("ERRO: O envio excedeu o tamanho máximo permitido pelo servidor (post_max_size = "
+            . ini_get('post_max_size') . "). A imagem é demasiado grande. Reduz a foto e tenta de novo — os teus dados NÃO foram alterados.");
+    }
+
     // 1. Receber Dados do Formulário
     $nome = $_POST['nome'] ?? '';
     $username = $_POST['username'] ?? '';
@@ -33,7 +42,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // 2. Upload da Foto (Simplificado e com verificações)
     $caminho_bd = null;
-    if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] === UPLOAD_ERR_OK) {
+    if (isset($_FILES['foto_perfil']) && $_FILES['foto_perfil']['error'] !== UPLOAD_ERR_NO_FILE) {
+        $erro_upload = $_FILES['foto_perfil']['error'];
+
+        // Reporta erros de upload em vez de os ignorar em silêncio
+        if ($erro_upload === UPLOAD_ERR_INI_SIZE || $erro_upload === UPLOAD_ERR_FORM_SIZE) {
+            die("ERRO: A foto é demasiado grande (limite do servidor: "
+                . ini_get('upload_max_filesize') . "). Reduz a imagem e tenta de novo.");
+        }
+        if ($erro_upload !== UPLOAD_ERR_OK) {
+            die("ERRO no upload da foto (código $erro_upload).");
+        }
+
         $extensao = strtolower(pathinfo($_FILES['foto_perfil']['name'], PATHINFO_EXTENSION));
         $extensoes_permitidas = ['jpg', 'jpeg', 'png', 'gif'];
 

@@ -1,5 +1,8 @@
 <?php
-session_start();
+// Garantir que a sessão está ativa
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once(__DIR__ . "/../connections/connection.php");
 $link = new_db_connection();
 

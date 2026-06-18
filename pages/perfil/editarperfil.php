@@ -52,13 +52,15 @@ mysqli_close($link);
 </head>
 <body class="edit-profile-body">
 
-<?php include_once("../../components/cp_navbar.php"); ?>
+<nav class="nav-fixav">
+    <?php include_once("../../components/cp_navbarbranca.php"); ?>
+</nav>
 
 <div class="edit-top-wrapper">
     <h1 class="page-title text-center pt-4 mb-0 pb-3">Editar Perfil</h1>
 </div>
 
-<main class="edit-main-card">
+<main class="edit-main-card main-perfis">
     <form class="edit-form" action="atualizarperfil.php" method="POST" enctype="multipart/form-data">
 
         <div class="text-center">

@@ -96,18 +96,55 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4. LÓGICA DA PREVIEW DE FOTO
+    // 4. PREVIEW + COMPRESSÃO DA FOTO
+    // O servidor tem upload_max_filesize = 2MB. Fotos de telemóvel passam disso e o
+    // envio era descartado em silêncio. Aqui redimensiona-se/comprime-se a imagem no
+    // browser antes de submeter, garantindo que fica bem abaixo do limite.
     var inputFoto = document.getElementById('input-foto');
+    var imgPreview = document.getElementById('preview-foto');
+    var MAX_LADO = 1000;     // dimensão máxima (px) do lado maior
+    var QUALIDADE = 0.82;    // qualidade JPEG
+
     if (inputFoto) {
         inputFoto.addEventListener('change', function(e) {
-            if (e.target.files && e.target.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(event) {
-                    var imgPreview = document.getElementById('preview-foto');
+            var ficheiro = e.target.files && e.target.files[0];
+            if (!ficheiro) return;
+
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                var img = new Image();
+                img.onload = function() {
+                    // Mostra logo a preview com a imagem original
                     if (imgPreview) imgPreview.src = event.target.result;
+
+                    var escala = Math.min(1, MAX_LADO / Math.max(img.width, img.height));
+                    var canvas = document.createElement('canvas');
+                    canvas.width = Math.round(img.width * escala);
+                    canvas.height = Math.round(img.height * escala);
+
+                    var ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    // Substitui o ficheiro do input pela versão comprimida (JPEG)
+                    if (canvas.toBlob) {
+                        canvas.toBlob(function(blob) {
+                            if (!blob) return; // fallback: mantém o ficheiro original
+                            try {
+                                var nome = (ficheiro.name || 'foto').replace(/\.[^.]+$/, '') + '.jpg';
+                                var comprimido = new File([blob], nome, { type: 'image/jpeg' });
+                                var dt = new DataTransfer();
+                                dt.items.add(comprimido);
+                                inputFoto.files = dt.files;
+                            } catch (err) {
+                                // Browser sem suporte a DataTransfer/File: envia o original
+                                console.warn('Não foi possível comprimir a foto:', err);
+                            }
+                        }, 'image/jpeg', QUALIDADE);
+                    }
                 };
-                reader.readAsDataURL(e.target.files[0]);
-            }
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(ficheiro);
         });
     }
 

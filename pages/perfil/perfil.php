@@ -29,12 +29,17 @@ if (mysqli_stmt_prepare($stmt, $query)) {
     mysqli_stmt_bind_param($stmt, 'i', $id_utilizador);
     mysqli_stmt_execute($stmt);
 
-    mysqli_stmt_bind_result($stmt, $nomeBD, $moradaBD, $usernameBD, $emailBD, $contactoBD, $fotoBD, $biografiaBD, $dataNascimentoBD, $competenciasBD, $interessesBD);
+    mysqli_stmt_bind_result($stmt, $raw_nome, $raw_morada, $usernameBD, $emailBD, $contactoBD, $raw_foto, $raw_biografia, $dataNascimentoBD, $competenciasBD, $interessesBD);
 
     if (mysqli_stmt_fetch($stmt)) {
+        // Mantém os valores por defeito quando a coluna ainda não está preenchida na BD
+        if (!empty($raw_nome)) $nomeBD = $raw_nome;
+        if (!empty($raw_morada)) $moradaBD = $raw_morada;
+        if (!empty($raw_biografia)) $biografiaBD = $raw_biografia;
+
         // Se a base de dados tiver foto, usamos essa. Juntamos o time() para forçar a atualizar a cache
-        if (!empty($fotoBD)) {
-            $caminho_foto = "../../assets/" . basename($fotoBD) . '?t=' . time();
+        if (!empty($raw_foto)) {
+            $caminho_foto = "../../assets/" . basename($raw_foto) . '?t=' . time();
         }
     }
     mysqli_stmt_close($stmt);

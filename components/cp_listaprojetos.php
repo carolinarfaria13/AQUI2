@@ -25,7 +25,7 @@ while (mysqli_stmt_fetch($stmt)) {
     ?>
     <li class="card">
         <a href="../projetos/paginaprojeto.php?id=<?php echo $id_projetos; ?>" class="card-link">
-            <div class="card-logo">
+            <div class="card-photo">
                 <img src="../../assets/basededados/<?php echo $capa; ?>" />
             </div>
             <div class="card-info">
